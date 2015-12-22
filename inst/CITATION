@@ -1,0 +1,10 @@
+citHeader("To cite phyloch in a publication use:")
+
+citEntry(entry="Misc",
+	title = "PHYLOCH: R language tree plotting tools and interfaces to diverse phylogenetic software packages. http://www.christophheibl.de/Rpackages.html",
+        author = as.person("C. Heibl"),
+  	year = "2008 onwards",
+
+        textVersion = "Heibl C. 2008 onwards. PHYLOCH: R language tree plotting tools and interfaces to diverse phylogenetic software packages. http://www.christophheibl.de/Rpackages.html.")
+
+citFooter("As phyloch is evolving quickly, you may want to cite also its version number (found with 'library(help = phyloch)').")

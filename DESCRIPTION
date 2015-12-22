@@ -1,0 +1,13 @@
+Package: ips
+Version: 0.0-8
+Date: 2015-12-14
+Title: Interfaces to Phylogenetic Software in R
+Author: Christoph Heibl <christoph.heibl@gmx.net>
+Maintainer: Christoph Heibl <christoph.heibl@gmx.net>
+Depends: ape, XML
+Suggests: phangorn
+Description: Functions that wrap popular phylogenetic software for sequence alignment, masking of sequence alignments, and estimation of phylogenies and ancestral character states.
+License: GPL (>= 2)
+Encoding: UTF-8
+NeedsCompilation: no
+Repository: CRAN

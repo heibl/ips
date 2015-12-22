@@ -1,0 +1,39 @@
+\name{collapseUnsupportedEdges}
+\alias{collapseUnsupportedEdges}
+\title{Collapse Unsupported Edges}
+\description{Given a set of node support values (e.g., bootstrap proportions, posterior probabilities) and a certain threshold, all edges receiving less support than the threshold will be collapsed.
+}
+\usage{
+collapseUnsupportedEdges(phy, value, cutoff)
+}
+\arguments{
+  \item{phy}{An object of class \code{\link{phylo}}.
+}
+  \item{value}{A character string giving the name of the list element that contains the support values; default is \code{"node.label"}
+}
+  \item{cutoff}{A numeric value giving the threshold below which edges will be collapsed.
+}
+}
+%\details{}
+\value{
+An object of class \code{\link{phylo}}.
+}
+%\references{}
+\author{Christoph Heibl}
+%\note{}
+\seealso{
+\code{\link{help}}
+}
+\examples{
+## phylogeny of bark beetles
+data(ips.tree)
+
+## non-parametric bootstrap proportions (BP)
+ips.tree$node.label
+
+## collapse clades with < 70 BP
+tr <- collapseUnsupportedEdges(ips.tree, "node.label", 70)
+
+## show new topology
+plot(tr, no.margin = TRUE)
+}

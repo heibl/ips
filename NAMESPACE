@@ -1,0 +1,7 @@
+exportPattern(".+")
+
+import(ape)
+importFrom(XML, 'addChildren', 'replaceNodes', 'saveXML', 
+                'xmlAttrs<-', 'xmlChildren', 'xmlNode', 
+                'xmlRoot')
+importFrom(utils, head, read.table, tail, write.table)

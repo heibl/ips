@@ -1,0 +1,19 @@
+* prank: setwd eliminieren
+* raxml(): -f und randomn seeds in Ordnung bringen
+
+* raxml(): -k integrieren (bs with branch lengths)
+* raxml(): -J integrieren (consensus topologies)
+
+* collapse.clades/collapse.nodes
+  mit den Funktionen von Paradis vergleichen
+  implementieren, ein Ziel wäre z.B. alle Knoten > BS x
+  zu kollabieren.
+
+* rbeauti auf verschiede Node prior erweitern
+
+* DEV: rootLikeFigtree() soll auch mit ganzen Clades anstatt
+  nur mit einer OTU funktionieren
+
+* AWTY in R programmieren
+
+* neue Funktionen: trimAl, Garli, treeannotator
