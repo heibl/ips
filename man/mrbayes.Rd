@@ -82,7 +82,7 @@ MrBayes website: \url{http://mrbayes.sourceforge.net/}.
 \examples{	
 data(ips.cox1)
 x <- ips.cox1[, 100:140] # tiny alignment
-mrbayes(x, file = "", ngen = 100, run = FALSE)
+# mrbayes(x, file = "", ngen = 100, run = FALSE)
 
 %\dontrun{
 

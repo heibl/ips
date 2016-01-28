@@ -1,6 +1,6 @@
 Package: ips
-Version: 0.0-8
-Date: 2015-12-14
+Version: 0.0-9
+Date: 2016-01-28
 Title: Interfaces to Phylogenetic Software in R
 Author: Christoph Heibl <christoph.heibl@gmx.net>
 Maintainer: Christoph Heibl <christoph.heibl@gmx.net>

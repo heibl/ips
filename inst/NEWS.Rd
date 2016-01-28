@@ -1,6 +1,18 @@
 \name{ips-news}
 \alias{ips-news} 
 \title{News and changes to the ips (formerly: phyloch) package}
+\section{VERSION 0.0-9}{
+\subsection{IMPROVED FEATURES}{
+  \itemize{
+  \item \code{write.nex} (and \code{matrixBlocks}) were extended to handle standard (morphological, etc.) data in a data frame. This feature including the coding of ambiguous characters was tested successfully with MrBayes.
+  }
+}
+\subsection{DEPRECATED FEATURES}{
+   \itemize{
+    \item \code{write.partioned.nex} was removed from the package; its functionality has been integrated into \code{write.nex}.
+   } 
+}
+}
 \section{VERSION 0.0-8}{
 \subsection{IMPROVED FEATURES}{
    \itemize{

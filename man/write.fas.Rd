@@ -6,7 +6,7 @@
 \title{Write DNA Sequences to File}
 
 \description{
-Write DNA sequences to FASTA, PHYLIP, or NEXUS formatted files.
+Write DNA sequences and morphological data to FASTA, PHYLIP, or NEXUS formatted files.
 }
 
 \usage{
@@ -23,7 +23,7 @@ write.nex(x, file, block.width = 60,
 
 \arguments{
   \item{x}{
-an object of class \code{\link{DNAbin}} (usually as matrix, but \code{write.fas} also accepts lists) or a list of objects of class \code{DNAbin} (only \code{write.nex})
+an object of class \code{\link{DNAbin}} (usually as matrix, but \code{write.fas} also accepts lists) or a list of objects of class \code{DNAbin} (only \code{write.nex}) or a data frame containing standard (morphological, etc.) data (only \code{write.nex}).
   }
   \item{file}{
 a character string giving the filename; a special case is \code{file = ""}, which causes the file content to be written on the standard output connection (i.e. the console). If \code{file} is left unspecified (default), the file content is returned as a vector of mode \code{"character"} and can be used as a building block for more complex data files.
@@ -48,7 +48,8 @@ logical, if \code{TRUE}, a tax block will be added to the NEXUS file.
 \details{
 \code{write.nex} can handle multiple DNA sequence alignments, which are handed over as a list of objects of class \code{DNAbin}. Correct matching of the rows in the alignments is cared for automatically, hence the individueal alignments can contain different numbers of samples and samples need not be in the same order.
 }
-\value{None, except when called with \code{file} left unspecified, which causes the file content to be returned as a vector of mode \code{"character"}. This is particularly useful for constructing special types of input files, e.g. for MrBayes (\code{\link{mrbayes}}).
+\value{
+None, except when called with \code{file} left unspecified, which causes the file content to be returned as a vector of mode \code{"character"}. This is particularly useful for constructing special types of input files, e.g. for MrBayes (\code{\link{mrbayes}}).
 }
 
 \references{

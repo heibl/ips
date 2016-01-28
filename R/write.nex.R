@@ -1,17 +1,28 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2015-12-10)
+## © C. Heibl 2014 (last update 2016-01-26)
 
 write.nex <- function(x, file, block.width = 60, 
                       taxblock = FALSE){
   
-  if ( !is.list(x) ) x <- list(x)
+  ## a data frame is a list: is.list(data.frame) == TRUE !!!
+  if ( !is.list(x) | is.data.frame(x) ) x <- list(x)
   
   ## data types of partitions
   datatype <- sapply(x, class)
   datatype[datatype == "DNAbin"] <- "dna"
   datatype[datatype == "dist"] <- "distances"
   datatype[datatype == "data.frame"] <- "standard"
-  m <- function(x) ifelse(as.raw(2) %in% x, "?", "N")
+  
+  ## asses token used for missing data
+  ## (function adapted for data frames 2016-01-26)
+  m <- function(x, datatype) {
+    if ( datatype == "standard" ) {
+      n <- ifelse(any(x == "?"), "?", "N")
+    } else {
+      n <- ifelse("as.raw(2)" %in% x, "?", "N")
+    }
+    n
+  }
   p <- cbind(rep(1, length(x)), sapply(x, ncol))
   if ( nrow(p) > 1 ) {
     for ( i in 2:nrow(p) ){
@@ -20,11 +31,10 @@ write.nex <- function(x, file, block.width = 60,
     }
   }
   info <- data.frame(datatype = datatype,
-                     missing = sapply(x, m),
+                     missing = sapply(x, m, datatype = datatype),
                      length = sapply(x, ncol),
                      p)
   names(info)[4:5] <- c("from", "to")
-  
   
   x <- do.call(cbind.DNAbin, c(x, fill.with.gaps = TRUE))
   ntax <- (nrow(x))
@@ -65,7 +75,7 @@ write.nex <- function(x, file, block.width = 60,
                                      collapse = ""))
   rownames(x) <- paste(rownames(x), ws, sep = "")
   
-  if ( is.numeric(block.width ) ){
+  if ( is.numeric(block.width) ){
     interleave <- " interleave"
   } else {
     interleave <- ifelse(nrow(info) > 1, " interleave", "")
@@ -75,11 +85,7 @@ write.nex <- function(x, file, block.width = 60,
   m <- vector("list", nrow(info))
   for ( i in seq_along(m) ){
     mm <- x[, info$from[i]:info$to[i]]
-    if ( is.null(block.width) ){
-      bw <- ncol(mm)
-    } else {
-      bw <- block.width
-    }
+    bw <- ifelse(is.null(block.width), ncol(mm), block.width)
     m[[i]] <- matrixBlock(mm, bw)
     if ( nrow(info) > 1 ){
       cmt <- paste("[Position ", info$from[i], "-", 
@@ -88,8 +94,6 @@ write.nex <- function(x, file, block.width = 60,
                    sep = "")
       m[[i]] <- c(cmt, m[[i]])
     }
-    
-    
   }
   m <- c("matrix", unlist(m), ";", "end;")
   

@@ -8,7 +8,7 @@
 \alias{assembleStateNode} % rbeauti
 \alias{extractBEASTstats} % read.beast
 \alias{extractMRBAYESstats} % read.mrbayes
-\alias{formatLset} % mrbayes
+\alias{formatSet} % mrbayes
 \alias{matrixBlock} % write.nex
 \alias{phylo2mafft} % mafft
 \alias{rbeauti.taxonset} % rbeauti
