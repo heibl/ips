@@ -1,5 +1,7 @@
 ## This code is part of the ips package
-## © C. Heibl 2014
+## © C. Heibl 2014 (last update 2016-11-07)
+
+#' @export
 
 # 1. add option stemgroup
 # 2. write example

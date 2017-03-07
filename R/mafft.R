@@ -1,7 +1,7 @@
-## PACKAGE: ips
-## CALLED BY: USER, megaptera
-## AUTHOR: Christoph Heibl (at gmx.net)
-## LAST UPDATE: 2014-07-30
+## This code is part of the ips package
+## © C. Heibl 2014 (last update 2016-11-22)
+
+#' @export
 
 mafft <- function(x, y, add, method = "auto", maxiterate = 0, 
                   op = 1.53, ep = 0.0, gt, options, 
@@ -14,6 +14,7 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
   if ( missing(quiet) ) quiet <- TRUE
   qut <- ifelse(quiet, " --quiet ", " ")
   if ( missing(path) ) path <- "/usr/local/bin/mafft"
+  maxiterate <- match.arg(as.character(maxiterate), c("0", "2", "1000"))
   
   ## temporary input/output files
   ## ----------------------------
@@ -31,7 +32,7 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
   if ( missing(gt) ){
     gt <- ""
   } else {
-    if (!inherits(gt, "phylo"))                                          
+    if ( !inherits(gt, "phylo") )                                          
       stop("object \"gt\" is not of class \"phylo\"")
     if ( !all(names(x) %in% gt$tip.label) )
       stop("guide tree does not match sequence names")

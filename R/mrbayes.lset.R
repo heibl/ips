@@ -1,6 +1,8 @@
 ## This code is part of the ips package
 ## © C. Heibl 2015 (last update 2015-11-28)
 
+#' @export
+
 mrbayes.lset <- function(..., partition){
   
   args <- list(...)

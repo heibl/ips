@@ -1,3 +1,8 @@
+## This code is part of the ips package
+## © C. Heibl 2014 (last update 2016-11-23)
+
+#' @export
+
 pis  <- function(x, what = "fraction", use.ambiguities = FALSE){
 
   if ( !inherits(x, "DNAbin") ) 

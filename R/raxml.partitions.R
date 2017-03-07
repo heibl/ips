@@ -1,7 +1,7 @@
-## PACKAGE: ips
-## CALLED BY: USER
-## AUTHOR: Christoph Heibl (at gmx.net)
-## LAST UPDATE: 2014-08-07
+## This code is part of the ips package
+## © C. Heibl 2014 (last update 2016-11-23)
+
+#' @export
 
 raxml.partitions <- function(...){
   

@@ -1,5 +1,7 @@
 ## This code is part of the ips package
-## © C. Heibl 2015 (last update 2015-12-10)
+## © C. Heibl 2015 (last update 2016-11-23)
+
+#' @export
 
 mrbayes.mcmc <- function(...){
   

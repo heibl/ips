@@ -1,5 +1,7 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2015-12-10)
+## © C. Heibl 2014 (last update 2016-11-07)
+
+#' @export
 
 write.phy <- function(x, file, block.width = FALSE, 
                       strict = FALSE){

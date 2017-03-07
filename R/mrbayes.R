@@ -1,5 +1,7 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2015-12-10)
+## © C. Heibl 2014 (last update 2016-11-23)
+
+#' @export
 
 mrbayes <- function(x, file = "", lset, prset, mcmc, unlink, constraint,
                     burnin = 10, contype = "allcompat", run = FALSE){

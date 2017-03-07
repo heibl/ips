@@ -1,7 +1,7 @@
-## package: ips
-## called by: USER
-## author: Christoph Heibl (at gmx.net)
-## last update: 2014-12-09
+## This code is part of the megaptera package
+## © C. Heibl 2014 (last update 2016-11-08)
+
+#' @export
 
 fixNodes <- function(phy){
   

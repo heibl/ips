@@ -1,15 +1,17 @@
-## PACKAGE: ips
-## CALLED BY: USER
-## AUTHOR: Christoph Heibl (at gmx.net)
-## LAST UPDATE: 2014-07-30
+## This code is part of the ips package
+## © C. Heibl 2014 (last update 2017-02-09)
+
+#' @export
 
 raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
                   partitions, outgroup, backbone = NULL, 
                   file = "fromR", exec, threads){
+  
+  if (!inherits(DNAbin, "DNAbin")) stop("DNAbin is not of class 'DNAbin'")
 				
 	# number of threads (PTHREADS only)
 	# ---------------------------------
-	if ( !missing(threads) )
+	if (!missing(threads))
     exec <- paste(exec, "-T", threads)
   
 	# clear previous runs
@@ -28,7 +30,7 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
   
   ## number of searches/replicates
   ## -----------------------------
-  if ( is.character(N) ){
+  if (is.character(N)){
     N <- match.arg(N, c("autoFC", "autoMR", "autoMRE", "autoMRE_IGN"))
   }
   N <- paste("-N", N)
@@ -58,21 +60,21 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
   
   ## algorithms
   ## ----------
-  if ( missing(f) ) f <- "d"
+  if (missing(f)) f <- "d"
   f <- match.arg(f, c("d", "a"))
   alg <- paste("-f", f, p) # add parsimony seed to algorithm
-  if ( f == "a" ) alg <- paste(alg, x)
-  if ( !missing(b) ) alg <- paste(alg, "-b", b)
-  if ( missing(N) ) stop("the number of runs must be given (N)")
+  if (f == "a") alg <- paste(alg, x)
+  if (!missing(b)) alg <- paste(alg, "-b", b)
+  if (missing(N)) stop("the number of runs must be given (N)")
   
   ## outgroup
   ## --------
-  if ( missing(outgroup) ){
+  if (missing(outgroup)){
     o <- ""
   } else {
-    if ( length(grep(",", outgroup)) > 0 ) outgroup <- unlist(strsplit(outgroup, ","))
+    if (length(grep(",", outgroup))) outgroup <- unlist(strsplit(outgroup, ","))
     o <- outgroup %in% rownames(DNAbin)
-    if ( !all(o) ){
+    if (!all(o)){
       o <- paste(paste("\n  -", outgroup[!o]), collapse = "")
       stop(paste("outgroup names not in 'DNAbin':",   o))
     }
@@ -82,8 +84,8 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
 
 	# write partition file
 	## ------------------
-	if ( !missing(partitions) ) {
-    if ( is.character(partitions) ){
+	if (!missing(partitions)) {
+    if (is.character(partitions)){
       q <- partitions
     } else {
       q <- paste(partitions$type, ", ", 
@@ -95,8 +97,7 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
     multipleModelFileName <- " -q partitionsFromR "
 	} else multipleModelFileName <- ""
 
-
-	if ( !is.null(backbone) ){
+	if (!is.null(backbone)){
 	  write.tree(backbone, "backbone.tre")
 	  g <- " -g backbone.tre"
 	} else {
@@ -105,9 +106,8 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
   
   ## save branch lengths of bootstrap replicates
   ## -------------------------------------------
-  if ( missing(k) ) k <- FALSE 
+  if (missing(k)) k <- FALSE 
   k <- ifelse(k, "-k", "")
-  
   
 	## prepare and execute call
   ## ------------------------
@@ -115,23 +115,23 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
 	              multipleModelFileName, N, g, 
 	              rin["s"], rin["n"])
   
-	if ( length(grep("MPI", exec) > 0) ) system(paste("mpirun", CALL))
+	if (length(grep("MPI", exec))) system(paste("mpirun", CALL))
   print(CALL)
 	system(CALL)
   
 	res <- scan(rout["info"], quiet = TRUE, what = "char", sep = "\n")
-	if ( length(grep("exiting", res)) > 0 )
+	if (length(grep("exiting", res)))
 	  stop("\n", paste(res, collapse = "\n"))
 	
 	## read results
 	## ------------
 	bestTree <- bipartitions <- bootstrap <- NULL
   info <- scan(rout["info"], what = "c", sep = "\n", quiet = TRUE)
-	if ( f %in% c("a", "d") & missing(b) )
+	if (f %in% c("a", "d") & missing(b))
 	  bestTree <- read.tree(rout["bestTree"])
-	if ( f %in% c("a") )
+	if (f %in% c("a"))
 	  bipartitions <- read.tree(rout["bipartitions"])
-	if ( !missing(b) | !missing(x) )
+	if (!missing(b) | !missing(x))
 	  bootstrap <- read.tree(rout["bootstrap"])
 	
 	obj <- list(info = info,

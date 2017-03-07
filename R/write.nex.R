@@ -1,5 +1,7 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2016-01-26)
+## © C. Heibl 2014 (last update 2016-11-07)
+
+#' @export
 
 write.nex <- function(x, file, block.width = 60, 
                       taxblock = FALSE){

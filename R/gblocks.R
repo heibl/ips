@@ -1,5 +1,7 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2014-11-27)
+## © C. Heibl 2014 (last update 2016-11-08)
+
+#' @export
 
 gblocks <- function(x, b1 = .5, b2 = b1, b3 = ncol(x), 
                     b4 = 2, b5 = "a", exec){
@@ -20,8 +22,8 @@ gblocks <- function(x, b1 = .5, b2 = b1, b3 = ncol(x),
   
   
   ntax <- nrow(x)
-  b1 <- round(ntax * b1) + 1
-  b2 <- round(ntax * b2) + 1
+  b1 <- floor(ntax * b1) + 1
+  b2 <- floor(ntax * b2) + 1
   
   cat("\n--- executing Gblocks ---")
   cat("\nminimum number of sequences for a conserved position :", b1)

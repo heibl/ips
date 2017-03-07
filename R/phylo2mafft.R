@@ -1,7 +1,8 @@
-## PACKAGE: ips
-## CALLED BY: mafft
-## AUTHOR: Christoph Heibl (at gmx.net)
-## LAST UPDATE: 2014-07-30
+## This code is part of the ips package
+## © C. Heibl 2014 (last update 2016-11-22)
+
+#' @importFrom utils write.table
+#' @export
 
 phylo2mafft <- function(phy){
   

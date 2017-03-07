@@ -1,3 +1,8 @@
+## This code is part of the ips package
+## © C. Heibl 2014 (last update 2016-11-07)
+
+#' @export
+ 
 read.fas <- function(x, text){	
 	
   if ( !missing(text) ){
