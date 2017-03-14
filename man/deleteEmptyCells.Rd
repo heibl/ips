@@ -56,4 +56,3 @@ specified bases in nucleic acid sequences: recommendations 1984.
 \seealso{
 \code{\link{trimEnds}}, \code{\link{deleteGaps}}
 }
-

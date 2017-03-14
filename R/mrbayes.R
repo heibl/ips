@@ -1,87 +1,85 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2016-11-23)
+## © C. Heibl 2014 (last update 2017-03-14)
 
 #' @export
 
 mrbayes <- function(x, file = "", lset, prset, mcmc, unlink, constraint,
-                    burnin = 10, contype = "allcompat", run = FALSE){
-  
-  if ( !is.list(x) ) x <- list(x)
-  
+                    burnin = 10, contype = "allcompat", exec, run = FALSE){
+
+  if (!is.list(x)) x <- list(x)
+
   ## lset:
-  if ( !missing(lset) ){
-    if ( !all(sapply(lset, is.list)) ){
+  if (!missing(lset)){
+    if (!all(sapply(lset, is.list))){
       lset <- list(lset)
     }
     lset <- sapply(lset, formatSet, arg = "lset")
   } else {
     lset <- NULL
   }
-  
+
   ## prset:
-  if ( !missing(prset) ){
-    if ( !all(sapply(prset, is.list)) ){
+  if (!missing(prset)){
+    if (!all(sapply(prset, is.list))){
       prset <- list(prset)
     }
     prset <- sapply(prset, formatSet, arg = "prset")
   } else {
     prset <- NULL
   }
- 
+
   ## mcmc:
-  if ( !missing(mcmc) ){
+  if (!missing(mcmc)){
     mcmc <- paste(names(mcmc), unlist(mcmc), sep = "=")
     mcmc <- paste(mcmc, collapse = " ")
-    mcmc <- paste("\tmcmc ", mcmc, ";", sep = "")
+    mcmc <- paste0("\tmcmc ", mcmc, ";")
   } else {
     mcmc <- "\tmcmc;"
   }
 
   ## handle partitions
   ## -----------------
-  if ( length(x) > 1 ){
-    
+  if (length(x) > 1){
+
     ## get position of nucleotides:
     p <- cbind(rep(1, length(x)), sapply(x, ncol))
-    if ( nrow(p) > 1 ) {
+    if (nrow(p) > 1) {
       for ( i in 2:nrow(p) ){
         p[i, 1] <- p[i - 1, 2] + 1
         p[i, 2] <- p[i, 1] + p[i, 2] -1
       }
     }
     partition <- c(
-      paste("\tcharset ", rownames(p), " = ", 
-          apply(p, 1, paste, collapse = "-"), ";", 
-          sep = ""),
-      paste("\tpartition a = ", length(x), ": ", 
-            paste(rownames(p), collapse = ", "),
-            ";", sep = ""),
+      paste0("\tcharset ", rownames(p), " = ",
+          apply(p, 1, paste, collapse = "-"), ";"),
+      paste0("\tpartition a = ", length(x), ": ",
+            paste(rownames(p), collapse = ", "), ";"),
       "\tset partition = a;"
-    ) 
+    )
   } else {
     partition <- NULL
   }
-  
+
   ## constraints
   ## -----------
-  if ( !missing(unlink) ){
-    unlink <- lapply(unlink, function(z) paste("(", z, ")", sep = ""))
+  if (!missing(unlink)){
+    unlink <- lapply(unlink, function(z) paste0("(", z, ")"))
     unlink <- paste(names(unlink), "=", unlink, collapse = " ")
-    unlink <- paste("\tunlink ", unlink, ";", sep = "")
+    unlink <- paste0("\tunlink ", unlink, ";")
   } else {
     unlink <- NULL
   }
-  
+
   ## constraints
   ## -----------
-  if ( !missing(constraint) ){
+  if (!missing(constraint)){
     constraint <- lapply(constraint, paste, collapse = " ")
-    constraint <- paste("\tconstraint ", names(constraint), " = ", 
-                        constraint, ";", sep = "")
+    constraint <- paste0("\tconstraint ", names(constraint), " = ",
+                        constraint, ";")
   } else {
     constraint <- NULL
   }
-  
+
   # create MrBayes block
   # --------------------
   bayes <- c(
@@ -92,31 +90,40 @@ mrbayes <- function(x, file = "", lset, prset, mcmc, unlink, constraint,
     unlink,
     prset,
     mcmc,
-    paste("\tsumt filename=", file, " burnin=", 		
-          burnin, " contype=", contype, ";", sep = ""),
+    paste0("\tsumt filename=", file, " burnin=",
+          burnin, " contype=", contype, ";"),
     "end;"
   )
-  
+
   # assemble and print NEXUS file
   # -----------------------------
   nexus <- write.nex(x, block.width = FALSE)
   nexus <- c(nexus, bayes)
-  if ( file == "" ){
+  if (file == ""){
     cat(nexus, sep = "\n")
   } else {
     write(nexus, file = file)
   }
-  
+
   # start mrbayes
   # -------------
-  if ( run ){
-    if ( .Platform$OS.type == "unix" ){
-      system(paste("mb > execute", file))
+  if (run){
+
+    ## localize executable
+    ## -------------------
+    if (missing(exec)){
+      exec <- ifelse(.Platform$OS.type == "unix", "mb", "mrbayes")
+    }
+
+    ## execute MrBayes
+    ## ---------------
+    if (.Platform$OS.type == "unix"){
+      mb_call <- paste(exec, "> execute", file)
     } else {
-      system(paste("mrbayes", file)) # bug fix by Klaus Schliep (2015-10-27)
-    }												
-    tr <- read.nexus(paste(file, ".con.tre", sep = ""))
+      mb_call <- paste(exec, file) # bug fix by Klaus Schliep (2015-10-27)
+    }
+    system(mb_call)
+    tr <- read.nexus(paste0(file, ".con.tre"))
     tr
   }
 }
-

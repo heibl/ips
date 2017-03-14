@@ -20,4 +20,3 @@ Takes a phylogeny and a subset of its tiplabels
 and splits the list of tiplabels into monophyletic groups 
 (clades).
 }
-

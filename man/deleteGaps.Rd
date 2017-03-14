@@ -40,4 +40,3 @@ sequences of equal length and the matrix will be coerced to a list.
 alignment, \code{\link{gblocks}} and \code{\link{aliscore}} for more 
 sophisticated  methods of cleaning/masking alignments.
 }
-

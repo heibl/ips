@@ -24,4 +24,3 @@ tr <- rtree(12)
 plot(tr); nodelabels()
 ntip(tr, 16)
 }
-

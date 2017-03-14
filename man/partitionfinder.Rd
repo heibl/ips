@@ -37,4 +37,3 @@ Lanfear, R., B. Calcott, S.Y.W. Ho, and S. Guindon. 2012.
   Selecting optimal partitioning schemes for phylogenomic datasets.
   \emph{BMC Evolutionary Biology} \strong{14}: 82.
 }
-

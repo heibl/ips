@@ -41,4 +41,3 @@ as.character(x[2, ])
 \seealso{
 \code{\link{deleteEmptyCells}}, \code{\link{deleteGaps}}
 }
-

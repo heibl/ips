@@ -16,4 +16,3 @@ Extract the indices of non-empty positions in a sample of DNA
 \seealso{
 \code{\link{index2DNAbin}}
 }
-

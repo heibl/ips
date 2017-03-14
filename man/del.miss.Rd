@@ -17,4 +17,3 @@ A list or a vector of class \code{DNAbin}.
 Remove gaps ("-") and/or missing and ambiguous data ("N", "?") 
 from a sample of DNA sequences.
 }
-

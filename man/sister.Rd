@@ -44,4 +44,3 @@ nodelabels(node = x, pch = 21, bg = "red")
 \seealso{
 \code{\link{descendants}}, \code{\link{noi}}.
 }
-

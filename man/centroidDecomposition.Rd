@@ -15,4 +15,3 @@ centroidDecomposition(phy, k = 200)
 Splits a phylogenetic tree into a number of subtree
 with size at most k.
 }
-

@@ -1,6 +1,13 @@
 \name{ips-news}
 \alias{ips-news} 
 \title{News and changes to the ips (formerly: phyloch) package}
+\section{VERSION 0.0-10}{
+\subsection{IMPROVED FEATURES}{
+  \itemize{
+  \item The new argument \code{exec} in \code{mrbayes} allows to specify the name and path of the MrBayes executable explicitly. If the executable is in the search path, \code{exec} can be missing.
+  }
+}
+}
 \section{VERSION 0.0-9}{
 \subsection{IMPROVED FEATURES}{
   \itemize{

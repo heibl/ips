@@ -23,4 +23,3 @@ tr <- rtree(12)
 plot(tr)
 terminalSisters(tr)
 }
-

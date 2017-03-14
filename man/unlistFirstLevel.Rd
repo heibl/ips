@@ -16,4 +16,3 @@ element should be preserved.}
 Does the same as \code{unlist}, but recurses only
 one level.
 }
-

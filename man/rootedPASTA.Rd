@@ -20,4 +20,3 @@ algorithm of Mirarab, Nguyen, and Warnow (2014) with a rooted guide tree.
 Mirarab, S., N. Nguyen, and T. Warnow. 2014. PASTA: Ultra-large multiple
 sequence alignment. \emph{RECOMB} \strong{}: 177-191.
 }
-

@@ -14,4 +14,3 @@ Finds all pairs of adjacent nodes, i.e.
 nodes separated by only one edge, in a minimum spanning 
 tree
 }
-

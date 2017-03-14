@@ -18,4 +18,3 @@ DNA sequences into a matrix.
 \seealso{
 \code{\link{DNAbin2index}}
 }
-

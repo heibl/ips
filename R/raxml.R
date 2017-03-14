@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2017-02-09)
+## © C. Heibl 2014 (last update 2017-03-08)
 
 #' @export
 
@@ -13,10 +13,19 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
 	# ---------------------------------
 	if (!missing(threads))
     exec <- paste(exec, "-T", threads)
+	
+	## input file names
+	## ----------------
+	rin <- c(s = paste("-s ", file, ".phy", sep = ""),
+	         n = paste("-n", file),
+	         napt = paste("-n ", file, ".APT", sep = ""),
+	         partition = paste0(file, "-partitions.txt"),
+	         tree = paste0(file, "-backbone.tre"))
   
-	# clear previous runs
-	# -------------------
-	unlink(list.files(pattern = "RAxML_")) 
+	# clear previous runs with same tag
+	# ---------------------------------
+	unlink(rin)
+	unlink(list.files(pattern = paste0("RAxML_[[:alpha:]]+[.]", file))) 
   
   # substitution model
   # ------------------
@@ -43,15 +52,10 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
 	}
 	p <- rs(p); x <- rs(x, type = "x")
   
-  ## input file names
-  ## ----------------
-	rin <- c(s = paste("-s ", file, ".phy", sep = ""),
-	         n = paste("-n", file),
-	         napt = paste("-n ", file, ".APT", sep = ""))
- 
-	write.phy(DNAbin, paste(file, "phy", sep = ".")) ## write sequence file
+	## write sequences to input file
+	## -----------------------------
+	write.phy(DNAbin, paste(file, "phy", sep = "."))
 
-  
   ## rout: raxml output file names
   ## -----------------------------
   output.types <- c("info", "bestTree", "bootstrap", "bipartitions")
@@ -93,13 +97,13 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
                  partitions$begin, "-", 
                  partitions$end, sep = "")
     }
-		write(q, "partitionsFromR")
-    multipleModelFileName <- " -q partitionsFromR "
+		write(q, rin["partition"])
+    multipleModelFileName <- paste(" -q", rin["partition"], "")
 	} else multipleModelFileName <- ""
 
 	if (!is.null(backbone)){
-	  write.tree(backbone, "backbone.tre")
-	  g <- " -g backbone.tre"
+	  write.tree(backbone, rin["tree"])
+	  g <- paste(" -g", rin["tree"], "")
 	} else {
 	  g <- " "
 	}

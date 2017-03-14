@@ -24,4 +24,3 @@ plot(phy)
 mst <- phylo2mst(phy)
 plot(mst)
 }
-

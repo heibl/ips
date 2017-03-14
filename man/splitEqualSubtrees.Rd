@@ -27,4 +27,3 @@ subtr
 \seealso{
 \code{\link{extract.clade}}.
 }
-

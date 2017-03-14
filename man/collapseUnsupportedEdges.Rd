@@ -33,4 +33,3 @@ tr <- collapseUnsupportedEdges(ips.tree, "node.label", 70)
 ## show new topology
 plot(tr, no.margin = TRUE)
 }
-
