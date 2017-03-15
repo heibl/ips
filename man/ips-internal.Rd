@@ -10,7 +10,6 @@
 \alias{extractMRBAYESstats} % read.mrbayes
 \alias{formatSet} % mrbayes
 \alias{matrixBlock} % write.nex
-\alias{phylo2mafft} % mafft
 \alias{rbeauti.taxonset} % rbeauti
 \alias{rc}
 \alias{rc.core}

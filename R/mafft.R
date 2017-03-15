@@ -5,7 +5,7 @@
 
 mafft <- function(x, y, add, method = "auto", maxiterate = 0,
                   op = 1.53, ep = 0.0, gt, options,
-                  thread = -1, path, quiet){
+                  thread = -1, exec, quiet){
 
   ## CHECKS and DEFINITIONS
   ## ----------------------
@@ -13,12 +13,12 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
   os <- .Platform$OS
   if (missing(quiet)) quiet <- TRUE
   qut <- ifelse(quiet, " --quiet ", " ")
-  if (missing(path)) path <- "/usr/local/bin/mafft"
+  if (missing(exec)) exec <- "/usr/local/bin/mafft"
   maxiterate <- match.arg(as.character(maxiterate), c("0", "2", "1000"))
 
   ## temporary input/output files
   ## ----------------------------
-  fns <- vector(length = 3)
+  fns <- vector(length = 4)
   for (i in seq_along(fns))
     fns[i] <- tempfile(pattern = "mafft", tmpdir = tempdir(), fileext = ".fas")
   unlink(fns[file.exists(fns)])
@@ -40,8 +40,8 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
       gt <- multi2di(gt)
     if (is.null(gt$edge.length))
       gt$edge.length <- rep(1, nrow(gt$edge))
-    phylo2mafft(gt)
-    gt <- " --treein tree.mafft "
+    phylo2mafft(gt, file = fns[4])
+    gt <- paste(" --treein", fns[4], "")
   }
 
   ## multithreading
@@ -64,7 +64,7 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
   ## -------------------------------------------
   if (missing(y)){
     write.fas(x, fns[1])
-    call.mafft <- paste(path, " --", method, " --",
+    call.mafft <- paste(exec, " --", method, " --",
                         "maxiterate ", maxiterate, qut, "--op ", op,
                         " --ep ", ep, gt, options, thread,
                         fns[1], " > ", fns[3], sep = "")
@@ -75,7 +75,7 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
     add <- paste("--", add, sep = "")
 	  write.fas(x, fns[1])
 	  write.fas(y, fns[2])
-	  call.mafft <- paste(path, qut, add, fns[2], fns[1], ">", fns[3])
+	  call.mafft <- paste(exec, qut, add, fns[2], fns[1], ">", fns[3])
 	}
   if (!quiet) message(call.mafft)
 
@@ -98,7 +98,6 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
     }
   }
   unlink(fns[file.exists(fns)])
-  unlink("tree.mafft")
-  return(res)
+  res
 }
 
