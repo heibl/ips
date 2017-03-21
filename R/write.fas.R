@@ -3,20 +3,26 @@
 
 #' @export
 
-write.fas <- function(x, file, block.width = FALSE, 
+write.fas <- function(x, file, block.width = FALSE,
                       truncate = FALSE, append = FALSE){
-  
+
+
+
   # x MUST be a list of class DNAbin
   # --------------------------------
-  if ( is.matrix(x) ){
-    x <- as.list(x)
+  if(inherits(x, "DNA")){
+    if ( is.matrix(x) ){
+      x <- as.list(x)
+    }
+    if ( is.data.frame(x) ){
+      y  <- as.list(x[, 1])
+      names(y) <- rownames(x)
+      x <- y
+    }
   }
-  if ( is.data.frame(x) ){
-    y  <- as.list(x[, 1])
-    names(y) <- rownames(x)
-    x <- y
-  }
-		
+
+  # or x must be a list of class AAbin
+
 	# taxonnames
 	# ----------
 	taxnames <- names(x)
@@ -27,7 +33,7 @@ write.fas <- function(x, file, block.width = FALSE,
 			    "identical strings"))
 	}
 	taxnames <- paste(">", taxnames, sep = "")
-	
+
 	# function to interleave sequences:
 	# ---------------------------------
 	create.block.widthd <- function(x, bp){
@@ -44,7 +50,7 @@ write.fas <- function(x, file, block.width = FALSE,
 		}
 		out
 	}
-	
+
 	# assemble FASTA file:
 	# --------------------
   s <- as.character(x)
@@ -54,16 +60,16 @@ write.fas <- function(x, file, block.width = FALSE,
 	s <- unlist(s)
 	fas <- vector(length = length(s) + length(taxnames))
 	id <- 1
-	for (i in seq(along = nbpar[-1])) 
+	for (i in seq(along = nbpar[-1]))
 	    id <- c(id, tail(id, 1) + nbpar[i] + 1)
 	fas[id] <- taxnames
 	fas[-id] <- unlist(s)
-	
+
 	# write FASTA file
 	# ----------------
 	if ( missing(file) ) {
 	  ## return character vector:
-	  return(fas) 
+	  return(fas)
 	} else {
 	  if ( file == "" ) {
 	    ## print onto screen:

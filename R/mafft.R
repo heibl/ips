@@ -78,8 +78,8 @@
 #' @export
 
 mafft <- function(x, y, add, method = "auto", maxiterate = 0,
-                  op = 1.53, ep = 0.0, gt, options,
-                  thread = -1, exec, quiet){
+  op = 1.53, ep = 0.0, gt, options,
+  thread = -1, exec, quiet){
 
   ## CHECKS and DEFINITIONS
   ## ----------------------
@@ -98,8 +98,8 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
     fns[i] <- tempfile(pattern = "mafft", tmpdir = tempdir(), fileext = ".fas")
   unlink(fns[file.exists(fns)])
   method <- match.arg(method, c("auto", "localpair", "globalpair",
-                                "genafpair", "parttree",
-                                "retree 1", "retree 2"))
+    "genafpair", "parttree",
+    "retree 1", "retree 2"))
 
   ## guide tree
   ## ----------
@@ -130,7 +130,7 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
     options <- " "
   } else {
     options <- match.arg(options, c("--adjustdirection",
-                                    "--adjustdirectionaccurately"))
+      "--adjustdirectionaccurately"))
     options <- paste(options, collapse = " ")
     options <- paste(rep(" ", 2), collapse = options)
   }
@@ -139,13 +139,13 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
   ## -------------------------------------------
   if (missing(y)){
     if (inherits(x, "DNAbin")){ write.fas(x, fns[1])  }
-    if (inherits(x, "AAbin")) { write.phyDat(x, file = fns[1], format = "fasta") }
+    if (inherits(x, "AAbin")) { write.fas(x, fns[1]) }
     call.mafft <- paste(exec, " --", method, " --",
-                        "maxiterate ", maxiterate, qut, "--op ", op,
-                        " --ep ", ep, gt, options, thread,
-                        fns[1], " > ", fns[3], sep = "")
+      "maxiterate ", maxiterate, qut, "--op ", op,
+      " --ep ", ep, gt, options, thread,
+      fns[1], " > ", fns[3], sep = "")
   } else {
-    if (!inherits(y, "DNAbin")) stop("'y' is not of class 'DNAbin'")
+    if (!inherits(y, c("DNAbin", "AAbin"))) stop("'y' is not of class 'DNAbin'")
     if (missing(add)) add <- "addprofile"
     add <- match.arg(add, c("add", "addprofile"))
     add <- paste("--", add, sep = "")
@@ -163,21 +163,33 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
     if (res != 0) {
       #res <- read.fas(fns[3])
       if (inherits(x, "DNAbin")) { res <- read.fas(fns[3], type ="DNA") }
-      if (inherits(x, "AAbin" )) { res <- read.fas(fns[3], type  ="AA") }
-    }
-
-    ## execute MAFFT on WINDOWS
-    ## ------------------------
-  } else {
-    res <- system(call.mafft, intern = TRUE, ignore.stderr = FALSE)
-    if (length(grep("error|ERROR", res))){
-      res <- 0
-    }
-    else {
-      if (inherits(x, "DNAbin")) {  res <- read.fas(fns[3], type ="DNA") }
-      if (inherits(x, "AAbin" )) {  res <- read.fas(fns[3], type  ="AA") }
+      if (inherits(x, "AAbin" )) {
+        res <- read.fas(fns[3], type  ="AA")
+        if(!missing(y)){
+          nam <- c(names(x), names(y))
+          names(res) <- nam
+        }else{
+          names(res) <- names(x)
+      }
     }
   }
-  unlink(fns[file.exists(fns)])
-  res
+
+  ## execute MAFFT on WINDOWS
+  ## ------------------------
+} else {
+  res <- system(call.mafft, intern = TRUE, ignore.stderr = FALSE)
+  if (length(grep("error|ERROR", res))){
+    res <- 0
+  }
+  else {
+    if (inherits(x, "DNAbin")) {  res <- read.fas(fns[3], type ="DNA") }
+    if (inherits(x, "AAbin" )) {
+      res <- read.fas(fns[3], type  ="AA")
+      rownames(res) <- names(seq)}
+  }
+}
+unlink(fns[file.exists(fns)])
+# if (inherits(x, "AAbin" )) {  res <- as.AAbin(do.call(rbind, as.character(res))) }
+
+res
 }
