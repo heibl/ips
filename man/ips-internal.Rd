@@ -21,6 +21,7 @@
 \alias{traitRateOutput} % traitRate
 \alias{traitRateParams} % traitRate
 \alias{unresolve.clade} % EXPERIMENTAL!
+\alias{AAbin_list} % as long as not in ape
 
 \title{Internal IPS Functions}
 \description{Internal \pkg{ips} functions.}

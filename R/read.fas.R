@@ -3,7 +3,7 @@
 
 #' @export
 
-read.fas <- function(x, text){
+read.fas <- function(x, text, type =c("AA", "DNA")){
 
   if (!missing(text)){
     x <- text
@@ -36,8 +36,9 @@ read.fas <- function(x, text){
     obj[[i]] <- unlist(strsplit(gsub(" ", "", x[(start[i] + space):(start[i + 1] - 1)]), NULL))
   names(obj) <- taxnames
 
-  dna_string <- c("n", "?", "-", "r", "y", "s", "w", "k", "m", "b", "d", "h", "v")
-  if (!all(tolower(unlist(obj))  %in%  dna_string)){
+  # dna_string <- c("n", "?", "-", "r", "y", "s", "w", "k", "m", "b", "d", "h", "v")
+  # if (!all(tolower(unlist(obj))  %in%  dna_string)){
+  if (type == "DNA"){
     ## DNA sequences
     obj <- lapply(obj, tolower)
     obj <- as.DNAbin(obj)
