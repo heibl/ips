@@ -51,6 +51,10 @@ read.fas <- function(x, text){
     ## Fehler in phangorn::read.aa(x) :
     ##   the first line of the file must contain the dimensions of the data
     ## Es wäre wohl sinnvoll die AAbin Klasse zu erweitern
+
+    ## FK [2017-03-21]
+    ## habe die AAbin Klasse erweitert. Liegt aktuell im File 'AAbin_list.R'
+    ## Sollen wir das an Emmanuel schicken?
   }
   if (length(unique(sapply(obj, length))) == 1)
     obj <- as.matrix(obj)
