@@ -162,8 +162,8 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
     res <- length(scan(fns[3], what = "c", quiet = TRUE))
     if (res != 0) {
       #res <- read.fas(fns[3])
-      if (inherits(x, "DNAbin")) { res <- read.fas(fns[3]) }
-      if (inherits(x, "AAbin" )) { res <- seqinr::read.fasta(fns[3], seqtype  ="AA")   }
+      if (inherits(x, "DNAbin")) { res <- read.fas(fns[3], type ="DNA") }
+      if (inherits(x, "AAbin" )) { res <- read.fas(fns[3], type  ="AA") }
     }
 
     ## execute MAFFT on WINDOWS
@@ -174,12 +174,10 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
       res <- 0
     }
     else {
-      if (inherits(x, "DNAbin")) { res <- read.fas(fns[3]) }
-      if (inherits(x, "AAbin" )) { res <- seqinr::read.fasta(fns[3], seqtype  = "AA")}
+      if (inherits(x, "DNAbin")) {  res <- read.fas(fns[3], type ="DNA") }
+      if (inherits(x, "AAbin" )) {  res <- read.fas(fns[3], type  ="AA") }
     }
   }
   unlink(fns[file.exists(fns)])
-  if (inherits(x, "AAbin" )) { res <-   as.AAbin(do.call(rbind, res))
-}
   res
 }
