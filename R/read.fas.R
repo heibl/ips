@@ -55,7 +55,7 @@ read.fas <- function(x, text, type =c("AA", "DNA")){
 
     ## FK [2017-03-21]
     ## habe die AAbin Klasse erweitert. Liegt aktuell im File 'AAbin_list.R'
-    ## Sollen wir das an Emmanuel schicken?
+    ## in ips und wird als interne functionen geladen
   }
   if (length(unique(sapply(obj, length))) == 1)
     obj <- as.matrix(obj)

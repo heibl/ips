@@ -10,7 +10,7 @@ write.fas <- function(x, file, block.width = FALSE,
 
   # x MUST be a list of class DNAbin
   # --------------------------------
-  if(inherits(x, "DNA")){
+
     if ( is.matrix(x) ){
       x <- as.list(x)
     }
@@ -19,9 +19,6 @@ write.fas <- function(x, file, block.width = FALSE,
       names(y) <- rownames(x)
       x <- y
     }
-  }
-
-  # or x must be a list of class AAbin
 
 	# taxonnames
 	# ----------

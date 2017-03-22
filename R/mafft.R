@@ -164,13 +164,13 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
       #res <- read.fas(fns[3])
       if (inherits(x, "DNAbin")) { res <- read.fas(fns[3], type ="DNA") }
       if (inherits(x, "AAbin" )) {
-        res <- read.fas(fns[3], type  ="AA")
-        if(!missing(y)){
-          nam <- c(names(x), names(y))
-          names(res) <- nam
-        }else{
-          names(res) <- names(x)
-      }
+        res <- read.fas(fns[3], type  ="AAbin")
+      #   if(!missing(y)){
+      #     nam <- c(names(x), names(y))
+      #     names(res) <- nam
+      #   }else{
+      #     names(res) <- names(x)
+      # }
     }
   }
 
@@ -185,11 +185,10 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
     if (inherits(x, "DNAbin")) {  res <- read.fas(fns[3], type ="DNA") }
     if (inherits(x, "AAbin" )) {
       res <- read.fas(fns[3], type  ="AA")
-      rownames(res) <- names(seq)}
+      # rownames(res) <- names(seq)
+    }
   }
 }
 unlink(fns[file.exists(fns)])
-# if (inherits(x, "AAbin" )) {  res <- as.AAbin(do.call(rbind, as.character(res))) }
-
 res
 }
