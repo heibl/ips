@@ -47,6 +47,7 @@ MAFFT, that are not included in \code{mafft} such as, e.g.,
 with \code{thread = -1} the number of cores is determined automatically.}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 \item{exec}{A character string giving the path to the MAFFT executable
 including its name, e.g. something like \code{/user/local/bin/mafft} under
 UNIX-alikes.}
@@ -55,11 +56,16 @@ UNIX-alikes.}
 
 \item{type}{character, DNA or AA
 =======
+=======
+>>>>>>> origin/master
 \item{exec}{A character string giving the path to the MAFFT executable 
 including its name, e.g. something like \code{/user/local/bin/mafft} under 
 UNIX-alikes.}
 
 \item{quiet}{Logical, if set to \code{TRUE}, mafft progress is printed out on
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 the screen.}
 }
