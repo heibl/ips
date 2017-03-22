@@ -3,7 +3,7 @@
 
 #' @export
 
-read.fas <- function(x, text){
+read.fas <- function(x, text, type =c("AA", "DNA")){
 
   if (!missing(text)){
     x <- text
@@ -36,8 +36,9 @@ read.fas <- function(x, text){
     obj[[i]] <- unlist(strsplit(gsub(" ", "", x[(start[i] + space):(start[i + 1] - 1)]), NULL))
   names(obj) <- taxnames
 
-  dna_string <- c("n", "?", "-", "r", "y", "s", "w", "k", "m", "b", "d", "h", "v")
-  if (!all(tolower(unlist(obj))  %in%  dna_string)){
+  # dna_string <- c("n", "?", "-", "r", "y", "s", "w", "k", "m", "b", "d", "h", "v")
+  # if (!all(tolower(unlist(obj))  %in%  dna_string)){
+  if (type == "DNA"){
     ## DNA sequences
     obj <- lapply(obj, tolower)
     obj <- as.DNAbin(obj)
@@ -51,6 +52,10 @@ read.fas <- function(x, text){
     ## Fehler in phangorn::read.aa(x) :
     ##   the first line of the file must contain the dimensions of the data
     ## Es wäre wohl sinnvoll die AAbin Klasse zu erweitern
+
+    ## FK [2017-03-21]
+    ## habe die AAbin Klasse erweitert. Liegt aktuell im File 'AAbin_list.R'
+    ## in ips und wird als interne functionen geladen
   }
   if (length(unique(sapply(obj, length))) == 1)
     obj <- as.matrix(obj)
