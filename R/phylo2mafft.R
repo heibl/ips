@@ -1,11 +1,11 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2017-03-15)
+## © C. Heibl 2014 (last update 2017-03-22)
 
 #' @title Convert Trees for MAFFT
 #' @description Converts a phylogenetic tree of class \code{"phylo"} to a format
 #'   usable as a guide tree by MAFFT. This function is called internally by 
 #'   \code{\link{mafft}}.
-#' @param phy A phylogenetic tree of class \code{\link{"phylo"}}.
+#' @param phy A phylogenetic tree of class \code{\link{phylo}}.
 #' @param file A character string giving a filename. May be missing, in which
 #'   case the results are only printed on the screen.
 #' @return A matrix coding the MAFFT-formatted tree, as a side effect the same 

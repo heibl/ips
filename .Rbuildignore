@@ -1,0 +1,6 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+<<<<<<< HEAD
+=======
+^dev$
+>>>>>>> origin/master

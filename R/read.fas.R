@@ -1,6 +1,7 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2017-03-17)
+## © C. Heibl 2014 (last update 2017-03-22)
 
+#' @export rpg
 #' @export
 
 read.fas <- function(x, text, type =c("AA", "DNA")){
@@ -44,7 +45,7 @@ read.fas <- function(x, text, type =c("AA", "DNA")){
     obj <- as.DNAbin(obj)
   } else {
     ## AA sequences
-    obj <- as.AAbin(obj)
+    obj <- rpg::as.AAbin(obj)
 
     ## CH [2017-03-17]
     ## Hier gehts im Moment nicht weiter, da AAbin keine Listen unterstützt.

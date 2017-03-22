@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2017-03-17)
+## © C. Heibl 2014 (last update 2017-03-22)
 
 #' @title Sequence Alignment with MAFFT
 #' @description This function is a wrapper for MAFFT and can be used for
@@ -32,10 +32,11 @@
 #'   \code{--adjustdirection}.
 #' @param thread Integer giving the number of physical cores MAFFT should use;
 #'   with \code{thread = -1} the number of cores is determined automatically.
-#' @param exec A character string giving the path to the MAFFT executable
-#'   including its name, e.g. something like \code{/user/local/bin/mafft} under
+#' @param exec A character string giving the path to the MAFFT executable 
+#'   including its name, e.g. something like \code{/user/local/bin/mafft} under 
 #'   UNIX-alikes.
 #' @param quiet Logical, if set to \code{TRUE}, mafft progress is printed out on
+#' @param type character, DNA or AA
 #'   the screen.
 #' @details \code{"localpair"} selects the \bold{L-INS-i} algorithm, probably
 #'   most accurate; recommended for <200 sequences; iterative refinement method
@@ -75,6 +76,7 @@
 #' @seealso \code{\link{read.fas}} to import DNA sequences; \code{\link{prank}}
 #'   for another alignment algorithm; \code{\link{gblocks}} and
 #'   \code{\link{aliscore}} for alignment cleaning.
+#' @importFrom phangorn write.phyDat   
 #' @export
 
 mafft <- function(x, y, add, method = "auto", maxiterate = 0,
