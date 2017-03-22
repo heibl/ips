@@ -32,13 +32,8 @@
 #'   \code{--adjustdirection}.
 #' @param thread Integer giving the number of physical cores MAFFT should use;
 #'   with \code{thread = -1} the number of cores is determined automatically.
-<<<<<<< HEAD
 #' @param exec A character string giving the path to the MAFFT executable 
 #'   including its name, e.g. something like \code{/user/local/bin/mafft} under 
-=======
-#' @param exec A character string giving the path to the MAFFT executable
-#'   including its name, e.g. something like \code{/user/local/bin/mafft} under
->>>>>>> 6a2ceae383a8d1b70b5c3e42d4072f4ea06cd387
 #'   UNIX-alikes.
 #' @param quiet Logical, if set to \code{TRUE}, mafft progress is printed out on
 #'   the screen.
