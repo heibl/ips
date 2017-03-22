@@ -145,7 +145,7 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
       " --ep ", ep, gt, options, thread,
       fns[1], " > ", fns[3], sep = "")
   } else {
-    if (!inherits(y, c("DNAbin", "AAbin"))) stop("'y' is not of class 'DNAbin'")
+    if (!inherits(y, c("DNAbin", "AAbin"))) stop("'y' is not of class 'DNAbin' or 'AAbin'")
     if (missing(add)) add <- "addprofile"
     add <- match.arg(add, c("add", "addprofile"))
     add <- paste("--", add, sep = "")
