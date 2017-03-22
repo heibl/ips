@@ -7,9 +7,9 @@ Maintainer: Christoph Heibl <christoph.heibl@gmx.net>
 Depends: R (>= 3.2.0),
     ape
 Imports:
+    phangorn,
+    seqinr,
     XML
-Suggests:
-    phangorn
 Description: Functions that wrap popular phylogenetic software for sequence
     alignment, masking of sequence alignments, and estimation of phylogenies and
     ancestral character states.

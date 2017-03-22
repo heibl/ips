@@ -7,7 +7,7 @@
 phylo2mafft(phy, file)
 }
 \arguments{
-\item{phy}{A phylogenetic tree of class \code{\link{"phylo"}}.}
+\item{phy}{A phylogenetic tree of class \code{\link{phylo}}.}
 
 \item{file}{A character string giving a filename. May be missing, in which
 case the results are only printed on the screen.}

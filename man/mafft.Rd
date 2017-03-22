@@ -46,12 +46,12 @@ MAFFT, that are not included in \code{mafft} such as, e.g.,
 \item{thread}{Integer giving the number of physical cores MAFFT should use; 
 with \code{thread = -1} the number of cores is determined automatically.}
 
-\item{quiet}{Logical, if set to \code{TRUE}, mafft progress is printed out on
-the screen.}
-
-\item{path}{A character string giving the path to the MAFFT executable 
+\item{exec}{A character string giving the path to the MAFFT executable 
 including its name, e.g. something like \code{/user/local/bin/mafft} under 
 UNIX-alikes.}
+
+\item{quiet}{Logical, if set to \code{TRUE}, mafft progress is printed out on
+the screen.}
 }
 \value{
 A \code{matrix} of class \code{"DNAbin"} or \code{"AAbin"}.
