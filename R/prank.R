@@ -1,5 +1,6 @@
 ## This code is part of the ips package
 ## © C. Heibl 2014 (last update 2015-10-30)
+#' @export
 
 prank <- function(x, outfile = "PRANK", guidetree = NULL, 
          gaprate = 0.025, gapext = 0.75, path){
