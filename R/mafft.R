@@ -16,7 +16,7 @@
 #'   \code{"retree 1"} and \code{"retree 2"} are for speed-oriented alignment.
 #'   The default is \code{"auto"}, which lets MAFFT choose an appropriate
 #'   alignment method.
-#' @param maxiterate An integer giving the number of cycles of iterative
+#' @param maxiterate An integer giving the number of cycles ofa iterative
 #'   refinement to perform. Possible choices are \code{0}: progressive method,
 #'   no iterative refinement (default); \code{2}: two cycles of iterative
 #'   refinement; \code{1000}: at most 1000 cycles of iterative refinement.
@@ -32,12 +32,12 @@
 #'   \code{--adjustdirection}.
 #' @param thread Integer giving the number of physical cores MAFFT should use;
 #'   with \code{thread = -1} the number of cores is determined automatically.
-#' @param exec A character string giving the path to the MAFFT executable 
-#'   including its name, e.g. something like \code{/user/local/bin/mafft} under 
+#' @param exec A character string giving the path to the MAFFT executable
+#'   including its name, e.g. something like \code{/user/local/bin/mafft} under
 #'   UNIX-alikes.
 #' @param quiet Logical, if set to \code{TRUE}, mafft progress is printed out on
-#' @param type character, DNA or AA
-#'   the screen.
+#' the screen.
+#' @param file optional path where output should be stored
 #' @details \code{"localpair"} selects the \bold{L-INS-i} algorithm, probably
 #'   most accurate; recommended for <200 sequences; iterative refinement method
 #'   incorporating local pairwise alignment information.
@@ -76,12 +76,12 @@
 #' @seealso \code{\link{read.fas}} to import DNA sequences; \code{\link{prank}}
 #'   for another alignment algorithm; \code{\link{gblocks}} and
 #'   \code{\link{aliscore}} for alignment cleaning.
-#' @importFrom phangorn write.phyDat   
+#' @importFrom phangorn write.phyDat
 #' @export
 
 mafft <- function(x, y, add, method = "auto", maxiterate = 0,
   op = 1.53, ep = 0.0, gt, options,
-  thread = -1, exec, quiet){
+  thread = -1, exec, quiet, file){
 
   ## CHECKS and DEFINITIONS
   ## ----------------------
@@ -163,34 +163,25 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
     system(call.mafft, intern = FALSE, ignore.stdout = FALSE)
     res <- length(scan(fns[3], what = "c", quiet = TRUE))
     if (res != 0) {
-      #res <- read.fas(fns[3])
-      if (inherits(x, "DNAbin")) { res <- read.fas(fns[3], type ="DNA") }
-      if (inherits(x, "AAbin" )) {
-        res <- read.fas(fns[3], type  ="AAbin")
-      #   if(!missing(y)){
-      #     nam <- c(names(x), names(y))
-      #     names(res) <- nam
-      #   }else{
-      #     names(res) <- names(x)
-      # }
+      res <- read.fas(fns[3])
     }
   }
 
   ## execute MAFFT on WINDOWS
   ## ------------------------
-} else {
-  res <- system(call.mafft, intern = TRUE, ignore.stderr = FALSE)
-  if (length(grep("error|ERROR", res))){
-    res <- 0
-  }
   else {
-    if (inherits(x, "DNAbin")) {  res <- read.fas(fns[3], type ="DNA") }
-    if (inherits(x, "AAbin" )) {
-      res <- read.fas(fns[3], type  ="AA")
-      # rownames(res) <- names(seq)
+    res <- system(call.mafft, intern = TRUE, ignore.stderr = FALSE)
+    if (length(grep("error|ERROR", res))){
+      res <- 0
+    }
+    else {
+      res <- read.fas(fns[3])
     }
   }
-}
-unlink(fns[file.exists(fns)])
-res
+  unlink(fns[file.exists(fns)])
+  if(!missing(file)){
+    write.fas(res, file)
+  }else{
+    return(res)
+  }
 }
