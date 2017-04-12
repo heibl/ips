@@ -2,7 +2,7 @@
 ## © C. Heibl 2014 (last update 2017-03-22)
 #' @export
 
-read.fas <- function(x, text, type =c("AA", "DNA")){
+read.fas <- function(x, text){
 
   if (!missing(text)){
     x <- text
@@ -35,26 +35,14 @@ read.fas <- function(x, text, type =c("AA", "DNA")){
     obj[[i]] <- unlist(strsplit(gsub(" ", "", x[(start[i] + space):(start[i + 1] - 1)]), NULL))
   names(obj) <- taxnames
 
-  # dna_string <- c("n", "?", "-", "r", "y", "s", "w", "k", "m", "b", "d", "h", "v")
-  # if (!all(tolower(unlist(obj))  %in%  dna_string)){
-  if (type == "DNA"){
+  unique_for_AA <- c("Q","E","I","L","F","P","U","O","J","Z","X","*")
+  if(!any(unique(unlist(obj)) %in% unique_for_AA)){
     ## DNA sequences
     obj <- lapply(obj, tolower)
     obj <- as.DNAbin(obj)
   } else {
     ## AA sequences
     obj <- rpg::as.AAbin(obj)
-
-    ## CH [2017-03-17]
-    ## Hier gehts im Moment nicht weiter, da AAbin keine Listen unterstützt.
-    ## phangorn::read.aa gibt eine Fehlermeldung:
-    ## Fehler in phangorn::read.aa(x) :
-    ##   the first line of the file must contain the dimensions of the data
-    ## Es wäre wohl sinnvoll die AAbin Klasse zu erweitern
-
-    ## FK [2017-03-21]
-    ## habe die AAbin Klasse erweitert. Liegt aktuell im File 'AAbin_list.R'
-    ## in ips und wird als interne functionen geladen
   }
   if (length(unique(sapply(obj, length))) == 1)
     obj <- as.matrix(obj)
