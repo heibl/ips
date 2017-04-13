@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2017-03-22)
+## © C. Heibl 2014 (last update 2017-04-06)
 
 #' @title Sequence Alignment with MAFFT
 #' @description This function is a wrapper for MAFFT and can be used for
@@ -79,9 +79,9 @@
 #' @export
 
 mafft <- function(x, y, add, method = "auto", maxiterate = 0,
-  op = 1.53, ep = 0.0, gt, options,
-  thread = -1, exec, quiet){
-
+                  op = 1.53, ep = 0.0, gt, options,
+                  thread = -1, exec, quiet){
+  
   ## CHECKS and DEFINITIONS
   ## ----------------------
   if (!inherits(x, c("DNAbin", "AAbin")))
@@ -91,7 +91,7 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
   qut <- ifelse(quiet, " --quiet ", " ")
   if (missing(exec)) exec <- "/usr/local/bin/mafft"
   maxiterate <- match.arg(as.character(maxiterate), c("0", "2", "1000"))
-
+  
   ## temporary input/output files
   ## ----------------------------
   fns <- vector(length = 4)
@@ -99,9 +99,9 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
     fns[i] <- tempfile(pattern = "mafft", tmpdir = tempdir(), fileext = ".fas")
   unlink(fns[file.exists(fns)])
   method <- match.arg(method, c("auto", "localpair", "globalpair",
-    "genafpair", "parttree",
-    "retree 1", "retree 2"))
-
+                                "genafpair", "parttree",
+                                "retree 1", "retree 2"))
+  
   ## guide tree
   ## ----------
   if (missing(gt)){
@@ -119,32 +119,32 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
     phylo2mafft(gt, file = fns[4])
     gt <- paste(" --treein", fns[4], "")
   }
-
+  
   ## multithreading
   ## --------------
   thread <- paste("--thread", thread)
   thread <- paste(rep(" ", 2), collapse = thread)
-
+  
   ## additional arguments specified by the user
   ## ------------------------------------------
   if (missing(options)){
     options <- " "
   } else {
     options <- match.arg(options, c("--adjustdirection",
-      "--adjustdirectionaccurately"))
+                                    "--adjustdirectionaccurately"))
     options <- paste(options, collapse = " ")
     options <- paste(rep(" ", 2), collapse = options)
   }
-
+  
   ## write input files and prepare call to MAFFT
   ## -------------------------------------------
   if (missing(y)){
     if (inherits(x, "DNAbin")){ write.fas(x, fns[1])  }
     if (inherits(x, "AAbin")) { write.fas(x, fns[1]) }
     call.mafft <- paste(exec, " --", method, " --",
-      "maxiterate ", maxiterate, qut, "--op ", op,
-      " --ep ", ep, gt, options, thread,
-      fns[1], " > ", fns[3], sep = "")
+                        "maxiterate ", maxiterate, qut, "--op ", op,
+                        " --ep ", ep, gt, options, thread,
+                        fns[1], " > ", fns[3], sep = "")
   } else {
     if (!inherits(y, c("DNAbin", "AAbin"))) stop("'y' is not of class 'DNAbin' or 'AAbin'")
     if (missing(add)) add <- "addprofile"
@@ -155,41 +155,42 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
     call.mafft <- paste(exec, qut, add, fns[2], fns[1], ">", fns[3])
   }
   if (!quiet) message(call.mafft)
-
+  
   ## execute MAFFT on UNIX
   ## ---------------------
   if (os == "unix"){
     system(call.mafft, intern = FALSE, ignore.stdout = FALSE)
     res <- length(scan(fns[3], what = "c", quiet = TRUE))
     if (res != 0) {
-      #res <- read.fas(fns[3])
-      if (inherits(x, "DNAbin")) { res <- read.fas(fns[3], type ="DNA") }
-      if (inherits(x, "AAbin" )) {
-        res <- read.fas(fns[3], type  ="AAbin")
-      #   if(!missing(y)){
-      #     nam <- c(names(x), names(y))
-      #     names(res) <- nam
-      #   }else{
-      #     names(res) <- names(x)
+      res <- read.fas(fns[3])
+      # if (inherits(x, "DNAbin")) { res <- read.fas(fns[3], type ="DNA") }
+      # if (inherits(x, "AAbin" )) {
+      #   res <- read.fas(fns[3], type  ="AAbin")
+      #   #   if(!missing(y)){
+        #     nam <- c(names(x), names(y))
+        #     names(res) <- nam
+        #   }else{
+        #     names(res) <- names(x)
+        # }
+      # }
+    }
+    
+    ## execute MAFFT on WINDOWS
+    ## ------------------------
+  } else {
+    res <- system(call.mafft, intern = TRUE, ignore.stderr = FALSE)
+    if (length(grep("error|ERROR", res))){
+      res <- 0
+    }
+    else {
+      res <- read.fas(fns[3])
+      # if (inherits(x, "DNAbin")) {  res <- read.fas(fns[3], type ="DNA") }
+      # if (inherits(x, "AAbin" )) {
+      #   res <- read.fas(fns[3], type  ="AA")
+      #   # rownames(res) <- names(seq)
       # }
     }
   }
-
-  ## execute MAFFT on WINDOWS
-  ## ------------------------
-} else {
-  res <- system(call.mafft, intern = TRUE, ignore.stderr = FALSE)
-  if (length(grep("error|ERROR", res))){
-    res <- 0
-  }
-  else {
-    if (inherits(x, "DNAbin")) {  res <- read.fas(fns[3], type ="DNA") }
-    if (inherits(x, "AAbin" )) {
-      res <- read.fas(fns[3], type  ="AA")
-      # rownames(res) <- names(seq)
-    }
-  }
-}
-unlink(fns[file.exists(fns)])
-res
+  unlink(fns[file.exists(fns)])
+  res
 }

@@ -4,10 +4,12 @@
 \alias{terminalSisters}
 \title{Find Pairs of Sister Species}
 \usage{
-terminalSisters(phy)
+terminalSisters(phy, labels = TRUE)
 }
 \arguments{
 \item{phy}{An object of class \code{\link{phylo}}.}
+
+\item{labels}{Logical, indicating whether to return tip labels or tip numbers.}
 }
 \value{
 A list of which each element contains the tip labels
