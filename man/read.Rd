@@ -24,7 +24,7 @@ An matrix (aligned sequences)  or list (unaligned sequences) of class
   \code{DNAbin} or \code{AAbin}.
 }
 \description{
-Read DNA and amino acis sequences from FASTA, PHILIP, and NEXUS 
+Read DNA and amino acid sequences from FASTA, PHILIP, and NEXUS 
   formatted files.
 }
 \examples{
