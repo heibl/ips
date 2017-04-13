@@ -39,8 +39,8 @@ read.fas <- function(x, text){
 
   ## determine if sequences are DNA or AA:
   ## these strings are unique to amino acid sequences
-  aa_string <- c("e", "l", "i", "q", "f", "p")
-  if (any(tolower(unlist(obj))  %in%  aa_string)){
+  aa_string <- c("Q","E","I","L","F","P","U","O","J","Z","X","*")
+  if (any(toupper(unlist(obj))  %in%  aa_string)){
     ## AA sequences
     obj <- as.AAbin(obj)
   } else {

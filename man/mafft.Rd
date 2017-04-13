@@ -50,7 +50,9 @@ with \code{thread = -1} the number of cores is determined automatically.}
 including its name, e.g. something like \code{/user/local/bin/mafft} under 
 UNIX-alikes.}
 
-\item{quiet}{Logical, if set to \code{TRUE}, mafft progress is printed out on
+\item{quiet}{Logical, if set to \code{TRUE}, mafft progress is printed out on}
+
+\item{type}{character, DNA or AA
 the screen.}
 }
 \value{
