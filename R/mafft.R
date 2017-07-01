@@ -164,7 +164,7 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
   ## ---------------------
   if (os == "unix"){
     system(call.mafft, intern = FALSE, ignore.stdout = FALSE)
-    res <- (file.info(fns[3])$size > 0)
+    res <- (file.info(fns[3])$size > 1) #allow line break in empty file
     if (res != 0) {
       res <- read.dna(fns[3],format="fasta")
     }
