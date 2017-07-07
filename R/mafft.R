@@ -164,9 +164,9 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
   ## ---------------------
   if (os == "unix"){
     system(call.mafft, intern = FALSE, ignore.stdout = FALSE)
-    res <- length(scan(fns[3], what = "c", quiet = TRUE))
+    res <- (file.info(fns[3])$size > 1) #allow line break in empty file
     if (res != 0) {
-      res <- read.fas(fns[3])
+      res <- read.dna(fns[3],format="fasta")
     }
     ## execute MAFFT on WINDOWS
     ## ------------------------
@@ -176,7 +176,7 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
       res <- 0
     }
     else {
-      res <- read.fas(fns[3])
+      res <- read.dna(fns[3],format="fasta")
     }
   }
   unlink(fns[file.exists(fns)])
