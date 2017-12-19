@@ -25,7 +25,7 @@ accuracy-oriented methods for less than 200 sequences are
 The default is \code{"auto"}, which lets MAFFT choose an appropriate 
 alignment method.}
 
-\item{maxiterate}{An integer giving the number of cycles ofa iterative 
+\item{maxiterate}{An integer giving the number of cycles of iterative 
 refinement to perform. Possible choices are \code{0}: progressive method, 
 no iterative refinement (default); \code{2}: two cycles of iterative 
 refinement; \code{1000}: at most 1000 cycles of iterative refinement.}

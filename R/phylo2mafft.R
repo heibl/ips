@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2017-03-22)
+## © C. Heibl 2014 (last update 2017-11-28)
 
 #' @title Convert Trees for MAFFT
 #' @description Converts a phylogenetic tree of class \code{"phylo"} to a format
@@ -17,9 +17,11 @@
 #' @export
 
 phylo2mafft <- function(phy, file){
+  
+  if (!is.binary.tree(phy)) phy <- multi2di(phy)
 
   obj <- matrix(ncol = 2, nrow = 0)
-  repeat{
+  repeat {
     x <- terminal.clades(phy)
     x <- lapply(x, function(x, phy) phy$tip.label[x],
                 phy = phy)

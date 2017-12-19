@@ -2,26 +2,30 @@
 % Please edit documentation in R/pathd8.R
 \name{pathd8}
 \alias{pathd8}
-\title{PATHd8 
-This function is a wrapper for PATHd8 and can be used for phylogenetic dating, especially of large trees}
+\title{PATHd8}
 \usage{
 pathd8(phy, exec = "/Applications/PATHd8/PATHd8", seql, calibration)
 }
 \arguments{
-\item{phy}{object of class \code{\link{phylo}}}
+\item{phy}{An object of class \code{\link{phylo}}.}
 
-\item{exec}{path to PATHd8 program}
+\item{exec}{A character string giving the path to the PATHd8 program.}
 
 \item{seql}{sequence length of alignment}
 
-\item{calibration}{data.frame with 4 columns and as many rows as calibration points. Columns are: taxon 1; taxon 2; one of c("minage", "maxage", "fixage"); age.}
+\item{calibration}{A data frame with 4 columns and as many rows as 
+calibration points. Columns are: taxon 1; taxon 2; one of c("minage", 
+"maxage", "fixage"); age.}
 }
 \value{
-tree list of ultrametric trees returned from PATHd8 of class \code{\link{phylo}}. First tree is PATHd8 chronogram, which is a calibrated ultrametric tree. Second is a PATH tree, which is a ultrametric tree without calibration.
+tree list of ultrametric trees returned from PATHd8 of class 
+  \code{\link{phylo}}. First tree is PATHd8 chronogram, which is a calibrated
+  ultrametric tree. Second is a PATH tree, which is a ultrametric tree 
+  without calibration.
 }
 \description{
-PATHd8 
-This function is a wrapper for PATHd8 and can be used for phylogenetic dating, especially of large trees
+This function is a wrapper for PATHd8 and can be used for
+  phylogenetic dating, especially of large trees
 }
 \examples{
 ## This example is taken from the PATHD8 manual
@@ -29,14 +33,18 @@ cal <- rbind(cal1 = c("Rat", "Ostrich", "minage", 260),
 cal2 = c("Human", "Platypus", "fixage", 125),
 cal3 = c("Alligator", "Ostrich", "minage", 150))
 colnames(cal) = c("tax1", "tax2", "age_type", "age")
-phy <- read.tree(text = "((((Rat:0.007148,Human:0.001808):0.024345,Platypus:0.016588):0.012920,(Ostrich:0.018119,Alligator:0. 006232):0.004708):0.028037,Frog:0);")
+phy <- read.tree(text = paste0("((((Rat:0.007148,Human:0.001808):0.024345,Platypus:0.016588):0.012920,",
+                               "(Ostrich:0.018119,Alligator:0. 006232):0.004708):0.028037,Frog:0);")
 seql <- 1823
 pathd8(phy, exec = "/Applications/PATHd8/PATHd8", seql = seql, calibration = cal)
 }
 \references{
-Britton et al (2006). PATHd8---a new method for estimating divergence times in large phylogenetic trees without a molecular clock. Available from the authors (www.math.su.se/PATHd8)
+Britton et al (2006). PATHd8---a new method for estimating 
+  divergence times in large phylogenetic trees without a molecular clock. 
+  Available from the authors (www.math.su.se/PATHd8)
 
-Britton et al. (2007). Estimating divergence times in large phylogenetic trees. Systematic biology. 56:741--752
+Britton et al. (2007). Estimating divergence times in large 
+  phylogenetic trees. Systematic biology. 56:741--752
 }
 \author{
 Franz-Sebastian Krah

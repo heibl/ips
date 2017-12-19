@@ -1,10 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
 ^dev$
 >>>>>>> origin/master
-=======
-^dev$
->>>>>>> origin/master
+^deprecated$

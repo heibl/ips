@@ -17,7 +17,7 @@
 #'   \code{"retree 1"} and \code{"retree 2"} are for speed-oriented alignment. 
 #'   The default is \code{"auto"}, which lets MAFFT choose an appropriate 
 #'   alignment method.
-#' @param maxiterate An integer giving the number of cycles ofa iterative 
+#' @param maxiterate An integer giving the number of cycles of iterative 
 #'   refinement to perform. Possible choices are \code{0}: progressive method, 
 #'   no iterative refinement (default); \code{2}: two cycles of iterative 
 #'   refinement; \code{1000}: at most 1000 cycles of iterative refinement.
@@ -95,6 +95,7 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
   qut <- ifelse(quiet, " --quiet ", " ")
   if (missing(exec)) exec <- "/usr/local/bin/mafft"
   maxiterate <- match.arg(as.character(maxiterate), c("0", "2", "1000"))
+  if (is.matrix(x)) x <- as.list(x)
   
   ## temporary input/output files
   ## ----------------------------
@@ -116,8 +117,6 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
     if (!all(names(x) %in% gt$tip.label))
       stop("guide tree does not match sequence names")
     gt$tip.label <- match(names(x), gt$tip.label)
-    if (!is.binary.tree(gt))
-      gt <- multi2di(gt)
     if (is.null(gt$edge.length))
       gt$edge.length <- rep(1, nrow(gt$edge))
     phylo2mafft(gt, file = fns[4])
@@ -151,6 +150,7 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
                         fns[1], " > ", fns[3], sep = "")
   } else {
     if (!inherits(y, c("DNAbin", "AAbin"))) stop("'y' is not of class 'DNAbin' or 'AAbin'")
+    if (is.matrix(y)) y <- as.list(y)
     if (missing(add)) add <- "addprofile"
     add <- match.arg(add, c("add", "addprofile"))
     add <- paste("--", add, sep = "")

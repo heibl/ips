@@ -1,11 +1,12 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2016-12-06)
+## © C. Heibl 2014 (last update 2017-11-28)
 
 #' @export
 
 tipHeights <- function(phy){
   
-  if ( !inherits(phy, "phylo") ) stop("'phy' is not of class 'phylo'")
+  if (!inherits(phy, "phylo")) stop("'phy' is not of class 'phylo'")
+  if (is.null(phy$edge.length)) stop("'phy' has no branch lengths")
   
   ## sum up heights from tip to root
   ## -------------------------------

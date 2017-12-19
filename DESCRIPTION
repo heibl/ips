@@ -8,6 +8,7 @@ Depends: R (>= 3.2.0),
     ape
 Imports:
     phangorn,
+    plyr,
     seqinr,
     XML
 Description: Functions that wrap popular phylogenetic software for sequence
