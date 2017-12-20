@@ -28,15 +28,18 @@ This function is a wrapper for PATHd8 and can be used for
   phylogenetic dating, especially of large trees
 }
 \examples{
+\dontrun{
 ## This example is taken from the PATHD8 manual
 cal <- rbind(cal1 = c("Rat", "Ostrich", "minage", 260), 
 cal2 = c("Human", "Platypus", "fixage", 125),
 cal3 = c("Alligator", "Ostrich", "minage", 150))
 colnames(cal) = c("tax1", "tax2", "age_type", "age")
-phy <- read.tree(text = paste0("((((Rat:0.007148,Human:0.001808):0.024345,Platypus:0.016588):0.012920,",
-                               "(Ostrich:0.018119,Alligator:0. 006232):0.004708):0.028037,Frog:0);")
+phy <- read.tree(text = paste0("((((Rat:0.007148,Human:0.001808):0.024345,",
+                               "Platypus:0.016588):0.012920,(Ostrich:0.018119,",
+                               "Alligator:0. 006232):0.004708):0.028037,Frog:0);")
 seql <- 1823
 pathd8(phy, exec = "/Applications/PATHd8/PATHd8", seql = seql, calibration = cal)
+}
 }
 \references{
 Britton et al (2006). PATHd8---a new method for estimating 
