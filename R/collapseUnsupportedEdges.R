@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2016-11-23)
+## © C. Heibl 2014 (last update 2018-01-24)
 
 #' @title Collapse Unsupported Edges/Branches in a Phylogeny
 #' @description Given a set of node support values (e.g., bootstrap 
@@ -19,15 +19,17 @@
 #' ## collapse clades with < 70 BP
 #' tr <- collapseUnsupportedEdges(ips.tree, "node.label", 70)
 #' ## show new topology
+#' par(mfrow = c(1, 2))
+#' plot(ips.tree, no.margin = TRUE)
+#' nodelabels(ips.tree$node.label, cex = .5, frame = "n", adj = c(0, .5))
 #' plot(tr, no.margin = TRUE)
+#' @importFrom ape Ntip
 #' @export
 
-collapseUnsupportedEdges <- function(phy, value, cutoff){
+collapseUnsupportedEdges <- function(phy, value = "node.label", cutoff){
   
-  if ( !inherits(phy, "phylo") ) 
+  if (!inherits(phy, "phylo")) 
     stop ("'phy' is not of class 'phylo'")
-  
-  if ( missing(value) ) value <- "node.label"
   
   stat <- as.numeric(phy[[value]])
   nt <- Ntip(phy)
@@ -38,7 +40,7 @@ collapseUnsupportedEdges <- function(phy, value, cutoff){
   
   ## collapse nodes in post-order traversal!!
   ## ----------------------------------------
-  for ( i in rev(collapse) ){
+  for (i in rev(collapse)){
     
     #i <- rev(collapse)[1] # FOR DEBUGGING
     

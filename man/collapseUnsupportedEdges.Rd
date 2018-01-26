@@ -4,7 +4,7 @@
 \alias{collapseUnsupportedEdges}
 \title{Collapse Unsupported Edges/Branches in a Phylogeny}
 \usage{
-collapseUnsupportedEdges(phy, value, cutoff)
+collapseUnsupportedEdges(phy, value = "node.label", cutoff)
 }
 \arguments{
 \item{phy}{An object of class \code{\link{phylo}}.}
@@ -31,5 +31,8 @@ ips.tree$node.label
 ## collapse clades with < 70 BP
 tr <- collapseUnsupportedEdges(ips.tree, "node.label", 70)
 ## show new topology
+par(mfrow = c(1, 2))
+plot(ips.tree, no.margin = TRUE)
+nodelabels(ips.tree$node.label, cex = .5, frame = "n", adj = c(0, .5))
 plot(tr, no.margin = TRUE)
 }
