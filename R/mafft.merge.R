@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2017-12-20)
+## © C. Heibl 2014 (last update 2018-01-30)
 
 #' @title Profile Alignment with MAFFT
 #' @description Merge two or more DNA or amino acis sequence alignment by
@@ -26,16 +26,16 @@
 
 mafft.merge <- function(subMSA, method = "auto", gt,
                         thread = -1, exec, quiet = TRUE){
-
+  
   quiet <- ifelse(quiet, "--quiet", "")
-
+  
   ## set method
   ## ----------
   method <- match.arg(method, c("auto", "localpair", "globalpair",
                                 "genafpair", "parttree",
                                 "retree 1", "retree 2"))
   method <- paste("--", method, sep = "")
-
+  
   ## guide tree
   ## ----------
   if (missing(gt)){
@@ -44,7 +44,7 @@ mafft.merge <- function(subMSA, method = "auto", gt,
     phylo2mafft(gt)
     gt <- "--treein tree.mafft"
   }
-
+  
   ## create sub-MSA table
   ## --------------------
   n <- sapply(subMSA, nrow)
@@ -55,13 +55,13 @@ mafft.merge <- function(subMSA, method = "auto", gt,
     init <- max(nn)
     subMSAtable[i] <- paste(nn, collapse = " ")
   }
-
+  
   ## prepare sequences input file
   ## ----------------------------
   subMSA <- lapply(subMSA, as.list)
   subMSA <- do.call(c, subMSA)
   names(subMSA) <- gsub("^.+[.]", "", names(subMSA))
-
+  
   ## write input files
   ## -----------------
   fns <- vector(length = 3)
@@ -69,22 +69,27 @@ mafft.merge <- function(subMSA, method = "auto", gt,
     fns[i] <- tempfile(pattern = "mafft",
                        tmpdir = tempdir()#,
                        #fileext = c(".txt", ".fas", ".fas")
-                       )
+    )
   write(subMSAtable, fns[1])
   write.fas(subMSA, fns[2])
-
+  
   ## assemble call to MAFFT
   ## ----------------------
   call.mafft <- paste(exec, method,
                       "--merge", fns[1],
                       quiet, gt, "--thread", thread,
                       fns[2], ">", fns[3])
-#   cat(call.mafft)
-#   if ( os == "unix" ){
-    system(call.mafft, intern = FALSE, ignore.stdout = FALSE)
-    res <- length(scan(fns[3], what = "c", quiet = TRUE))
-    if (res != 0) res <- read.fas(fns[3])
-#   }
+  #   cat(call.mafft)
+  #   if ( os == "unix" ){
+  system(call.mafft, intern = FALSE, ignore.stdout = FALSE)
+  res <- length(scan(fns[3], what = "c", quiet = TRUE))
+  if (res != 0) {
+    res <- read.FASTA(fns[3])
+    if (length(unique(sapply(res, length))) == 1){
+      res <- as.matrix(res)
+    }
+  }
+  #   }
   unlink(fns[file.exists(fns)])
   return(res)
 }

@@ -1,6 +1,13 @@
 \name{ips-news}
 \alias{ips-news} 
 \title{News and changes to the ips (formerly: phyloch) package}
+\section{VERSION 0.0.11}{
+\subsection{NEW FEATURES}{
+  \itemize{
+  \item The new function \code{forceEqualTipHeights} corrects small rounding errors in edge lengths such that the resulting phylogeny will pass \code{ape::is.ultrametric}.
+  }
+}
+}
 \section{VERSION 0.0-10}{
 \subsection{IMPROVED FEATURES}{
   \itemize{
