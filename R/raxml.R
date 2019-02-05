@@ -1,10 +1,128 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2017-03-08)
+## © C. Heibl 2014 (last update 2019-02-05)
 
-#' @export
+#'@title Maximum Likelihood Tree Estimation with RAxML
+#'@description Provides an interface to the C program \bold{RAxML} (see
+#'  Reference section) for maximum likelihood estimation of tree topology and/or
+#'  branch lengths, rapid and conventional non-parametric bootstrapping, mapping
+#'  splits onto individual topologies, and a lot more. See the RAxML manual for
+#'  details, especially if you are a new user of RAxML.
+#'@param DNAbin A matrix of DNA sequences of class \code{\link{DNAbin}}.
+#'@param m A vector of mode \code{"character"} defining a model of molecular
+#'  evolution; currently only GTR model available.
+#'@param f A vector of mode \code{"character"} selecting an RAxML algorithm
+#'  analogous to the \code{-f} flag (see Detail section and RAxML manual).
+#'@param N Either of mode \code{"integer"} or \code{"character"}. Integers give
+#'  the number of independant searches on different starting tree or replicates
+#'  in bootstrapping. Alternatively, one of four bootstopping criteria can be
+#'  chosen: \code{"autoFC"}, \code{"autoMR"}, \code{"autoMRE"}, or
+#'  \code{"autoMRE_IGN"}.
+#'@param p Integer, setting a random seed for the parsimony starting trees.
+#'@param b Integer, setting a random seed for bootstrapping.
+#'@param x Integer, setting a random seed for rapid bootstrapping.
+#'@param k Logical, if \code{TRUE}, the branch lengths of bootstrapped trees are
+#'  recorded.
+#'@param weights A vector of mode \code{"numeric"} giving integers to assign
+#'  individual weights to each column of the alignment. (-a)
+#'@param partitions A data frame giving the partitions of the alignment.
+#'@param outgroup A vector of mode \code{"character"} containing the names of
+#'  the outgroup taxa.
+#'@param backbone A \code{\link{phylo}} object representing a backbone tree.
+#'@param file A vector of mode \code{"character"} giving a name for the output
+#'  files.
+#'@param exec A vector of mode \code{"character"} giving the path to the
+#'  directory containing the RAxML executable. The default value will work on
+#'  Mac OS X if the folder containing the executale is renamed to
+#'  \code{"RAxML-8.0.3"}.
+#'@param threads Integer, giving the number of parallel threads to use (PTHREADS
+#'  only).
+#'@details There are some limitations of this wrapper compared to RAxML run
+#'  directly from the command line. \enumerate{ \item Only DNA is allowed as
+#'  data type. \item Option \code{f} can only take a limited number of values
+#'  (\code{d}, \code{a}). } % close enumerate
+#'
+#'  RAxML needs the specification of random seeds for parsimony estimation of
+#'  starting trees and for bootstrap resampling. The corresponding argument
+#'  names in \code{raxml} are identical to the flags used by RAxML (\code{-p},
+#'  \code{-b}, and \code{-x}). If you choose not to give any values,
+#'  \code{raxml} will generate a (different) value for each requiered random
+#'  seed every time it is called. Be aware that \code{\link{set.seed}} will work
+#'  only for \code{p}, but not for \code{b} or \code{x}.
+#'@return A list with a variable number of elements, depending on the analysis
+#'  chosen: \tabular{ll}{ \code{"info"} \tab RAxML log file as character
+#'  string\cr \code{"bestTree"} \tab MLE of tree\cr \code{"bipartitions"} \tab
+#'  MLE of tree annotated with bootstrap proportions\cr \code{"bootstrap"} \tab
+#'  bootstrapped trees\cr }
+#'@references (in chronolocigal order)
+#'
+#'  Stamatakis, A., T. Ludwig and H. Meier. 2004. RAxML-III: A fast program for
+#'  maximum likelihood-based inference of large phylogenetic trees.
+#'  \emph{Bioinformatics} \bold{1}: 1--8.
+#'
+#'  Stamatakis, A. 2006. RAxML-VI-HPC: Maximum likelihood-based phylogenetic
+#'  analyses with thousands of taxa and mixed models. \emph{Bioinformatics}
+#'  \bold{22}: 2688--2690.
+#'
+#'  Stamatakis, A., P. Hoover, and J. Rougemont. 2008. A rapid bootstrap
+#'  algorithm for the RAxML web-servers. \emph{Syst. Biol.} \bold{75}: 758--771.
+#'
+#'  Pattengale, N. D., M. Alipour, O. R. P. Bininda-Emonds, B. M. E. Moret, and
+#'  A. Stamatakis. 2010. How many bootstrap replicates are necessary?
+#'  \emph{Journal of Computational Biology} \bold{17}: 337-354.
+#'
+#'  Stamatakis, A. 2014. RAxML Version 8: A tool for phylogenetic analysis and
+#'  post-analysis of large phylogenies. \emph{Bioinformatics} Advance Access.
+#'@note RAxML is a C program and the source code is not contained in this
+#'  package. This means that in order to run this function you will need to
+#'  install RAxML yourself. See the 'Software' tab on
+#'  \url{http://www.exelixis-lab.org/} for the most recent documentation and
+#'  source code of RAxML. Depending on where you chose to install RAxML, you
+#'  need to adjust the \code{exec} argument.
+#'
+#'  \code{raxml} was last tested and running fine on Mac OS X with RAxML 8.0.29.
+#'  Please be aware that calling third-party software from within R is a
+#'  platform-specific process and I cannot guarantee that \code{raxml} will
+#'  behave properly on any system.
+#'@seealso \code{\link{raxml.partitions}} to store partitioning information in a
+#'  data frame suitable for input as \code{partitions} argument in \code{raxml}.
+#'@examples
+#'## bark beetle sequences
+#'data(ips.cox1)
+#'data(ips.16S)
+#'data(ips.28S)
+#'
+#'ips <- cbind(ips.cox1, ips.16S, ips.28S,
+#'             fill.with.gaps = TRUE)
+#'
+#'exec <- "/Applications/RAxML-code/standard-RAxML/raxmlHPC-PTHREADS-AVX"
+#'w <- sample(1:5, ncol(ips.cox1), replace = TRUE)
+#'
+#'\dontrun{
+#'
+#'# tree search with GTRCAT and GTRGAMMA
+#'tr <- raxml(ips.cox1, f = "d", N = 2, p = 1234,
+#'            exec = exec) # -1743.528461
+#'tr <- raxml(ips.cox1, m = "GTRGAMMA", f = "d", N = 2, p = 1234,
+#'            exec = exec)
+#'    
+#'# Applying weights to columns                   
+#'tr <- raxml(ips.cox1, f = "d", N = 2, p = 1234,
+#'            weights = w, exec = exec) # -1743.528461
+#'
+#'# rapid bootstrap
+#'tr <- raxml(ips.cox1, m = "GTRGAMMA",
+#'            f = "a", N = 10, p = 1234, x = 1234,
+#'            exec = exec)
+#'
+#'# rapid bootstrap with automatic halt
+#'tr <- raxml(ips.cox1, m = "GTRGAMMA",
+#'            f = "a", N = "autoMRE", p = 1234, x = 1234,
+#'            exec = exec)
+#'}
+#'@export
 
 raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
-                  partitions, outgroup, backbone = NULL, 
+                  weights, partitions, outgroup, backbone = NULL, 
                   file = "fromR", exec, threads){
   
   if (!inherits(DNAbin, "DNAbin")) stop("DNAbin is not of class 'DNAbin'")
@@ -19,15 +137,16 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
 	rin <- c(s = paste("-s ", file, ".phy", sep = ""),
 	         n = paste("-n", file),
 	         napt = paste("-n ", file, ".APT", sep = ""),
+	         weight = paste0(file, "-weights.txt"),
 	         partition = paste0(file, "-partitions.txt"),
 	         tree = paste0(file, "-backbone.tre"))
   
-	# clear previous runs with same tag
+	# Clear previous runs with same tag
 	# ---------------------------------
 	unlink(rin)
 	unlink(list.files(pattern = paste0("RAxML_[[:alpha:]]+[.]", file))) 
   
-  # substitution model
+  # Substitution model
   # ------------------
 	m <- match.arg(m, c("GTRCAT", "GTRCATX", 
 	                    "GTRCATI", "GTRCATIX",
@@ -37,22 +156,23 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
 	                    "ASC_GTRGAMMA", "ASC_GTRGAMMAX"))
   m <- paste("-m", m)
   
-  ## number of searches/replicates
+  ## Number of searches/replicates
   ## -----------------------------
   if (is.character(N)){
     N <- match.arg(N, c("autoFC", "autoMR", "autoMRE", "autoMRE_IGN"))
   }
   N <- paste("-N", N)
   
-  ## random seeds
+  ## Random seeds
   ## ------------
 	rs <- function(rseed, type = "p"){
-	  if ( missing(rseed) ) rseed <- sample(1:999999, 1)
-	  paste("-", type, " ",  rseed, sep = "")
+	  if (missing(rseed)) rseed <- sample(1:999999, 1)
+	  paste0("-", type, " ",  rseed)
 	}
-	p <- rs(p); x <- rs(x, type = "x")
+	p <- rs(p)
+	if (!missing(x)) x <- rs(x, type = "x")
   
-	## write sequences to input file
+	## Write sequences to input file
 	## -----------------------------
 	write.phy(DNAbin, paste(file, "phy", sep = "."))
 
@@ -62,7 +182,7 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
   rout <- paste("RAxML_", output.types, ".", file, sep = "")
   names(rout) <- output.types
   
-  ## algorithms
+  ## Algorithms
   ## ----------
   if (missing(f)) f <- "d"
   f <- match.arg(f, c("d", "a"))
@@ -71,7 +191,7 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
   if (!missing(b)) alg <- paste(alg, "-b", b)
   if (missing(N)) stop("the number of runs must be given (N)")
   
-  ## outgroup
+  ## Outgroup
   ## --------
   if (missing(outgroup)){
     o <- ""
@@ -85,8 +205,18 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
     o <- paste(outgroup, collapse = ",")
     o <- paste("-o", o)
   }
+  
+  ## Columns weights
+  ## ---------------
+  if (!missing(weights)){
+    if (length(weights) != ncol(DNAbin)) stop("number of 'weights' don't equal number of columns")
+    write(weights, rin["weight"], length(weights))
+    weights <- paste("-a", rin["weight"])
+  } else {
+    weights <- ""
+  }
 
-	# write partition file
+	# Write partition file
 	## ------------------
 	if (!missing(partitions)) {
     if (is.character(partitions)){
@@ -101,6 +231,8 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
     multipleModelFileName <- paste(" -q", rin["partition"], "")
 	} else multipleModelFileName <- ""
 
+  ## Backbone tree
+  ## -------------
 	if (!is.null(backbone)){
 	  write.tree(backbone, rin["tree"])
 	  g <- paste(" -g", rin["tree"], "")
@@ -108,14 +240,15 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
 	  g <- " "
 	}
   
-  ## save branch lengths of bootstrap replicates
+  ## Save branch lengths of bootstrap replicates
   ## -------------------------------------------
   if (missing(k)) k <- FALSE 
   k <- ifelse(k, "-k", "")
   
-	## prepare and execute call
+	## Prepare and execute call
   ## ------------------------
 	CALL <- paste(exec, alg, m, o, k,
+	              weights, 
 	              multipleModelFileName, N, g, 
 	              rin["s"], rin["n"])
   
@@ -127,7 +260,7 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
 	if (length(grep("exiting", res)))
 	  stop("\n", paste(res, collapse = "\n"))
 	
-	## read results
+	## Read results
 	## ------------
 	bestTree <- bipartitions <- bootstrap <- NULL
   info <- scan(rout["info"], what = "c", sep = "\n", quiet = TRUE)

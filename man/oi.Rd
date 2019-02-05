@@ -6,7 +6,8 @@
 \alias{oi}
 \title{Identification of Stem-Lineage-Edges and MRCAs}
 \usage{
-eoi(phy, node, group, regex = FALSE, stem = FALSE, monophyletic = FALSE)
+eoi(phy, node, group, regex = FALSE, stem = FALSE,
+  monophyletic = FALSE)
 
 noi(phy, group, regex = FALSE, stem = FALSE, monophyletic = FALSE)
 }

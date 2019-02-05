@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2016-11-16)
+## © C. Heibl 2014 (last update 2019-02-03)
 
 #' @title Trim Alignment Ends
 #' @description Trims both ends of a DNA sequence alignment to the first and 
@@ -37,6 +37,11 @@ trimEnds <- function(x, min.n.seq = 4){
   if ( !is.matrix(x) ){
     stop("'x' must be a matrix")
   }
+  
+  ## If alignment has less then min.n.seq sequences,
+  ## min.n.seq has to be adjusted
+  ## ----------------------------
+  min.n.seq <- min(nrow(x), min.n.seq)
   
   ## replace terminal '-' with 'N'
   ## -----------------------------

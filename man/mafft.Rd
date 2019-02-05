@@ -4,8 +4,8 @@
 \alias{mafft}
 \title{Sequence Alignment with MAFFT}
 \usage{
-mafft(x, y, add, method = "auto", maxiterate = 0, op = 1.53, ep = 0, gt,
-  options, thread = -1, exec, quiet, file)
+mafft(x, y, add, method = "auto", maxiterate = 0, op = 1.53,
+  ep = 0, gt, options, thread = -1, exec, quiet, file)
 }
 \arguments{
 \item{x}{An object of class \code{DNAbin} or \code{AAbin}.}

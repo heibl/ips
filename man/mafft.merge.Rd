@@ -4,7 +4,8 @@
 \alias{mafft.merge}
 \title{Profile Alignment with MAFFT}
 \usage{
-mafft.merge(subMSA, method = "auto", gt, thread = -1, exec, quiet = TRUE)
+mafft.merge(subMSA, method = "auto", gt, thread = -1, exec,
+  quiet = TRUE)
 }
 \arguments{
 \item{subMSA}{A list of objects of class \code{"\link{DNAbin}"} or

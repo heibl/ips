@@ -7,6 +7,11 @@
   \item The new function \code{forceEqualTipHeights} corrects small rounding errors in edge lengths such that the resulting phylogeny will pass \code{ape::is.ultrametric}.
   }
 }
+\subsection{IMPROVED FEATURES}{
+  \itemize{
+  \item The new argument \code{weights} in \code{raxml} allows to assign individual weights to each column of the alignment. It corresponds to the -a flag in RAxML (see The RAxML v8.2.x Manual for details)
+  }
+}
 }
 \section{VERSION 0.0-10}{
 \subsection{IMPROVED FEATURES}{
@@ -56,56 +61,6 @@
   \subsection{DEPRECATED FEATURES}{
     \itemize{
       \item The function \code{c.genes} has been superseeded by the cbind method for object of class \code{"DNAbin"} provided in the package ape; \code{c.genes} will be removed in one of the following versions.
-    }
-  }
-}
-\section{CHANGES IN PHYLOCH VERSION 1.5-6}{
-  \subsection{NEW FEATURES}{
-    \itemize{
-      \item There is a new function \code{fixedFontBinom}, inspired by Emmanuel Paradis' \code{fixedFontLabel} function in ape. The function turns the tiplabels of a tree into expressions and so can accomodate for taxonomic conventions, e.g., italic font for genera and species, the 'times' symbol for hybrid taxa and so on.
-    }
-  }
-}
-\section{CHANGES IN PHYLOCH VERSION 1.5-5}{
-\itemize{
-      \item Minor changes and recompilation for R 3.0.1.
-    }
-}
-\section{CHANGES IN PHYLOCH VERSION 1.5-4}{
-\itemize{
-      \item Minor changes.
-    }
-}
-\section{CHANGES IN PHYLOCH VERSION 1.5-3}{
-\itemize{
-      \item Minor changes and recompilation for R 3.0.0.
-    }
-}
-\section{CHANGES IN PHYLOCH VERSION 1.5-2}{
-  \subsection{IMPROVED FEATURES}{
-  \itemize{
-      \item \code{box.clades} and \code{box.tips} have been rewritten and work more cleanly now. Yet, they still support only directions  'rightwards' and 'leftwards' in phylograms. The argument 'align' in box.tips() has now an additional possible value ("tipwise"), which now is the default.
-    }
-  }
-}
-\section{CHANGES IN PHYLOCH VERSION 1.5-1}{
-  \subsection{NEW FEATURES}{
-  \itemize{
-      \item Argument \code{quiet} added to \code{mafft} and \code{c.genes} to be able to suppress screen output by both functions.
-    }
-  }
-}   
-\section{CHANGES IN PHYLOCH VERSION 1.5-0}{
-    \subsection{BUG FIXES}{
-    \itemize{
-      \item \code{fixNodes} did not work on some ladderized trees. This is (hopefully) now fixed, but users are still encouraged to report any peculiarities. A this stage it might still be good to doublecheck if a unknown tree is manipulated for the first time. (Thanks to Ingo Michalak and Johan Nylander for bug report.) 
-
-    }
-    }
-  \subsection{NEW FEATURES}{
-    \itemize{
-      \item This ChangeLog is included.
-      \item The stratigraphic chart 2012 is provided for \code{axisGeo}; see ?strat2012 for details. (Thanks to Lars Nauheimer for providing the data frame).
     }
   }
 }
