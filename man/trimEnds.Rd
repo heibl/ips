@@ -9,27 +9,28 @@ trimEnds(x, min.n.seq = 4)
 \arguments{
 \item{x}{An object of class \code{DNAbin}.}
 
-\item{min.n.seq}{A \code{numeric} giving the required minimum number of sequences 
-having an non-ambiguous base character (a, c, g, t) in the first and last 
-position of the alignment; defaults to \code{4}, which is the minimum number 
-of sequences needed to produce a non-trivial unrooted topology.}
+\item{min.n.seq}{A \code{numeric} giving the required minimum number of
+sequences having an non-ambiguous base character (a, c, g, t) in the first
+and last position of the alignment; defaults to \code{4}, which is the
+minimum number of sequences needed to produce a non-trivial unrooted
+topology. Can also be given as a fraction.}
 }
 \value{
 An object of class \code{DNAbin}.
 }
 \description{
-Trims both ends of a DNA sequence alignment to the first and 
- last alignment positions that contain a minimum number of IUPAC base 
- characters (\code{"a"}, \code{"c"}, \code{"g"}, \code{"t"}, \code{"r"}, 
- \code{"y"}, \code{"s"}, \code{"w"}, \code{"k"}, \code{"m"}, \code{"b"}, 
- \code{"d"}, \code{"h"}, \code{"v"}). In addition, all gap characters 
- (\code{"-"}) beyond the first and last base characters of each sequence 
- are replaced by the  character \code{"n"}.
+Trims both ends of a DNA sequence alignment to the first and
+  last alignment positions that contain a minimum number of IUPAC base
+  characters (\code{"a"}, \code{"c"}, \code{"g"}, \code{"t"}, \code{"r"},
+  \code{"y"}, \code{"s"}, \code{"w"}, \code{"k"}, \code{"m"}, \code{"b"},
+  \code{"d"}, \code{"h"}, \code{"v"}). In addition, all gap characters
+  (\code{"-"}) beyond the first and last base characters of each sequence are
+  replaced by the  character \code{"n"}.
 }
 \examples{
 # simple example alignment:
-x <- structure(list(nb = 5, seq = c("acaaggtaca", "-caaggtac-", 
-"acaaggtaca", "aca--gtaca", "-ccaggta--"), nam = LETTERS[1:5]), 
+x <- structure(list(nb = 5, seq = c("acaaggtaca", "-caaggtac-",
+"acaaggtaca", "aca--gtaca", "-ccaggta--"), nam = LETTERS[1:5]),
 .Names = c("nb", "seq", "nam"), class = "alignment")
 # convert to DNAbin:
 x <- as.DNAbin(x)

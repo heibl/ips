@@ -107,7 +107,7 @@ w <- sample(1:5, ncol(ips.cox1), replace = TRUE)
 
 \dontrun{
 
-# tree search with GTRCAT and GTRGAMMA
+# Simple tree search with GTRCAT and GTRGAMMA
 tr <- raxml(ips.cox1, f = "d", N = 2, p = 1234,
            exec = exec) # -1743.528461
 tr <- raxml(ips.cox1, m = "GTRGAMMA", f = "d", N = 2, p = 1234,
@@ -117,12 +117,12 @@ tr <- raxml(ips.cox1, m = "GTRGAMMA", f = "d", N = 2, p = 1234,
 tr <- raxml(ips.cox1, f = "d", N = 2, p = 1234,
            weights = w, exec = exec) # -1743.528461
 
-# rapid bootstrap
+# Rapid bootstrap
 tr <- raxml(ips.cox1, m = "GTRGAMMA",
            f = "a", N = 10, p = 1234, x = 1234,
            exec = exec)
 
-# rapid bootstrap with automatic halt
+# Rapid bootstrap with automatic halt
 tr <- raxml(ips.cox1, m = "GTRGAMMA",
            f = "a", N = "autoMRE", p = 1234, x = 1234,
            exec = exec)

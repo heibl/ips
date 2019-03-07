@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2017-11-28)
+## © C. Heibl 2014 (last update 2019-03-07)
 
 #' @title Convert Trees for MAFFT
 #' @description Converts a phylogenetic tree of class \code{"phylo"} to a format
@@ -13,12 +13,13 @@
 #' @references The MAFFT website:
 #'   \url{http://mafft.cbrc.jp/alignment/software/index.html}
 #' @seealso \code{\link{mafft}} for an interface to MAFFT.
+#' @importFrom ape is.binary multi2di
 #' @importFrom utils write.table
 #' @export
 
 phylo2mafft <- function(phy, file){
   
-  if (!is.binary.tree(phy)) phy <- multi2di(phy)
+  if (!is.binary(phy)) phy <- multi2di(phy)
 
   obj <- matrix(ncol = 2, nrow = 0)
   repeat {

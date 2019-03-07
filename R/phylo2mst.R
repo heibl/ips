@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2016 (last update 2016-11-15)
+## © C. Heibl 2016 (last update 2019-03-07)
 
 ## WORK UNDER PROGRESS
 ## - cannot handle polytomies
@@ -17,12 +17,13 @@
 #' plot(phy)
 #' mst <- phylo2mst(phy)
 #' plot(mst)
+#' @importFrom ape drop.tip is.binary Ntip
 #' @export 
 
 phylo2mst <- function(phy){
   
   ## do some checks:
-  if ( !is.binary.tree(phy) ) stop("cannot handle polytomies")
+  if (!is.binary(phy)) stop("cannot handle polytomies")
   
   ## create empty object of class mst:
   mst <- matrix(data = 0, nrow = Ntip(phy), ncol = Ntip(phy),
@@ -33,15 +34,15 @@ phylo2mst <- function(phy){
   breakafter <- FALSE
   repeat {
     tp <- terminalSisters(phy)
-    for ( j in seq_along(tp) ){
+    for (j in seq_along(tp)){
       
-      if ( Ntip(phy) == 2 ) breakafter <- TRUE
+      if (Ntip(phy) == 2) breakafter <- TRUE
       tpp <- tp[[j]]
       mst[tpp[1], tpp[2]] <- 1
       mst[tpp[2], tpp[1]] <- 1
-      if ( Ntip(phy) > 2 ) phy <- drop.tip(phy, tpp[2])
+      if (Ntip(phy) > 2) phy <- drop.tip(phy, tpp[2])
     }
-    if ( breakafter ) break
+    if (breakafter) break
   }
   
   mst

@@ -1,25 +1,26 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2019-02-03)
+## © C. Heibl 2014 (last update 2019-02-06)
 
 #' @title Trim Alignment Ends
-#' @description Trims both ends of a DNA sequence alignment to the first and 
-#'  last alignment positions that contain a minimum number of IUPAC base 
-#'  characters (\code{"a"}, \code{"c"}, \code{"g"}, \code{"t"}, \code{"r"}, 
-#'  \code{"y"}, \code{"s"}, \code{"w"}, \code{"k"}, \code{"m"}, \code{"b"}, 
-#'  \code{"d"}, \code{"h"}, \code{"v"}). In addition, all gap characters 
-#'  (\code{"-"}) beyond the first and last base characters of each sequence 
-#'  are replaced by the  character \code{"n"}.
+#' @description Trims both ends of a DNA sequence alignment to the first and
+#'   last alignment positions that contain a minimum number of IUPAC base
+#'   characters (\code{"a"}, \code{"c"}, \code{"g"}, \code{"t"}, \code{"r"},
+#'   \code{"y"}, \code{"s"}, \code{"w"}, \code{"k"}, \code{"m"}, \code{"b"},
+#'   \code{"d"}, \code{"h"}, \code{"v"}). In addition, all gap characters
+#'   (\code{"-"}) beyond the first and last base characters of each sequence are
+#'   replaced by the  character \code{"n"}.
 #' @param x An object of class \code{DNAbin}.
-#' @param min.n.seq A \code{numeric} giving the required minimum number of sequences 
-#' having an non-ambiguous base character (a, c, g, t) in the first and last 
-#' position of the alignment; defaults to \code{4}, which is the minimum number 
-#' of sequences needed to produce a non-trivial unrooted topology.
+#' @param min.n.seq A \code{numeric} giving the required minimum number of
+#'   sequences having an non-ambiguous base character (a, c, g, t) in the first
+#'   and last position of the alignment; defaults to \code{4}, which is the
+#'   minimum number of sequences needed to produce a non-trivial unrooted
+#'   topology. Can also be given as a fraction.
 #' @return An object of class \code{DNAbin}.
 #' @seealso \code{\link{deleteEmptyCells}}, \code{\link{deleteGaps}}
-#' @examples 
+#' @examples
 #' # simple example alignment:
-#' x <- structure(list(nb = 5, seq = c("acaaggtaca", "-caaggtac-", 
-#' "acaaggtaca", "aca--gtaca", "-ccaggta--"), nam = LETTERS[1:5]), 
+#' x <- structure(list(nb = 5, seq = c("acaaggtaca", "-caaggtac-",
+#' "acaaggtaca", "aca--gtaca", "-ccaggta--"), nam = LETTERS[1:5]),
 #' .Names = c("nb", "seq", "nam"), class = "alignment")
 #' # convert to DNAbin:
 #' x <- as.DNAbin(x)
@@ -36,6 +37,12 @@ trimEnds <- function(x, min.n.seq = 4){
   }
   if ( !is.matrix(x) ){
     stop("'x' must be a matrix")
+  }
+  
+  ## Turn fraction into numbers
+  ## --------------------------
+  if (min.n.seq < 1){
+    min.n.seq <- ceiling(nrow(x) * min.n.seq)
   }
   
   ## If alignment has less then min.n.seq sequences,
