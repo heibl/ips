@@ -1,0 +1,26 @@
+language: r
+cache: packages
+
+r_packages:
+  - devtools
+
+r_github_packages:
+  - jimhester/covr
+  - jimhester/lintr
+  - MangoTheCat/goodpractice
+
+after_success:
+  - Rscript -e 'lintr::lint_package()'
+  - Rscript -e 'covr::codecov()'
+  - Rscript -e 'goodpractice::gp()'
+
+after_failure:
+  - cat /home/travis/build/richelbilderbeek/ips/..Rcheck/00install.out
+  - cat /home/travis/build/richelbilderbeek/ips/..Rcheck/00check.log
+  - cd ~; find . | egrep "beast"
+  - cd ~; find . | egrep "\.log"
+  - cd ~; find . | egrep "\.trees"
+  - cd ~; find . | egrep "\.xml"
+  - cd ~; find . | egrep "\.xml\.state"
+  - cd ~; find . | egrep "\.fasta"
+  - cat /home/travis/build/richelbilderbeek/ips/..Rcheck/tests/testthat/testthat.log
