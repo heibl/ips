@@ -32,6 +32,26 @@ collapseUnsupportedEdges <- function(phy, value = "node.label", cutoff){
     stop ("'phy' is not of class 'phylo'")
   
   stat <- as.numeric(phy[[value]])
+  
+  ## Are values posterior probabilites or
+  ## bootstrap derived percentages?
+  pp <- ifelse(max(stat, na.rm = TRUE) <= 1, TRUE, FALSE)
+  
+  ## Adapt cutoff if necessary
+  if (pp){
+    if (cutoff > 1){
+      cat("\nadjusted cutoff from", cutoff)
+      cutoff <- cutoff / 100
+      cat(" to", cutoff)
+    } 
+  } else {
+    if (cutoff <= 1) {
+      cat("\nadjusted cutoff from", cutoff)
+      cutoff <- cutoff * 100
+      cat(" to", cutoff)
+    }
+  }
+  
   nt <- Ntip(phy)
   root.node <- nt + 1
   collapse <- which(stat < cutoff) + nt
