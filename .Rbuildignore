@@ -5,3 +5,4 @@
 ^dev$
 >>>>>>> origin/master
 ^deprecated$
+^cran-comments.md$
