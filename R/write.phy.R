@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2016-11-07)
+## © C. Heibl 2014 (last update 2019-06-27)
 
 #' @export
 
@@ -12,20 +12,18 @@ write.phy <- function(x, file, block.width = FALSE,
 	ntax <- nrow(x)
 	nchar <- ncol(x)
   
-														
 	# taxon names
 	# -----------
 	taxnames <- rownames(x)
 	
-	if ( strict ){
+	if (strict){
 		taxnames <- substring(taxnames, 1, truncate)
 		missing <- 10 - unlist(lapply(strsplit(taxnames, ""), length))
 		for (i in seq(along = taxnames))
 			taxnames[i] <- paste(taxnames[i], paste(rep("*",
 			    missing[i]), collapse = ""), sep = "")
 		if (any(duplicated(taxnames))) 
-		    cat("WARNING: Truncation of taxon names created", 
-		        "identical strings.")
+		    warning("truncation of taxon names created identical strings")
 	}
 	else {
 		xx <- nchar(taxnames)
@@ -36,7 +34,7 @@ write.phy <- function(x, file, block.width = FALSE,
 	
 	# indices of partitions: pt
 	# -------------------------
-	if ( !block.width ){
+	if (!block.width){
     block.width <- nchar
 	} else {
     if ( block.width > nchar ){
@@ -66,7 +64,7 @@ write.phy <- function(x, file, block.width = FALSE,
 	
 	# write PHYLIP file
 	# -----------------
-	if ( missing(file) ) {
+	if (missing(file)) {
 	  ## return character vector:
 	  return(phy) 
 	} else {

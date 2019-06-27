@@ -84,6 +84,10 @@ Explanation of the routine taken from the Online Documentation:
   If you have problems getting the function to work with a newer version of
   Gblocks, please contact the package maintainer.
 }
+\examples{
+data(ips.28S)
+\dontrun{gblocks(ips.28S)}  
+}
 \references{
 Castresana, J. 2000. Selection of conserved blocks from multiple
   alignments for their use in phylogenetic analysis. \emph{Molecular Biology
@@ -93,10 +97,10 @@ Talavera, G., and J. Castresana. 2007. Improvement of phylogenies
   after removing divergent and ambiguously aligned blocks from protein
   sequence alignments. \emph{Systematic Biology} \bold{56}, 564-577.
 
-Gblocks website:
+\bold{Gblocks website}: 
   \url{http://molevol.cmima.csic.es/castresana/Gblocks.html}
 }
 \seealso{
-\code{\link{mafft}} and \code{\link{prank}} for sequence alignment;
-  \code{\link{aliscore}} for another alignment masking algorithm.
+\code{\link{mafft}} and \code{\link{prank}} for multiple sequence
+  alignment; \code{\link{aliscore}} for another alignment masking algorithm.
 }

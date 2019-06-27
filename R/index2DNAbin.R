@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2016 (last update 2016-11-16)
+## © C. Heibl 2016 (last update 2019-06-27)
 
 #' @title Conversion of Index to DNAbin
 #' @description Use indices of non-empty positions to convert a list of 
@@ -12,7 +12,7 @@
 index2DNAbin <- function(DNAbin, index){
   
   ## check if input data match each other
-  if ( !all(names(DNAbin) %in% names(index)) ){
+  if (!all(names(DNAbin) %in% names(index))){
     stop("sequences and indices not matching")
   }
   
@@ -28,8 +28,7 @@ index2DNAbin <- function(DNAbin, index){
   
   ## fill bases into empty alignment
   for ( i in seq_along(obj) ){
-    # cat("\n", i)
-    obj[[i]][index[[i]]] <- DNAbin[[i]]#; i <- i + 1
+    obj[[i]][index[[i]]] <- DNAbin[[i]]
   }
   names(obj) <- names(DNAbin)
   class(obj) <- "DNAbin"

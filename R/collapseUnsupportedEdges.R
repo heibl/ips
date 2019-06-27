@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2018-01-24)
+## © C. Heibl 2014 (last update 2019-06-20)
 
 #' @title Collapse Unsupported Edges/Branches in a Phylogeny
 #' @description Given a set of node support values (e.g., bootstrap 
@@ -31,6 +31,8 @@ collapseUnsupportedEdges <- function(phy, value = "node.label", cutoff){
   if (!inherits(phy, "phylo")) 
     stop ("'phy' is not of class 'phylo'")
   
+  original_cutoff <- cutoff
+  
   stat <- as.numeric(phy[[value]])
   
   ## Are values posterior probabilites or
@@ -40,16 +42,13 @@ collapseUnsupportedEdges <- function(phy, value = "node.label", cutoff){
   ## Adapt cutoff if necessary
   if (pp){
     if (cutoff > 1){
-      cat("\nadjusted cutoff from", cutoff)
       cutoff <- cutoff / 100
-      cat(" to", cutoff)
     } 
   } else {
     if (cutoff <= 1) {
-      cat("\nadjusted cutoff from", cutoff)
       cutoff <- cutoff * 100
-      cat(" to", cutoff)
     }
+    message("adjusted cutoff from ", original_cutoff, " to ", cutoff)
   }
   
   nt <- Ntip(phy)

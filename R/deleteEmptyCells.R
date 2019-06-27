@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2016-11-23)
+## © C. Heibl 2014 (last update 2019-06-20)
 
 #' @title Delete Spurious Rows and Columns from DNA Alignments
 #' @description After subsetting (see e.g. \code{\link{DNAbin}}), DNA sequence
@@ -63,22 +63,24 @@ deleteEmptyCells <- function(DNAbin, margin = c(1, 2),
   size <- dim(DNAbin)
   
   ## rows  (margin == 1)
-  if ( 1 %in% margin ){
+  if (1 %in% margin){
     rowind <- which(apply(DNAbin, 1, isNotEmpty, nset = nset))
     DNAbin <- DNAbin[rowind, ]
   }
   
   ## columns (margin == 2)
-  if ( 2 %in% margin ){
+  if (2 %in% margin){
     colind <- which(apply(DNAbin, 2, isNotEmpty, nset = nset))
     DNAbin <- DNAbin[, colind]
   }
   
   ## screen output (if desired)
-  if ( !quiet ) {
+  if (!quiet) {
     size <- size - dim(DNAbin)
-    cat("\n\t", size[1], "rows deleted from alignment")
-    cat("\n\t", size[2], "columns deleted from alignment")
+    rows <- ifelse(size[1] == 1, " row ", " rows ")
+    cols <- ifelse(size[2] == 1, " column ", " columns ")
+    message(size[1], rows, "deleted from alignment\n",
+            size[2], cols, "deleted from alignment")
   }  
   DNAbin
 }

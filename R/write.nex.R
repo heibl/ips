@@ -1,39 +1,51 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2016-11-07)
+## © C. Heibl 2014 (last update 2019-06-21)
 
 #' @export
 
 write.nex <- function(x, file, block.width = 60, 
                       taxblock = FALSE){
   
-  ## a data frame is a list: is.list(data.frame) == TRUE !!!
-  if ( !is.list(x) | is.data.frame(x) ) x <- list(x)
+  ## A data frame is a list: is.list(data.frame) == TRUE !!!
+  if (!is.list(x) | is.data.frame(x)){
+    x <- list(x)
+  }
+    
+  ## Auxiliary function 1: Asses datatype
+  ## ------------------------------------
+  getDataType <- function(x){
+    datatype <- class(x)
+    datatype[datatype == "DNAbin"] <- "dna"
+    datatype[datatype == "dist"] <- "distances"
+    datatype[datatype == "data.frame"] <- "standard"
+    datatype
+  }
   
-  ## data types of partitions
-  datatype <- sapply(x, class)
-  datatype[datatype == "DNAbin"] <- "dna"
-  datatype[datatype == "dist"] <- "distances"
-  datatype[datatype == "data.frame"] <- "standard"
-  
-  ## asses token used for missing data
+  ## Auxiliary function 2: Asses token used for missing data 
   ## (function adapted for data frames 2016-01-26)
+  ## ---------------------------------------------
   m <- function(x, datatype) {
-    if ( datatype == "standard" ) {
+    if (getDataType(x) == "standard") {
       n <- ifelse(any(x == "?"), "?", "N")
     } else {
       n <- ifelse("as.raw(2)" %in% x, "?", "N")
     }
     n
   }
+  ## Nucleotide positions in partitions
+  ## ----------------------------------
   p <- cbind(rep(1, length(x)), sapply(x, ncol))
-  if ( nrow(p) > 1 ) {
+  if (nrow(p) > 1) {
     for ( i in 2:nrow(p) ){
       p[i, 1] <- p[i - 1, 2] + 1
       p[i, 2] <- p[i, 1] + p[i, 2] -1
     }
   }
-  info <- data.frame(datatype = datatype,
-                     missing = sapply(x, m, datatype = datatype),
+  
+  ## Assemble info data
+  ## ------------------
+  info <- data.frame(datatype = sapply(x, getDataType),
+                     missing = sapply(x, m),
                      length = sapply(x, ncol),
                      p)
   names(info)[4:5] <- c("from", "to")
@@ -85,11 +97,11 @@ write.nex <- function(x, file, block.width = 60,
   }
   
   m <- vector("list", nrow(info))
-  for ( i in seq_along(m) ){
+  for (i in seq_along(m)){
     mm <- x[, info$from[i]:info$to[i]]
     bw <- ifelse(is.null(block.width), ncol(mm), block.width)
     m[[i]] <- matrixBlock(mm, bw)
-    if ( nrow(info) > 1 ){
+    if (nrow(info) > 1){
       cmt <- paste("[Position ", info$from[i], "-", 
                    info$to[i], ": ", rownames(info)[i], 
                    " (", info$length[i], "bp)]", 

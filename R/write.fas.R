@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2016-11-07)
+## © C. Heibl 2014 (last update 2019-06-27)
 
 #' @export
 
@@ -11,10 +11,10 @@ write.fas <- function(x, file, block.width = FALSE,
   # x MUST be a list of class DNAbin
   # --------------------------------
 
-    if ( is.matrix(x) ){
+    if (is.matrix(x)){
       x <- as.list(x)
     }
-    if ( is.data.frame(x) ){
+    if (is.data.frame(x)){
       y  <- as.list(x[, 1])
       names(y) <- rownames(x)
       x <- y
@@ -26,10 +26,9 @@ write.fas <- function(x, file, block.width = FALSE,
 	if (truncate){
 		taxnames <- substring(taxnames, 1, truncate)
 		if (any(duplicated(taxnames)))
-			warning(paste("truncation of taxon names created",
-			    "identical strings"))
+			warning("truncation of taxon names created identical strings")
 	}
-	taxnames <- paste(">", taxnames, sep = "")
+	taxnames <- paste0(">", taxnames)
 
 	# function to interleave sequences:
 	# ---------------------------------

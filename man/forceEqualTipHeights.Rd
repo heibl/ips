@@ -9,7 +9,7 @@ forceEqualTipHeights(phy, baseline = "mean")
 \arguments{
 \item{phy}{An object of class \code{\link[ape]{phylo}}.}
 
-\item{baseline}{A charcater string giving a function to calculate the
+\item{baseline}{A character string giving a function to calculate the
 baseline tip height, e.g. \code{"min"}, \code{"max"} or \code{"mean"}.}
 }
 \value{
