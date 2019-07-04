@@ -1,8 +1,8 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2018-01-30)
+## © C. Heibl 2014 (last update 2019-07-04)
 
 #' @title Profile Alignment with MAFFT
-#' @description Merge two or more DNA or amino acis sequence alignment by
+#' @description Merge two or more DNA or amino acid sequence alignments by
 #'   profile alignment with MAFFT.
 #' @param subMSA A list of objects of class \code{"\link{DNAbin}"} or
 #'   \code{"\link{AAbin}"}.

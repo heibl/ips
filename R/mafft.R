@@ -3,7 +3,7 @@
 
 #' @title Sequence Alignment with MAFFT
 #' @description This function is a wrapper for MAFFT and can be used for 
-#'   (profile) aligning of DNA and aminoacis sequences.
+#'   (profile) aligning of DNA and amino acid sequences.
 #' @param x An object of class \code{DNAbin} or \code{AAbin}.
 #' @param y An object of class \code{DNAbin} or \code{AAbin}, if given both
 #'   \code{x} and \code{y} are preserved and aligned to each other ("profile
@@ -28,7 +28,7 @@
 #'   recommended if no long indels are expected.
 #' @param gt An object of class \code{\link{phylo}} that is to be used as a 
 #'   guide tree during alignment.
-#' @param options A vector of mode character specifying addional arguments to 
+#' @param options A vector of mode character specifying additional arguments to 
 #'   MAFFT, that are not included in \code{mafft} such as, e.g., 
 #'   \code{--adjustdirection}.
 #' @param thread Integer giving the number of physical cores MAFFT should use; 
@@ -58,7 +58,7 @@
 #'   
 #'   \code{"retree 2"} selects the \bold{FFT-NS-2} algorithm that uses a second 
 #'   iteration of alignment based on a guide tree computed from an FFT-NS-1 
-#'   aligment; this is the default in MAFFT; recommended for >200 sequences.
+#'   alignment; this is the default in MAFFT; recommended for >200 sequences.
 #' @return A \code{matrix} of class \code{"DNAbin"} or \code{"AAbin"}.
 #' @references Katoh, K. and H. Toh. 2008. Recent developments in the MAFFT 
 #'   multiple sequence alignment program. \emph{Briefings in Bioinformatics} 

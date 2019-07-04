@@ -1,6 +1,7 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2019-06-20)
+## © C. Heibl 2014 (last update 2019-07-04)
 
+#' @importFrom utils tail
 #' @export
 
 code.simple.gaps <- function(x, append = TRUE){

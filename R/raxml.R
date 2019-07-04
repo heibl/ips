@@ -13,7 +13,7 @@
 #'@param f A vector of mode \code{"character"} selecting an RAxML algorithm
 #'  analogous to the \code{-f} flag (see Detail section and RAxML manual).
 #'@param N Either of mode \code{"integer"} or \code{"character"}. Integers give
-#'  the number of independant searches on different starting tree or replicates
+#'  the number of independent searches on different starting tree or replicates
 #'  in bootstrapping. Alternatively, one of four bootstopping criteria can be
 #'  chosen: \code{"autoFC"}, \code{"autoMR"}, \code{"autoMRE"}, or
 #'  \code{"autoMRE_IGN"}.
@@ -32,7 +32,7 @@
 #'  files.
 #'@param exec A vector of mode \code{"character"} giving the path to the
 #'  directory containing the RAxML executable. The default value will work on
-#'  Mac OS X if the folder containing the executale is renamed to
+#'  Mac OS X if the folder containing the executable is renamed to
 #'  \code{"RAxML-8.0.3"}.
 #'@param threads Integer, giving the number of parallel threads to use (PTHREADS
 #'  only).
@@ -45,7 +45,7 @@
 #'  starting trees and for bootstrap resampling. The corresponding argument
 #'  names in \code{raxml} are identical to the flags used by RAxML (\code{-p},
 #'  \code{-b}, and \code{-x}). If you choose not to give any values,
-#'  \code{raxml} will generate a (different) value for each requiered random
+#'  \code{raxml} will generate a (different) value for each required random
 #'  seed every time it is called. Be aware that \code{\link{set.seed}} will work
 #'  only for \code{p}, but not for \code{b} or \code{x}.
 #'@return A list with a variable number of elements, depending on the analysis
@@ -72,12 +72,12 @@
 #'
 #'  Stamatakis, A. 2014. RAxML Version 8: A tool for phylogenetic analysis and
 #'  post-analysis of large phylogenies. \emph{Bioinformatics} Advance Access.
-#'@note RAxML is a C program and the source code is not contained in this
-#'  package. This means that in order to run this function you will need to
-#'  install RAxML yourself. See the 'Software' tab on
-#'  \url{http://www.exelixis-lab.org/} for the most recent documentation and
-#'  source code of RAxML. Depending on where you chose to install RAxML, you
-#'  need to adjust the \code{exec} argument.
+#' @note RAxML is a C program and the source code is not contained in this
+#'   package. This means that in order to run this function you will need to
+#'   install RAxML yourself. See
+#'   \url{http://sco.h-its.org/exelixis/web/software/raxml/} for the most recent
+#'   documentation and source code of RAxML. Depending on where you chose to
+#'   install RAxML, you need to adjust the \code{exec} argument.
 #'
 #'  \code{raxml} was last tested and running fine on Mac OS X with RAxML 8.0.29.
 #'  Please be aware that calling third-party software from within R is a

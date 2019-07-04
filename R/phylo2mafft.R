@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2019-03-07)
+## © C. Heibl 2014 (last update 2019-07-04)
 
 #' @title Convert Trees for MAFFT
 #' @description Converts a phylogenetic tree of class \code{"phylo"} to a format

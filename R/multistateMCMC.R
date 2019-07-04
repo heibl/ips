@@ -1,7 +1,7 @@
 ## This code is part of the ips package
-## © C. Heibl 2012 (last update 2016-12-05)
+## © C. Heibl 2012 (last update 2019-07-04)
 
-#' @importFrom utils read.table write.table
+#' @importFrom utils read.table tail write.table
 #' @export
 
 multistateMCMC <- function(phy, traits, model = "ARD", anc.states = TRUE, rd = 2.0, 

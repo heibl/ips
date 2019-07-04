@@ -2,8 +2,11 @@ Package: ips
 Version: 0.0.11
 Date: 2019-06-20
 Title: Interfaces to Phylogenetic Software in R
-Author: Christoph Heibl <christoph.heibl@gmx.net>
-Maintainer: Christoph Heibl <christoph.heibl@gmx.net>
+Authors@R: c(
+    person("Christoph", "Heibl", email = "christoph.heibl@gmx.net", 
+        role = c("aut", "cre")),
+    person("Natalie", "Cusimano", role = c("aut")),
+    person("Franz-Sebastian", "Krah", role = c("aut")))
 Depends: R (>= 3.2.0),
     ape
 Imports:
@@ -14,7 +17,7 @@ Imports:
 Description: Functions that wrap popular phylogenetic software for sequence
     alignment, masking of sequence alignments, and estimation of phylogenies and
     ancestral character states.
-License: GPL (>= 2)
+License: GPL-3
 Encoding: UTF-8
 NeedsCompilation: no
 Repository: CRAN

@@ -2,9 +2,9 @@
 ## © C. Heibl 2014 (last update 2017-12-20)
 
 #' @title Identification of Stem-Lineage-Edges and MRCAs
-#' @description \code{noi} (\strong{n}ode \strong{o}f \strong{i}interest)
+#' @description \code{noi} (\strong{n}ode \strong{o}f \strong{i}nterest)
 #'   identifies the most recent common ancestor (MRCA) and \code{eoi}
-#'   (\strong{e}dge \strong{o}f \strong{i}interest) its subtending stem-lineage
+#'   (\strong{e}dge \strong{o}f \strong{i}nterest) its subtending stem-lineage
 #'   edge of one or more sets of taxa/tips.
 #' @param phy An object of class \code{\link[ape]{phylo}}.
 #' @param node A vector of mode \code{"numeric"} giving the nodes numbers of the nodes whose subtending stem-lineages will be identified.

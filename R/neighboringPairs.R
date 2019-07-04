@@ -1,7 +1,7 @@
 ## This code is part of the ips package
 ## © C. Heibl 2016 (last update 2016-11-23)
 
-#' @title Neighboring Nodes in a Minimumn Spanning Tree
+#' @title Neighboring Nodes in a Minimum Spanning Tree
 #' @description Finds all pairs of adjacent nodes, i.e. 
 #' nodes separated by only one edge, in a minimum spanning 
 #' tree
