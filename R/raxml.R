@@ -123,7 +123,7 @@
 
 raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
                   weights, partitions, outgroup, backbone = NULL, 
-                  file = "fromR", exec, threads){
+                  file = paste0("fromR_", Sys.Date()), exec, threads){
   
   if (!inherits(DNAbin, "DNAbin")) stop("DNAbin is not of class 'DNAbin'")
 				

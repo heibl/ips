@@ -29,7 +29,7 @@ phylo2mafft <- function(phy, file){
     x <- lapply(x, sort)
     x <- do.call(rbind, x)
     obj <- rbind(obj, x)
-    if ( Ntip(phy) < 3 ) break
+    if (Ntip(phy) < 3) break
     phy <- drop.tip(phy, as.character(x[, 2]))
   }
   obj <- data.frame(obj, 1, 1)

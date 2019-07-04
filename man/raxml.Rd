@@ -5,7 +5,8 @@
 \title{Maximum Likelihood Tree Estimation with RAxML}
 \usage{
 raxml(DNAbin, m = "GTRCAT", f, N, p, b, x, k, weights, partitions,
-  outgroup, backbone = NULL, file = "fromR", exec, threads)
+  outgroup, backbone = NULL, file = paste0("fromR_", Sys.Date()), exec,
+  threads)
 }
 \arguments{
 \item{DNAbin}{A matrix of DNA sequences of class \code{\link{DNAbin}}.}
