@@ -40,7 +40,7 @@ recommended if no long indels are expected.}
 \item{gt}{An object of class \code{\link{phylo}} that is to be used as a 
 guide tree during alignment.}
 
-\item{options}{A vector of mode character specifying addional arguments to 
+\item{options}{A vector of mode character specifying additional arguments to 
 MAFFT, that are not included in \code{mafft} such as, e.g., 
 \code{--adjustdirection}.}
 
@@ -63,7 +63,7 @@ A \code{matrix} of class \code{"DNAbin"} or \code{"AAbin"}.
 }
 \description{
 This function is a wrapper for MAFFT and can be used for 
-  (profile) aligning of DNA and aminoacis sequences.
+  (profile) aligning of DNA and amino acid sequences.
 }
 \details{
 \code{"localpair"} selects the \bold{L-INS-i} algorithm, probably 
@@ -83,7 +83,7 @@ This function is a wrapper for MAFFT and can be used for
   
   \code{"retree 2"} selects the \bold{FFT-NS-2} algorithm that uses a second 
   iteration of alignment based on a guide tree computed from an FFT-NS-1 
-  aligment; this is the default in MAFFT; recommended for >200 sequences.
+  alignment; this is the default in MAFFT; recommended for >200 sequences.
 }
 \note{
 \code{mafft} was last updated and tested to work with MAFFT 7.205. If 

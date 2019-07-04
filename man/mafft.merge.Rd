@@ -35,6 +35,6 @@ the screen.}
 An object of class \code{"\link{DNAbin}"} or \code{"\link{AAbin}"}.
 }
 \description{
-Merge two or more DNA or amino acis sequence alignment by
+Merge two or more DNA or amino acid sequence alignments by
   profile alignment with MAFFT.
 }

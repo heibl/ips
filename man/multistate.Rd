@@ -21,7 +21,7 @@ multistateMCMC(phy, traits, model = "ARD", anc.states = TRUE,
 \arguments{
   \item{phy}{an object of class \code{phylo}.
 }
-  \item{traits}{a \code{data.frame} with two colums. The first column contains the taxon labels, the second column contains the character states.
+  \item{traits}{a \code{data.frame} with two columns. The first column contains the taxon labels, the second column contains the character states.
 }
   \item{model}{
 %%     ~~Describe \code{model} here~~

@@ -20,7 +20,7 @@ A character string, giving the name of the MrBayes input file.
 A list as returned by \code{\link{mrbayes.lset}} containing the parameter settings of the model of molecular evolution.  
   }
   \item{prset}{
- A list as returned by \code{\link{mrbayes.prset}} containing the parameter setting for the prior distirbutions. 
+ A list as returned by \code{\link{mrbayes.prset}} containing the parameter setting for the prior distributions. 
   }
   \item{mcmc}{
 A list as returned by \code{\link{mrbayes.mcmc}} containing the parameter setting for the Markov chain Monte Carlo (MCMC).  
@@ -38,7 +38,7 @@ An integer; the number of samples from the MCMC to be discarded prior to further
 A character string; the type of consensus tree calculated from the posterior distribution of trees: either \code{"halfcompat"} (majority-rule consensus tree) or \code{"allcombat"} (strict consensus tree).
   }
   \item{exec}{
-  A character string giving the full path of the MrBayes programe.
+  A character string giving the full path of the MrBayes program.
   }
   \item{run}{
 Logical; \code{run = FALSE} will only print the NEXUS file, \code{run = TRUE} will also start the MCMC runs, if \code{exec} is correctly specified.

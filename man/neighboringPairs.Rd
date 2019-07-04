@@ -2,7 +2,7 @@
 % Please edit documentation in R/neighboringPairs.R
 \name{neighboringPairs}
 \alias{neighboringPairs}
-\title{Neighboring Nodes in a Minimumn Spanning Tree}
+\title{Neighboring Nodes in a Minimum Spanning Tree}
 \usage{
 neighboringPairs(mst)
 }

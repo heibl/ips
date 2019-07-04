@@ -18,7 +18,7 @@ evolution; currently only GTR model available.}
 analogous to the \code{-f} flag (see Detail section and RAxML manual).}
 
 \item{N}{Either of mode \code{"integer"} or \code{"character"}. Integers give
-the number of independant searches on different starting tree or replicates
+the number of independent searches on different starting tree or replicates
 in bootstrapping. Alternatively, one of four bootstopping criteria can be
 chosen: \code{"autoFC"}, \code{"autoMR"}, \code{"autoMRE"}, or
 \code{"autoMRE_IGN"}.}
@@ -47,7 +47,7 @@ files.}
 
 \item{exec}{A vector of mode \code{"character"} giving the path to the
 directory containing the RAxML executable. The default value will work on
-Mac OS X if the folder containing the executale is renamed to
+Mac OS X if the folder containing the executable is renamed to
 \code{"RAxML-8.0.3"}.}
 
 \item{threads}{Integer, giving the number of parallel threads to use (PTHREADS
@@ -77,17 +77,17 @@ There are some limitations of this wrapper compared to RAxML run
  starting trees and for bootstrap resampling. The corresponding argument
  names in \code{raxml} are identical to the flags used by RAxML (\code{-p},
  \code{-b}, and \code{-x}). If you choose not to give any values,
- \code{raxml} will generate a (different) value for each requiered random
+ \code{raxml} will generate a (different) value for each required random
  seed every time it is called. Be aware that \code{\link{set.seed}} will work
  only for \code{p}, but not for \code{b} or \code{x}.
 }
 \note{
 RAxML is a C program and the source code is not contained in this
- package. This means that in order to run this function you will need to
- install RAxML yourself. See the 'Software' tab on
- \url{http://www.exelixis-lab.org/} for the most recent documentation and
- source code of RAxML. Depending on where you chose to install RAxML, you
- need to adjust the \code{exec} argument.
+  package. This means that in order to run this function you will need to
+  install RAxML yourself. See
+  \url{http://sco.h-its.org/exelixis/web/software/raxml/} for the most recent
+  documentation and source code of RAxML. Depending on where you chose to
+  install RAxML, you need to adjust the \code{exec} argument.
 
  \code{raxml} was last tested and running fine on Mac OS X with RAxML 8.0.29.
  Please be aware that calling third-party software from within R is a

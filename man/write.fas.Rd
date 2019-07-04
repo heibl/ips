@@ -46,7 +46,7 @@ logical, if \code{TRUE}, a tax block will be added to the NEXUS file.
   }
 }
 \details{
-\code{write.nex} can handle multiple DNA sequence alignments, which are handed over as a list of objects of class \code{DNAbin}. Correct matching of the rows in the alignments is cared for automatically, hence the individueal alignments can contain different numbers of samples and samples need not be in the same order.
+\code{write.nex} can handle multiple DNA sequence alignments, which are handed over as a list of objects of class \code{DNAbin}. Correct matching of the rows in the alignments is cared for automatically, hence the individual alignments can contain different numbers of samples and samples need not be in the same order.
 }
 \value{
 None, except when called with \code{file} left unspecified, which causes the file content to be returned as a vector of mode \code{"character"}. This is particularly useful for constructing special types of input files, e.g. for MrBayes (\code{\link{mrbayes}}).
