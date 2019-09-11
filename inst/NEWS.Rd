@@ -1,6 +1,18 @@
 \name{ips-news}
 \alias{ips-news} 
 \title{News and changes to the ips (formerly: phyloch) package}
+\section{VERSION 0.0.12}{
+\subsection{NEW FEATURES}{
+  \itemize{
+  \item The new function \code{blastn} provides an interface to the command-line program blastn for nucleotide to nucleotide comparison.
+  }
+}
+\subsection{IMPROVED FEATURES}{
+  \itemize{
+  \item xxx
+  }
+}
+}
 \section{VERSION 0.0.11}{
 \subsection{NEW FEATURES}{
   \itemize{
