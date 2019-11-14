@@ -10,8 +10,8 @@ This package presents a set of functions that were formerly included in the \emp
 \tabular{ll}{
  Package: \tab ips\cr
  Type: \tab Package\cr
-Version: \tab 0.0.11\cr
-Date: \tab 2019-06-20\cr
+Version: \tab 0.0.12\cr
+Date: \tab 2019-11-14\cr
  License: \tab GPL (>= 2)\cr
 }
 There are several functions for reading and writing DNA sequences in FASTA, PHYLIP, and NEXUS format: \code{\link{read.fas}}, \code{\link{read.phy}}, \code{\link{read.nex}}, \code{\link{write.fas}}, \code{\link{write.phy}}, and \code{\link{write.nex}}.

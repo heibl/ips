@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2018 (last update 2018-05-11)
+## © C. Heibl 2018 (last update 2019-10-15)
 
 #' @export
 
@@ -24,13 +24,13 @@ rc <- function(seqs, i){
     rc_seq[seq == iupac[["g"]]] <- iupac[["a"]]
     rc_seq[seq == iupac[["c"]]] <- iupac[["t"]]
     rc_seq[seq == iupac[["t"]]] <- iupac[["c"]]
-    rc_seq[seq == iupac[["r"]]] <- iupac[["r"]] # R = A|G
-    rc_seq[seq == iupac[["y"]]] <- iupac[["y"]] # Y = C|T
+    rc_seq[seq == iupac[["r"]]] <- iupac[["y"]] # R = A|G
+    rc_seq[seq == iupac[["y"]]] <- iupac[["r"]] # Y = C|T
     rc_seq[seq == iupac[["w"]]] <- iupac[["s"]] # W = A|T
     rc_seq[seq == iupac[["s"]]] <- iupac[["w"]] # S = G|C
     rc_seq[seq == iupac[["m"]]] <- iupac[["k"]] # M = A|C
     rc_seq[seq == iupac[["k"]]] <- iupac[["m"]] # K = G|T
-    rc_seq[seq == iupac[["h"]]] <- iupac[["h"]] # H = A|T|C != G
+    rc_seq[seq == iupac[["h"]]] <- iupac[["b"]] # H = A|T|C != G
     rc_seq[seq == iupac[["b"]]] <- iupac[["h"]] # B = G|C|T != A
     rc_seq[seq == iupac[["v"]]] <- iupac[["d"]] # V = G|A|C != T
     rc_seq[seq == iupac[["d"]]] <- iupac[["v"]] # D = A|G|T != C

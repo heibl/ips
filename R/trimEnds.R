@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2019-02-06)
+## © C. Heibl 2014 (last update 2019-11-05)
 
 #' @title Trim Alignment Ends
 #' @description Trims both ends of a DNA sequence alignment to the first and
@@ -39,6 +39,10 @@ trimEnds <- function(x, min.n.seq = 4){
     stop("'x' must be a matrix")
   }
   
+  ## Store confidence stores; if not present cs == NULL
+  ## --------------------------------------------------
+  cs <- attr(x, "cs")
+  
   ## Turn fraction into numbers
   ## --------------------------
   if (min.n.seq < 1){
@@ -50,7 +54,7 @@ trimEnds <- function(x, min.n.seq = 4){
   ## ----------------------------
   min.n.seq <- min(nrow(x), min.n.seq)
   
-  ## replace terminal '-' with 'N'
+  ## Replace terminal '-' with 'N'
   ## -----------------------------
   replaceWithN <- function(x){
     
@@ -73,13 +77,13 @@ trimEnds <- function(x, min.n.seq = 4){
   x <- t(apply(x, 1, replaceWithN))
   class(x) <- "DNAbin"
   
-  ## remove 'sandspit' pattern
+  ## Remove 'sandspit' pattern
   ## -------------------------
   removeSandspit <- function(x){
     
     ## anything to do?
     id <- which(x == as.raw(4))
-    if ( length(id) == 0 ) return(x)
+    if (length(id) == 0) return(x)
     
     ## head (5'-end)
     n <- vector()
@@ -104,7 +108,7 @@ trimEnds <- function(x, min.n.seq = 4){
   x <- t(apply(x, 1, removeSandspit))
   class(x) <- "DNAbin"
   
-  ## trim ends to 'min.n.seq' bases
+  ## Trim ends to 'min.n.seq' bases
   ## ------------------------------
   iupac <- c(a = 136, c = 40, g = 72, t = 24, 
              r = 192, y = 48, s = 96, w = 144, k = 80, m = 160, 
@@ -118,6 +122,18 @@ trimEnds <- function(x, min.n.seq = 4){
   m <- range(which(m >= min.n.seq))
   m <- seq(from = m[1], to = m[2])
   x <- x[, m]
+  
+  ## Trim and reappend confidence scores
+  ## -----------------------------------
+  if (!is.null(cs)){
+    if (is.matrix(cs)){
+      cs <- cs[, m]
+    } else {
+      cs <- cs[m]
+    }
+    attr(x, "cs") <- cs
+  }
+  
   x
 }
 

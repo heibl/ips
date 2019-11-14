@@ -6,10 +6,7 @@
   \itemize{
   \item The new function \code{blastn} provides an interface to the command-line program blastn for nucleotide to nucleotide comparison.
   }
-}
-\subsection{IMPROVED FEATURES}{
-  \itemize{
-  \item xxx
+   \item The new function \code{combMyTree} grafts polytomies on a phylogeny.
   }
 }
 }
