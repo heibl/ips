@@ -5,8 +5,11 @@
 \subsection{NEW FEATURES}{
   \itemize{
   \item The new function \code{blastn} provides an interface to the command-line program blastn for nucleotide to nucleotide comparison.
-  }
+  
    \item The new function \code{combMyTree} grafts polytomies on a phylogeny.
+   
+   \item Function \code{deleteEmptyCells} has now a sister function \code{identifyEmtpyCells}
+   that won't delete but only identify the empty rows and columns in an sequence alignment. This is useful if there is a second matrix (e.g. with confidence scores) tied to the sequence alignment
   }
 }
 }

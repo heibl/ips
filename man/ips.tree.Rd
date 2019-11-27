@@ -2,7 +2,7 @@
 \alias{ips.tree}
 \docType{data}
 \title{Ips Phylogeny}
-\description{Phylogentic tree of bark beetles (genus \emph{Ips}).
+\description{Phylogenetic tree of bark beetles (genus \emph{Ips}).
 }
 \usage{data(ips.tree)}
 \format{

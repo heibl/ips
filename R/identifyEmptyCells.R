@@ -1,10 +1,10 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2019-11-27)
+## © C. Heibl 2019 (last update 2019-11-27)
 
 #' @rdname EmptyCells
 #' @export
 
-deleteEmptyCells <- function(DNAbin, margin = c(1, 2),
+identifyEmptyCells <- function(DNAbin, margin = c(1, 2),
                              nset = c("-", "n", "?"),
                              quiet = FALSE){
   
@@ -31,14 +31,14 @@ deleteEmptyCells <- function(DNAbin, margin = c(1, 2),
   
   ## rows  (margin == 1)
   if (1 %in% margin){
-    rowind <- which(apply(DNAbin, 1, isNotEmpty, nset = nset))
-    DNAbin <- DNAbin[rowind, ]
+    delete_rows <- which(!apply(DNAbin, 1, isNotEmpty, nset = nset))
+    if (length(delete_rows)) DNAbin <- DNAbin[-delete_rows, ]
   }
   
   ## columns (margin == 2)
   if (2 %in% margin){
-    colind <- which(apply(DNAbin, 2, isNotEmpty, nset = nset))
-    DNAbin <- DNAbin[, colind]
+    delete_cols <- which(!apply(DNAbin, 2, isNotEmpty, nset = nset))
+    if (length(delete_cols)) DNAbin <- DNAbin[, -delete_cols]
   }
   
   ## screen output (if desired)
@@ -46,9 +46,9 @@ deleteEmptyCells <- function(DNAbin, margin = c(1, 2),
     size <- size - dim(DNAbin)
     rows <- ifelse(size[1] == 1, " row ", " rows ")
     cols <- ifelse(size[2] == 1, " column ", " columns ")
-    message(size[1], rows, "deleted from alignment\n",
-            size[2], cols, "deleted from alignment")
+    message(size[1], " empty", rows, "identified\n",
+            size[2], " empty", cols, "identified")
   }  
-  DNAbin
+  list(row = delete_rows, col = delete_cols)
 }
 

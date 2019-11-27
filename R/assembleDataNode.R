@@ -4,9 +4,9 @@
 assembleDataNode <- function(DNAbin){
   
   data <- vector(mode = "list")
-  for ( i in 1:length(DNAbin) ){
+  for (i in 1:length(DNAbin)){
     ss  <-  as.list(DNAbin[[i]])
-    ss <- lapply(ss, function(x)  paste(as.character(x), collapse = ""))
+    ss <- lapply(as.character(ss), paste, collapse = "")
     ss <- lapply(ss, gsub, pattern = "n", replacement = "?")
     ss <- data.frame(id = paste("seq", names(ss), i, sep = "_"),
                      taxon = names(ss),
