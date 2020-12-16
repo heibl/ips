@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2018 (last update 2019-11-14)
+## © C. Heibl 2018 (last update 2020-12-16)
 
 #' @title Graft Polytomies on Tips of Phylogeny
 #' @description Graft polytomies on the tips of a class \code{phylo} object.
@@ -9,6 +9,8 @@
 #'   contains the new tip labels. The column are matched
 #'   automatically.
 #' @param brlen A numeric giving the branch lengths for the polytomies.
+#' @param annotate Logical, if \code{TRUE}, the former tip labels will be turned
+#'   into node labels. Note, that this will overwrite existing node labels.
 #' @return An object of class \code{\link{phylo}} with \code{nrow(data)} tips.
 #' @seealso \code{\link{forceEqualTipHeights}}
 #' @examples
@@ -23,7 +25,7 @@
 #' @importFrom ape bind.tree compute.brlen read.tree
 #' @export
 
-combMyTree <- function(phy, data, brlen = 0){
+combMyTree <- function(phy, data, brlen = 0, annotate = FALSE){
   
   ## Do some tests
   ## -------------
@@ -57,5 +59,13 @@ combMyTree <- function(phy, data, brlen = 0){
   for (i in seq_along(combs)){
     phy <- bind.tree(phy, combs[[i]], which(phy$tip.label == names(combs)[i]))
   }
+  phy <- fixNodes(phy)
+  
+  ## Annotate previous tips
+  ## ----------------------
+  for (i in seq_along(data)){
+    phy$node.label[noi(phy, data[[i]]) - Ntip(phy)] <- names(data)[i]
+  }
+  
   phy
 }

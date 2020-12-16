@@ -53,7 +53,7 @@
 #'  string\cr \code{"bestTree"} \tab MLE of tree\cr \code{"bipartitions"} \tab
 #'  MLE of tree annotated with bootstrap proportions\cr \code{"bootstrap"} \tab
 #'  bootstrapped trees\cr }
-#'@references (in chronolocigal order)
+#'@references (in chronological order)
 #'
 #'  Stamatakis, A., T. Ludwig and H. Meier. 2004. RAxML-III: A fast program for
 #'  maximum likelihood-based inference of large phylogenetic trees.

@@ -32,7 +32,7 @@ implement techniques for phylogenetic analyses, but provides a series of
 wrappers for commonly used software packages. Sequence alignment can be
 done with the `mafft` and `prank`; cleaning of sequences with `gblocks`
 and `aliscore`. The function `raxml` and `mrbayes` are intended for
-phylogentic tree search. Running `mrbayes` with argument `run = FALSE`
+phylogenetic tree search. Running `mrbayes` with argument `run = FALSE`
 can be used to create MrBayes-executable NEXUS files. Finally, wrappers
 are provided for `Multistate` in the `BayesTraits` package (see
 `multistateML` and `multistateMCMC`). Several plotting functions

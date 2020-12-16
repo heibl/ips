@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2019-11-14)
+## © C. Heibl 2014 (last update 2020-04-14)
 
 #' @title Number of Potentially-Informative Sites
 #' @description Returns the number or positions of potentially-informative
@@ -8,7 +8,7 @@
 #' @param x An object of class \code{\link{DNAbin}}.
 #' @param what Either of \code{"absolute"}, \code{"fraction"}, or
 #'   \code{"index"}, which will return the absolute number, the relative number
-#'   or the indeces of the potentially-informative sites.
+#'   or the indices of the potentially-informative sites.
 #' @param use.ambiguities \emph{Not yet available}.
 #' @return Numeric (depending on \code{what}, the number, fraction, or indices
 #'   of potentially-informative nucleotide sites).

@@ -4,7 +4,7 @@
 \alias{combMyTree}
 \title{Graft Polytomies on Tips of Phylogeny}
 \usage{
-combMyTree(phy, data, brlen = 0)
+combMyTree(phy, data, brlen = 0, annotate = FALSE)
 }
 \arguments{
 \item{phy}{An object of class \code{\link{phylo}}.}
@@ -15,6 +15,9 @@ contains the new tip labels. The column are matched
 automatically.}
 
 \item{brlen}{A numeric giving the branch lengths for the polytomies.}
+
+\item{annotate}{Logical, if \code{TRUE}, the former tip labels will be turned
+into node labels. Note, that this will overwrite existing node labels.}
 }
 \value{
 An object of class \code{\link{phylo}} with \code{nrow(data)} tips.
