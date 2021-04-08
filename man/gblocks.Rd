@@ -4,8 +4,16 @@
 \alias{gblocks}
 \title{Masking of Sequence Alignments with GBLOCKS}
 \usage{
-gblocks(x, b1 = 0.5, b2 = b1, b3 = ncol(x), b4 = 2, b5 = "a",
-  target = "alignment", exec)
+gblocks(
+  x,
+  b1 = 0.5,
+  b2 = b1,
+  b3 = ncol(x),
+  b4 = 2,
+  b5 = "a",
+  target = "alignment",
+  exec
+)
 }
 \arguments{
 \item{x}{A matrix of DNA sequences of classes \code{\link[ape]{DNAbin}}.}
