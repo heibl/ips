@@ -1,10 +1,10 @@
 ## This code is part of the ips package
-## © C. Heibl 2019 (last update 2019-09-11)
+## © C. Heibl 2019 (last update 2020-04-30)
 
 #' @title Nucleotide-Nucleotide BLAST
 #' @description Provides an interface to BLASTN
 #' @param query An object of class \code{DNAbin} containing the sequences which
-#'   will be blasted against \code{db}..
+#'   will be blasted against \code{db}.
 #' @param db An object of class \code{DNAbin} containing the reference
 #'   sequences, i.e. the sequences against which \code{query} will be blasted.
 #' @importFrom data.table fread
@@ -21,7 +21,7 @@ blastn <- function(query, db){
 
   ## Create BLAST database
   ## ---------------------
-  write.fas(db, fns[2])
+  write.FASTA(query, fns[2])
   cmd <- paste("/usr/local/ncbi/blast/bin/makeblastdb", 
                "-in", fns[2], 
                "-dbtype nucl",

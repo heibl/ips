@@ -1,3 +1,5 @@
+#' @export
+
 read.beast.table <- function(file, digits = 2){
 	phy <- read.beast(file, digits = digits)
 	int <- phy$Nnode

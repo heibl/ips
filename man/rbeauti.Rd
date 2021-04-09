@@ -4,7 +4,19 @@
 \alias{rbeauti}
 \title{XML Input Files for BEAST}
 \usage{
-rbeauti(..., file, template = "standard", taxonset)
+rbeauti(
+  ...,
+  file,
+  template = "standard",
+  link.clocks = TRUE,
+  link.trees = TRUE,
+  subst.model,
+  clock,
+  tree,
+  taxonset,
+  chain.length = 1e+07,
+  log.every = 1000
+)
 }
 \arguments{
 \item{...}{One or more object(s) of class \code{\link{DNAbin}}.}
@@ -14,7 +26,25 @@ If left empty the XML tree will be printed to the screen (see Examples).}
 
 \item{template}{\emph{Currently unused.}}
 
+\item{link.clocks}{Logical, indicating if clock models should be linked over partitions.}
+
+\item{link.trees}{Logical, indicating if tree models should be linked over partitions.}
+
+\item{subst.model}{A character string defining a substituion model, either
+\code{"JC69"}, \code{"HKY"},\code{"TN93"}, or \code{"GTR"}.}
+
+\item{clock}{A character string defining a clock model, either \code{"Strict
+Clock"}, \code{"Relaxed Clock Exponential"},\code{"Relaxed Clock Log
+Normal"}, or \code{"Random Local Clock"}.}
+
+\item{tree}{A character string defining a tree model.}
+
 \item{taxonset}{A list containing one or more taxon sets.}
+
+\item{chain.length}{Integer, the number of generations to run the MCMC.}
+
+\item{log.every}{Integer, defining how often samples from the posterior will
+be written to log files and shown on screen.}
 }
 \description{
 Prepare XML files for BEAST with R. BEAST uses an MCMC approach
@@ -41,7 +71,7 @@ ts <- list(list(id = "ingroup", taxon = ingroup),
            list(id = "outgroup", taxon = outgroup))
 
 ## print XML file to screen
-rbeauti(ips.16S, taxonset = ts)
+# rbeauti(ips.16S, taxonset = ts)
 }
 \references{
 The BEAST 2 website:

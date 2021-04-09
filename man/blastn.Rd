@@ -8,7 +8,7 @@ blastn(query, db)
 }
 \arguments{
 \item{query}{An object of class \code{DNAbin} containing the sequences which
-will be blasted against \code{db}..}
+will be blasted against \code{db}.}
 
 \item{db}{An object of class \code{DNAbin} containing the reference
 sequences, i.e. the sequences against which \code{query} will be blasted.}

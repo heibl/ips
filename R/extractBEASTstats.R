@@ -1,3 +1,4 @@
+
 extractBEASTstats <- function(file) {
   
     X <- scan(file = file, what = "", sep = "\n", quiet = TRUE)

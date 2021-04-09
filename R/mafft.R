@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2017-04-06)
+## © C. Heibl 2014 (last update 2021-04-04)
 
 #' @title Sequence Alignment with MAFFT
 #' @description This function is a wrapper for MAFFT and can be used for 
@@ -88,12 +88,15 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
   
   ## CHECKS and DEFINITIONS
   ## ----------------------
+  if (missing(exec)) exec <- "/usr/local/bin/mafft"
+  # info <- system2(command = exec, args = "--help", stdout = FALSE)
+
   if (!inherits(x, c("DNAbin", "AAbin")))
     stop("'x' is not of class 'DNAbin' or 'AAbin'")
   os <- .Platform$OS
   if (missing(quiet)) quiet <- TRUE
   qut <- ifelse(quiet, " --quiet ", " ")
-  if (missing(exec)) exec <- "/usr/local/bin/mafft"
+  
   maxiterate <- match.arg(as.character(maxiterate), c("0", "2", "1000"))
   if (is.matrix(x)) x <- as.list(x)
   

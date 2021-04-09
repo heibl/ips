@@ -16,9 +16,6 @@ read.fas <- function(x, text){
 
   start <- grep("^ {0,}>", x)
   
-  
-  
-
   ## Parse taxon names
   ## -----------------
   h <- unlist(strsplit(x[start][1], ""))

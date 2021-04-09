@@ -1,12 +1,12 @@
 ## This code is part of the ips package
-## © C. Heibl 2019 (last update 2019-11-27)
+## © C. Heibl 2019 (last update 2021-03-12)
 
 #' @rdname EmptyCells
 #' @export
 
 identifyEmptyCells <- function(DNAbin, margin = c(1, 2),
-                             nset = c("-", "n", "?"),
-                             quiet = FALSE){
+                               nset = c("-", "n", "?"),
+                               quiet = FALSE){
   
   if ( !inherits(DNAbin, "DNAbin") ) 
     stop("'DNAbin' is not of class 'DNAbin'")
@@ -16,9 +16,9 @@ identifyEmptyCells <- function(DNAbin, margin = c(1, 2),
   ## IUPAC ambiguity code
   ## --------------------
   iupac <- c(n = 240, "?" = 2, "-" = 4,
-    # a = 136, c = 40, g = 72, t = 24, 
-    r = 192, y = 48, s = 96, w = 144, k = 80, m = 160, 
-    b = 112, d = 208, h = 176, v = 224)
+             # a = 136, c = 40, g = 72, t = 24, 
+             r = 192, y = 48, s = 96, w = 144, k = 80, m = 160, 
+             b = 112, d = 208, h = 176, v = 224)
   nset <- iupac[nset]
   nset <- as.raw(nset)
   

@@ -125,6 +125,8 @@ raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
                   weights, partitions, outgroup, backbone = NULL, 
                   file = paste0("fromR_", Sys.Date()), exec, threads){
   
+  
+  
   if (!inherits(DNAbin, "DNAbin")) stop("DNAbin is not of class 'DNAbin'")
 				
 	# number of threads (PTHREADS only)

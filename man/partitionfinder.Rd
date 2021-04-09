@@ -4,9 +4,15 @@
 \alias{partitionfinder}
 \title{PartitionFinder}
 \usage{
-partitionfinder(alignment, user.tree, branchlengths = "linked",
-  models = "all", model.selection = "BIC", search = "greedy",
-  exec = "/Applications/PartitionFinderV1.1.1_Mac/PartitionFinder.py")
+partitionfinder(
+  alignment,
+  user.tree,
+  branchlengths = "linked",
+  models = "all",
+  model.selection = "BIC",
+  search = "greedy",
+  exec = "/Applications/PartitionFinderV1.1.1_Mac/PartitionFinder.py"
+)
 }
 \arguments{
 \item{alignment}{A}

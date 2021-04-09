@@ -7,11 +7,19 @@
 \alias{identifyEmptyCells}
 \title{Identify/Delete Spurious Rows and Columns from DNA Alignments}
 \usage{
-deleteEmptyCells(DNAbin, margin = c(1, 2), nset = c("-", "n", "?"),
-  quiet = FALSE)
+deleteEmptyCells(
+  DNAbin,
+  margin = c(1, 2),
+  nset = c("-", "n", "?"),
+  quiet = FALSE
+)
 
-identifyEmptyCells(DNAbin, margin = c(1, 2), nset = c("-", "n", "?"),
-  quiet = FALSE)
+identifyEmptyCells(
+  DNAbin,
+  margin = c(1, 2),
+  nset = c("-", "n", "?"),
+  quiet = FALSE
+)
 }
 \arguments{
 \item{DNAbin}{An object of class \code{\link{DNAbin}}.}

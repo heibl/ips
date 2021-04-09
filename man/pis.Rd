@@ -11,7 +11,7 @@ pis(x, what = "fraction", use.ambiguities = FALSE)
 
 \item{what}{Either of \code{"absolute"}, \code{"fraction"}, or
 \code{"index"}, which will return the absolute number, the relative number
-or the indeces of the potentially-informative sites.}
+or the indices of the potentially-informative sites.}
 
 \item{use.ambiguities}{\emph{Not yet available}.}
 }

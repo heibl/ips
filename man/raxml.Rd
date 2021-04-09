@@ -4,9 +4,23 @@
 \alias{raxml}
 \title{Maximum Likelihood Tree Estimation with RAxML}
 \usage{
-raxml(DNAbin, m = "GTRCAT", f, N, p, b, x, k, weights, partitions,
-  outgroup, backbone = NULL, file = paste0("fromR_", Sys.Date()), exec,
-  threads)
+raxml(
+  DNAbin,
+  m = "GTRCAT",
+  f,
+  N,
+  p,
+  b,
+  x,
+  k,
+  weights,
+  partitions,
+  outgroup,
+  backbone = NULL,
+  file = paste0("fromR_", Sys.Date()),
+  exec,
+  threads
+)
 }
 \arguments{
 \item{DNAbin}{A matrix of DNA sequences of class \code{\link{DNAbin}}.}
@@ -130,7 +144,7 @@ tr <- raxml(ips.cox1, m = "GTRGAMMA",
 }
 }
 \references{
-(in chronolocigal order)
+(in chronological order)
 
  Stamatakis, A., T. Ludwig and H. Meier. 2004. RAxML-III: A fast program for
  maximum likelihood-based inference of large phylogenetic trees.
