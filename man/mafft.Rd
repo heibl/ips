@@ -12,7 +12,7 @@ mafft(
   maxiterate = 0,
   op = 1.53,
   ep = 0,
-  gt,
+  gt = NULL,
   options,
   thread = -1,
   exec,
@@ -50,8 +50,9 @@ alignment; default 1.53.}
 extension penalty}, for group-to-group alignment; default 0.0, but 0.123 is
 recommended if no long indels are expected.}
 
-\item{gt}{An object of class \code{\link{phylo}} that is to be used as a 
-guide tree during alignment.}
+\item{gt}{An object of class \code{\link{phylo}} that is to be used as a
+guide tree during alignment. The default is to let MAFFT use its own
+internal guide tree}
 
 \item{options}{A vector of mode character specifying additional arguments to 
 MAFFT, that are not included in \code{mafft} such as, e.g., 

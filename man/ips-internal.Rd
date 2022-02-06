@@ -16,7 +16,6 @@
 \alias{operator_list} % rbeauti
 \alias{parameter} % several functions
 \alias{rbeauti.taxonset} % rbeauti
-\alias{rc}
 \alias{rc.core}
 \alias{read.xml} % EXPERIMENTAL!
 \alias{setClock} % rbeauti

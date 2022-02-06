@@ -26,8 +26,9 @@
 #' @param ep A numeric giving the offset value, which works like \code{gap 
 #'   extension penalty}, for group-to-group alignment; default 0.0, but 0.123 is
 #'   recommended if no long indels are expected.
-#' @param gt An object of class \code{\link{phylo}} that is to be used as a 
-#'   guide tree during alignment.
+#' @param gt An object of class \code{\link{phylo}} that is to be used as a
+#'   guide tree during alignment. The default is to let MAFFT use its own
+#'   internal guide tree
 #' @param options A vector of mode character specifying additional arguments to 
 #'   MAFFT, that are not included in \code{mafft} such as, e.g., 
 #'   \code{--adjustdirection}.
@@ -83,7 +84,7 @@
 #' @export
 
 mafft <- function(x, y, add, method = "auto", maxiterate = 0,
-                  op = 1.53, ep = 0.0, gt, options,
+                  op = 1.53, ep = 0.0, gt = NULL, options,
                   thread = -1, exec, quiet, file){
   
   ## CHECKS and DEFINITIONS
@@ -112,7 +113,7 @@ mafft <- function(x, y, add, method = "auto", maxiterate = 0,
   
   ## guide tree
   ## ----------
-  if (missing(gt)){
+  if (is.null(gt)){
     gt <- ""
   } else {
     if (!inherits(gt, "phylo"))
