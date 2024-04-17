@@ -84,11 +84,7 @@ trimEnds <- function(x, min.n.seq = 4){
     
     ## anything to do?
     id <- which(x == as.raw(4))
-<<<<<<< HEAD
-    if ( length(id) == 0 ) return(x)
-=======
     if (length(id) == 0) return(x)
->>>>>>> 647ba4c9ae1104b649cacc901c527de0207b7775
     
     ## head (5'-end)
     n <- vector()
@@ -109,18 +105,6 @@ trimEnds <- function(x, min.n.seq = 4){
       x[n] <- as.raw(240)
     }
     x
-<<<<<<< HEAD
-  }
-  x <- t(apply(x, 1, removeSandspit))
-  class(x) <- "DNAbin"
-  
-  ## trim ends to 'min.n.seq' bases
-  ## ------------------------------
-  b <- as.raw(c(136, 40, 72, 24))
-  percentInformation <- function(x, b){
-    length(which(x %in% b))
-=======
->>>>>>> 647ba4c9ae1104b649cacc901c527de0207b7775
   }
   x <- t(apply(x, 1, removeSandspit))
   class(x) <- "DNAbin"
@@ -139,8 +123,6 @@ trimEnds <- function(x, min.n.seq = 4){
   m <- range(which(m >= min.n.seq))
   m <- seq(from = m[1], to = m[2])
   x <- x[, m]
-<<<<<<< HEAD
-=======
   
   ## Trim and reappend confidence scores
   ## -----------------------------------
@@ -152,8 +134,6 @@ trimEnds <- function(x, min.n.seq = 4){
     }
     attr(x, "cs") <- cs
   }
-  
->>>>>>> 647ba4c9ae1104b649cacc901c527de0207b7775
   x
 }
 
