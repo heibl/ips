@@ -1,85 +1,168 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2015-04-05)
+## © C. Heibl 2014 (last update 2019-12-12)
 
-assembleOperators <- function(id){
+assembleOperators <- function(id, link.clocks, link.trees){
   
-  ops <- vector(mode = "list")
-  for ( i in seq_along(id) ){
-    this.ops <- list(
-             xmlNode("operator", 
-                     attrs = c(id = paste("YuleBirthRateScaler.t:", id[i], sep = ""),
-                               parameter = paste("@birthRate.t:", id[i], sep = ""),
-                               scaleFactor = "0.75",
-                               spec = "ScaleOperator",
-                               weight = "3.0")),
-             xmlNode("operator", 
-                     attrs = c(id = paste("treeScaler.t:", id[i], sep = ""),
-                               scaleFactor = "0.5",
-                               spec = "ScaleOperator",
-                               tree = paste("@Tree.t:", id[i], sep = ""),
-                               weight = "3.0")),
-             xmlNode("operator", 
-                     attrs = c(id = paste("treeRootScaler.t:", id[i], sep = ""),
-                               rootOnly = "true",
-                               scaleFactor = "0.5",
-                               spec = "ScaleOperator",
-                               tree = paste("@Tree.t:", id[i], sep = ""),
-                               weight = "3.0")),
-             xmlNode("operator", 
-                     attrs = c(id = paste("UniformOperator.t:", id[i], sep = ""), 
-                               spec = "Uniform",
-                               tree = paste("@Tree.t:", id[i], sep = ""),
-                               weight = "30.0")),
-             xmlNode("operator", 
-                     attrs = c(id = paste("SubtreeSlide.t:", id[i], sep = ""),
-                               spec = "SubtreeSlide",
-                               tree = paste("@Tree.t:", id[i], sep = ""),
-                               weight = "15.0")),
-             xmlNode("operator", 
-                     attrs = c(id = paste("narrow.t:", id[i], sep = ""),
-                               spec = "Exchange",
-                               tree = paste("@Tree.t:", id[i], sep = ""),
-                               weight = "15.0")),
-             xmlNode("operator", 
-                     attrs = c(id = paste("wide.t:", id[i], sep = ""),
-                               isNarrow = "false",
-                               spec = "Exchange",
-                               tree = paste("@Tree.t:", id[i], sep = ""),
-                               weight = "3.0")),
-             xmlNode("operator", 
-                     attrs = c(id = paste("WilsonBalding.t:", id[i], sep = ""),
-                               spec = "WilsonBalding",
-                               tree = paste("@Tree.t:", id[i], sep = ""),
-                               weight = "3.0"))
-             
-    )
-    if ( i == 1 ){
-      ops <- c(ops, this.ops)
-    } else {
-      ops <- c(ops, 
-               list(xmlNode("operator", 
-                            attrs = c(id = paste("StrictClockRateScaler.c:", id[i], sep = ""),
-                                      parameter = paste("@clockRate.c:", id[i], sep = ""),
-                                      scaleFactor = "0.75",
+  o <- list()
+  for (i in seq_along(id)){
+    
+    if (link.trees){
+      
+      ## *.t operators for unlinked trees
+      ## --------------------------------
+      if (i == 1){
+        ## *.t operators for unlinked trees
+        ## --------------------------------
+        o <- c(o, list(xmlNode("operator", 
+                               attrs = c(id = "YuleBirthRateScaler.t:trees",
+                                         parameter = "@birthRate.t:trees",
+                                         scaleFactor = "0.75",
+                                         spec = "ScaleOperator",
+                                         weight = "3.0"))))
+        
+        
+        
+        o <- c(o, list(xmlNode("operator", 
+                            attrs = c(id = "treeScaler.t:trees",
+                                      scaleFactor = "0.5",
                                       spec = "ScaleOperator",
-                                      weight = "3.0"))),
-               this.ops,
-               list(xmlNode("operator", 
-                            attrs = c(id = paste("strictClockUpDownOperator.c:", id[i], sep = ""),
-                                      scaleFactor = "0.75",
-                                      spec = "UpDownOperator",
-                                      weight = "3.0"),
-                            .children = list(xmlNode("parameter",
-                                                     attrs = c(idref = paste("clockRate.c:", id[i], sep = ""),
-                                                               name = "up")),
-                                             xmlNode("tree",
-                                                     attrs = c(idref = paste("Tree.t:", id[i], sep = ""),
-                                                               name = "down")))))
-               )
+                                      tree = "@Tree.t:trees",
+                                      weight = "3.0"))))
+        
+        
+        o <- c(o, list(xmlNode("operator", 
+                            attrs = c(id = "treeRootScaler.t:trees",
+                                      rootOnly = "true",
+                                      scaleFactor = "0.5",
+                                      spec = "ScaleOperator",
+                                      tree = "@Tree.t:trees",
+                                      weight = "3.0"))))
+        
+        o <- c(o, list(xmlNode("operator", 
+                            attrs = c(id = "UniformOperator.t:trees", 
+                                      spec = "Uniform",
+                                      tree = "@Tree.t:trees",
+                                      weight = "30.0"))))
+        
+        o <- c(o, list(xmlNode("operator", 
+                            attrs = c(id = "SubtreeSlide.t:trees",
+                                      spec = "SubtreeSlide",
+                                      tree = "@Tree.t:trees",
+                                      weight = "15.0"))))
+        
+        
+        o <- c(o, list(xmlNode("operator", 
+                            attrs = c(id = "narrow.t:trees",
+                                      spec = "Exchange",
+                                      tree = "@Tree.t:trees",
+                                      weight = "15.0"))))
+        
+        
+        o <- c(o, list(xmlNode("operator", 
+                            attrs = c(id = "wide.t:trees",
+                                      isNarrow = "false",
+                                      spec = "Exchange",
+                                      tree = "@Tree.t:trees",
+                                      weight = "3.0"))))
+        
+        
+        o <- c(o, list(xmlNode("operator", 
+                            attrs = c(id = "WilsonBalding.t:trees",
+                                      spec = "WilsonBalding",
+                                      tree = "@Tree.t:trees",
+                                      weight = "3.0"))))
+      } else {
+        ## Do nothing
+      }
+      
+    } else {
+      
+      ## *.t operators for unlinked trees
+      ## --------------------------------
+      
+      o <- c(o, list(xmlNode("operator", 
+                          attrs = c(id = paste0("YuleBirthRateScaler.t:", id[i]),
+                                    parameter = paste0("@birthRate.t:", id[i]),
+                                    scaleFactor = "0.75",
+                                    spec = "ScaleOperator",
+                                    weight = "3.0"))))
+      
+      
+      
+      o <- c(o, list(xmlNode("operator", 
+                          attrs = c(id = paste0("treeScaler.t:", id[i]),
+                                    scaleFactor = "0.5",
+                                    spec = "ScaleOperator",
+                                    tree = paste0("@Tree.t:", id[i]),
+                                    weight = "3.0"))))
+      
+      
+      o <- c(o, list(xmlNode("operator", 
+                          attrs = c(id = paste0("treeRootScaler.t:", id[i]),
+                                    rootOnly = "true",
+                                    scaleFactor = "0.5",
+                                    spec = "ScaleOperator",
+                                    tree = paste0("@Tree.t:", id[i]),
+                                    weight = "3.0"))))
+      
+      o <- c(o, list(xmlNode("operator", 
+                          attrs = c(id = paste0("UniformOperator.t:", id[i]), 
+                                    spec = "Uniform",
+                                    tree = paste0("@Tree.t:", id[i]),
+                                    weight = "30.0"))))
+      
+      o <- c(o, list(xmlNode("operator", 
+                          attrs = c(id = paste0("SubtreeSlide.t:", id[i]),
+                                    spec = "SubtreeSlide",
+                                    tree = paste0("@Tree.t:", id[i]),
+                                    weight = "15.0"))))
+      
+      
+      o <- c(o, list(xmlNode("operator", 
+                          attrs = c(id = paste0("narrow.t:", id[i]),
+                                    spec = "Exchange",
+                                    tree = paste0("@Tree.t:", id[i]),
+                                    weight = "15.0"))))
+      
+      
+      o <- c(o, list(xmlNode("operator", 
+                          attrs = c(id = paste0("wide.t:", id[i]),
+                                    isNarrow = "false",
+                                    spec = "Exchange",
+                                    tree = paste0("@Tree.t:", id[i]),
+                                    weight = "3.0"))))
+      
+      
+      o <- c(o, list(xmlNode("operator", 
+                          attrs = c(id = paste0("WilsonBalding.t:", id[i]),
+                                    spec = "WilsonBalding",
+                                    tree = paste0("@Tree.t:", id[i]),
+                                    weight = "3.0"))))
     }
     
+    if (!link.clocks & i > 1){
+  
+      o <- c(o, list(xmlNode("operator", 
+                          attrs = c(id = paste0("StrictClockRateScaler.c:", id[i]),
+                                    parameter = paste0("@clockRate.c:", id[i]),
+                                    scaleFactor = "0.75",
+                                    spec = "ScaleOperator",
+                                    weight = "3.0"))))
+      
+      Tree.t <- ifelse(link.trees, "Tree.t:trees", paste0("Tree.t:", id[i]))
+      o <- c(o, list(xmlNode("operator", 
+                          attrs = c(id = paste0("strictClockUpDownOperator.c:", id[i]),
+                                    scaleFactor = "0.75",
+                                    spec = "UpDownOperator",
+                                    weight = "3.0"),
+                          .children = list(xmlNode("parameter",
+                                                   attrs = c(idref = paste0("clockRate.c:", id[i]),
+                                                             name = "up")),
+                                           xmlNode("tree",
+                                                   attrs = c(idref = Tree.t,
+                                                             name = "down"))))))
+    }
   }
-  ops
+  o
 }
-  
-  
+

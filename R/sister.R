@@ -1,13 +1,53 @@
+<<<<<<< HEAD
 ## This code is part of the megaptera package
 ## © C. Heibl 2012 (last update 2016-09-21)
 
 sister <- function(phy, node, type = "terminal"){
+=======
+## This code is part of the ips package
+## © C. Heibl 2014 (last update 2016-12-05)
+
+#' @title Identification of Sister Nodes and Clades
+#' @description For any given internal node in a phylogeny, this function 
+#'   returns the sister clade.
+#' @param phy An object of class \code{\link{phylo}}.
+#' @param node A vector of mode \code{"numeric"} or \code{"character"} giving 
+#'   the number(s) or name(s) of the tiplabel(s); these must be monophyletic.
+#' @param type A character string, may be \code{"terminal"}, \code{"internal"}, 
+#'   \code{"daughter"}, \code{"all"}, or any unambiguous abbreviation of these; 
+#'   \code{"daughter"} will return the MRCA of the sister clade of 
+#'   \code{"node"}.
+#' @param label Logical, determining if tip number or tip labels will be 
+#'   returned.
+#' @return A vector of mode \code{"numeric"} or \code{"character"}, containing 
+#'   either tip numbers or labels, respectively.
+#' @seealso \code{\link{descendants}}, \code{\link{noi}}.
+#' @examples 
+#' # A phylogeny of bark beetles ...
+#' data(ips.tree)
+#' tcol <- rep("black", Ntip(ips.tree))
+#' tcol[ips.tree$tip.label %in% c("Ips_typographus", "Ips_nitidus")] <- "blue"
+#' tcol[ips.tree$tip.label %in% c("Ips_duplicatus")] <- "red"
+#' plot(ips.tree, no.margin = TRUE, tip.color = tcol)
+#' # What is the sister species of Ips typographus?
+#' sister(ips.tree, "Ips_typographus", label = TRUE)
+#' # Return the MRCA of the sister clade of Ips duplicatus
+#' x <- sister(ips.tree, "Ips_duplicatus", "daughter")
+#' nodelabels(node = x, pch = 21, bg = "red")
+#' @export
+
+sister <- function(phy, node, type = "terminal", label = FALSE){
+>>>>>>> 647ba4c9ae1104b649cacc901c527de0207b7775
   
   # checks and definitions
   # ----------------------
   if ( !inherits(phy, "phylo") ) 
     stop ("'phy' is not of class 'phylo'")
+<<<<<<< HEAD
   if ( is.character(node) )
+=======
+  if ( is.character(node) | is.factor(node) )
+>>>>>>> 647ba4c9ae1104b649cacc901c527de0207b7775
     node <- which(phy$tip.label %in% node)
   
   orig.node <- node
@@ -36,5 +76,6 @@ sister <- function(phy, node, type = "terminal"){
     obj <- descendants(phy, obj, type = type) # get whole sister clade
     obj <- setdiff(obj, orig.node) # eliminate node 
   }
+  if ( label ) obj <- phy$tip.label[obj]
   obj
 }

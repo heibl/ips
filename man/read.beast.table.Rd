@@ -13,7 +13,7 @@ read.beast.table(file, digits = 2)
 }
 
 \arguments{
-  \item{file}{character string giving the input file, which must be a TreeAnnotaror-generated chronogram in NEXUS format}
+  \item{file}{character string giving the input file, which must be a TreeAnnotator-generated chronogram in NEXUS format}
   
   \item{digits}{NULL or integer, if \code{!is.null(digits)} values are rounded to the given integer}
 }

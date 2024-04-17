@@ -1,5 +1,8 @@
-## This code is part of the IPS package
-## © C. Heibl 2014 (last update 2016-07-28)
+
+## This code is part of the ips package
+## © C. Heibl 2014 (last update 2016-11-07)
+
+#' @export
 
 descendants <- function(phy, node, type = "t", ignore.tip = TRUE, 
                         labels = FALSE){

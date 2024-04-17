@@ -1,3 +1,9 @@
+## This code is part of the ips package
+## © C. Heibl 2014 (last update 2017-04-13)
+
+#' @rdname read
+#' @export
+
 read.phy <- function(x){
 	
 	if (length(x) == 1)

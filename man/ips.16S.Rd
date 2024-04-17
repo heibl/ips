@@ -10,7 +10,7 @@ This DNA alignment contains 376 positions of 42 sequences of 16S ribosomal DNA o
   The sequences are stored in binary format (see \code{\link{DNAbin}}).
 }
 \source{
-The sequences were downloaded and assembled from the Nucleotide resitory at GenBank on February 8, 2014.  
+The sequences were downloaded and assembled from the Nucleotide repository at GenBank on February 8, 2014.  
 }
 \references{
 The nucleotide database on the NCBI website: \url{http://www.ncbi.nlm.nih.gov/nuccore}

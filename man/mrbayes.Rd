@@ -7,6 +7,7 @@ Provides a wrapper for Bayesian phylogenetic tree search through MrBayes (Huelse
 }
 \usage{
 mrbayes(x, file = "", lset, prset, mcmc, unlink, constraint,
+<<<<<<< HEAD
         burnin = 10, contype = "allcompat", run = FALSE)
 }
 \arguments{
@@ -24,6 +25,25 @@ a list as returned by \code{\link{mrbayes.lset}} containing the parameter settin
   }
   \item{mcmc}{
 a list as returned by \code{\link{mrbayes.mcmc}} containing the parameter setting for the Marcov chain Monte Carlo (MCMC).  
+=======
+        burnin = 10, contype = "allcompat", exec, run = FALSE)
+}
+\arguments{
+  \item{x}{
+An object of class \code{\link{DNAbin}} in the case of \code{mrbayes}.
+  }
+  \item{file}{
+A character string, giving the name of the MrBayes input file.
+  }
+  \item{lset}{
+A list as returned by \code{\link{mrbayes.lset}} containing the parameter settings of the model of molecular evolution.  
+  }
+  \item{prset}{
+ A list as returned by \code{\link{mrbayes.prset}} containing the parameter setting for the prior distributions. 
+  }
+  \item{mcmc}{
+A list as returned by \code{\link{mrbayes.mcmc}} containing the parameter setting for the Markov chain Monte Carlo (MCMC).  
+>>>>>>> 647ba4c9ae1104b649cacc901c527de0207b7775
   }
   \item{unlink}{
   
@@ -32,6 +52,7 @@ a list as returned by \code{\link{mrbayes.mcmc}} containing the parameter settin
   
   }
   \item{burnin}{
+<<<<<<< HEAD
 an integer; the number of samples from the MCMC to be discarded prior to further analysis.
   }
   \item{contype}{
@@ -39,6 +60,18 @@ a character string; the type of consensus tree calculated from the posterior dis
   }
   \item{run}{
 logical; \code{run = FALSE} will only print the NEXUS file, \code{run = TRUE} will also start the MCMC runs, if the \code{path} argument is correctly specified.
+=======
+An integer; the number of samples from the MCMC to be discarded prior to further analysis.
+  }
+  \item{contype}{
+A character string; the type of consensus tree calculated from the posterior distribution of trees: either \code{"halfcompat"} (majority-rule consensus tree) or \code{"allcombat"} (strict consensus tree).
+  }
+  \item{exec}{
+  A character string giving the full path of the MrBayes program.
+  }
+  \item{run}{
+Logical; \code{run = FALSE} will only print the NEXUS file, \code{run = TRUE} will also start the MCMC runs, if \code{exec} is correctly specified.
+>>>>>>> 647ba4c9ae1104b649cacc901c527de0207b7775
   }
 }
 \details{ 	
@@ -65,7 +98,7 @@ MrBayes website: \url{http://mrbayes.sourceforge.net/}.
 \examples{	
 data(ips.cox1)
 x <- ips.cox1[, 100:140] # tiny alignment
-# mrbayes(x, file = "", ngen = 100, run = FALSE)
+mrbayes(x, file = "", mcmc = mrbayes.mcmc(ngen = 100), run = FALSE)
 
 \dontrun{
 
@@ -74,7 +107,11 @@ tree <- rtree(10)
 Y1 <- simSeq(tree, l = 20)
 Y2 <- simSeq(tree, l = 20, type = "USER", levels=c("0", "1"))
 Y <- cbind(as.character(Y1), as.character(Y2))
+<<<<<<< HEAD
 mrbayes.mixed(Y, file = "", ngen = 100, run = FALSE)
+=======
+mrbayes(Y, file = "", run = FALSE)
+>>>>>>> 647ba4c9ae1104b649cacc901c527de0207b7775
 }
 
 }

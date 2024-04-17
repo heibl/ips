@@ -1,5 +1,10 @@
-multistateMCMC <- 
-  function(phy, traits, model = "ARD", anc.states = TRUE, rd = 2.0, 
+## This code is part of the ips package
+## © C. Heibl 2012 (last update 2019-07-04)
+
+#' @importFrom utils read.table tail write.table
+#' @export
+
+multistateMCMC <- function(phy, traits, model = "ARD", anc.states = TRUE, rd = 2.0, 
             rjhp = NULL, fixNodes = NULL, it = 100000, bi = 10000, 
             sa = 1000, path = "/Applications/BayesTraits", dir = NULL){
 	

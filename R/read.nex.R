@@ -1,5 +1,8 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2015-10-30)
+## © C. Heibl 2014 (last update 2017-04-13)
+
+#' @rdname read
+#' @export
 
 read.nex <- function(x){
 	

@@ -21,7 +21,7 @@ multistateMCMC(phy, traits, model = "ARD", anc.states = TRUE,
 \arguments{
   \item{phy}{an object of class \code{phylo}.
 }
-  \item{traits}{a \code{data.frame} with two colums. The first column contains the taxon labels, the second column contains the character states.
+  \item{traits}{a \code{data.frame} with two columns. The first column contains the taxon labels, the second column contains the character states.
 }
   \item{model}{
 %%     ~~Describe \code{model} here~~
@@ -52,7 +52,7 @@ multistateMCMC(phy, traits, model = "ARD", anc.states = TRUE,
 \references{
 The BayesTraits manual: \url{http://www.evolution.rdg.ac.uk/Files/BayesTraits-V1.0-Manual.pdf}.
 
-Pagel, M., A. Meade, and D. Barker. 2004. Bayesian estiamation of ancestral character states on phylogenies. \emph{Syst. Biol.} \bold{53}: 673-684.
+Pagel, M., A. Meade, and D. Barker. 2004. Bayesian estimation of ancestral character states on phylogenies. \emph{Syst. Biol.} \bold{53}: 673-684.
 
 Pagel, M. and A. Meade. 2006. Bayesian analysis of correlated evolution of discrete characters by reversible-jump Markov chain Monte Carlo. \emph{Am. Nat.} \bold{167}: 808-825.
 }

@@ -1,3 +1,9 @@
+## This code is part of the ips package
+## © C. Heibl 2014 (last update 2016-12-05)
+
+#' @importFrom utils head tail
+#' @export
+
 unresolve.clade <- function(phy, node){
   tip <- descendants(phy, node, type = "terminal")
   del <- vector()

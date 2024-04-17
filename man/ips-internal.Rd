@@ -6,13 +6,16 @@
 \alias{assembleLoggers} % rbeauti
 \alias{assembleOperators} % rbeauti
 \alias{assembleStateNode} % rbeauti
+\alias{assembleTreeNode} % rbeauti
 \alias{extractBEASTstats} % read.beast
 \alias{extractMRBAYESstats} % read.mrbayes
 \alias{formatSet} % mrbayes
+\alias{log_list} % assembleLoggers
 \alias{matrixBlock} % write.nex
-\alias{phylo2mafft} % mafft
+\alias{operator} % rbeauti
+\alias{operator_list} % rbeauti
+\alias{parameter} % several functions
 \alias{rbeauti.taxonset} % rbeauti
-\alias{rc}
 \alias{rc.core}
 \alias{read.xml} % EXPERIMENTAL!
 \alias{setClock} % rbeauti

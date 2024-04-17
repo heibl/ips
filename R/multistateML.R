@@ -1,5 +1,10 @@
-multistateML <- 								
-function(phy, traits, model = "ARD", anc.states = TRUE, 
+## This code is part of the ips package
+## © C. Heibl 2012 (last update 2019-07-04)
+
+#' @importFrom utils read.table tail write.table
+#' @export
+
+multistateML <- function(phy, traits, model = "ARD", anc.states = TRUE, 
          path = "/Applications/BayesTraits", dir = NULL){
   
   ## checks
