@@ -9,7 +9,7 @@ prank <- function(x, outfile = "PRANK", guidetree = NULL,
 	
 	# check and handle guidetree
 	# ----------------------------
-	if ( class(guidetree) == "phylo" ){
+	if (inherits(guidetree, "phylo")){
 		missingseqs <- which(!guidetree$tip.label %in% x$nam)
 		if (length(missingseqs) > 0)
 			guidetree <- drop.tip(guidetree, missingseqs)
@@ -39,7 +39,7 @@ prank <- function(x, outfile = "PRANK", guidetree = NULL,
 	
 	## call PRANK
 	## ----------
-	if ( class(guidetree) == "phylo" ) {
+	if (inherits(guidetree, "phylo")) {
 	  call.prank <- paste(path, " -F",
 	                      " -d=", infile,
                         " -t=", gtfile, 

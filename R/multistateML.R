@@ -43,7 +43,7 @@ multistateML <- function(phy, traits, model = "ARD", anc.states = TRUE,
     names(anc.states) <- paste("node", nodes, sep = "")
   }
 	if (is.list(anc.states)){
-		if (class(phy) == "multiPhylo")
+		if (inherits(phy, "multiPhylo"))
 			g <- phy[[1]]								
     else 
       g <- phy
@@ -161,7 +161,7 @@ multistateML <- function(phy, traits, model = "ARD", anc.states = TRUE,
 	# ---------------------------------
 	state.freq <- grep("[.]P[.]", colnames(x))
 	anclik <- as.matrix(x[, state.freq])	
-	if (class(phy) == "multiPhylo")	{
+	if (inherits(phy, "multiPhylo"))	{
 	  anclik <- apply(anclik, 2, mean)
 	}									
 	nds <- colnames(anclik)
@@ -177,7 +177,7 @@ multistateML <- function(phy, traits, model = "ARD", anc.states = TRUE,
 	# calculate mean rates
 	# --------------------
 	rates <- x[ , grep("^q[[:digit:]]{2}", names(x))]
-	if (class(phy) == "multiPhylo") rates <- mean(rates)
+	if (inherits(phy, "multiPhylo")) rates <- mean(rates)
 	if (model != "ARD") rates <- rates[names(rates) %in% extract]
   ## This hack is necessary because class 'ace' requires standard
   ## errors for each rate parameter: creation of of a NA-dummy-vector
