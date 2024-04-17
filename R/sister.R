@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-## This code is part of the megaptera package
-## © C. Heibl 2012 (last update 2016-09-21)
 
-sister <- function(phy, node, type = "terminal"){
-=======
 ## This code is part of the ips package
 ## © C. Heibl 2014 (last update 2016-12-05)
 
@@ -37,17 +32,13 @@ sister <- function(phy, node, type = "terminal"){
 #' @export
 
 sister <- function(phy, node, type = "terminal", label = FALSE){
->>>>>>> 647ba4c9ae1104b649cacc901c527de0207b7775
   
   # checks and definitions
   # ----------------------
   if ( !inherits(phy, "phylo") ) 
     stop ("'phy' is not of class 'phylo'")
-<<<<<<< HEAD
-  if ( is.character(node) )
-=======
+
   if ( is.character(node) | is.factor(node) )
->>>>>>> 647ba4c9ae1104b649cacc901c527de0207b7775
     node <- which(phy$tip.label %in% node)
   
   orig.node <- node

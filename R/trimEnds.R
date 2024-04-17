@@ -1,7 +1,4 @@
 ## This code is part of the ips package
-<<<<<<< HEAD
-## © C. Heibl 2014 (last update 2016-08-01)
-=======
 ## © C. Heibl 2014 (last update 2019-11-05)
 
 #' @title Trim Alignment Ends
@@ -32,7 +29,6 @@
 #' # show results:
 #' as.character(x[2, ])
 #' @export
->>>>>>> 647ba4c9ae1104b649cacc901c527de0207b7775
 
 trimEnds <- function(x, min.n.seq = 4){
   
@@ -43,32 +39,6 @@ trimEnds <- function(x, min.n.seq = 4){
     stop("'x' must be a matrix")
   }
   
-<<<<<<< HEAD
-  ## replace terminal '-' with 'N'
-  ## -----------------------------
-  replaceWithN <- function(x){
-    
-    n <- vector()
-    
-    ## head (5'-end)
-    id <- which(x == as.raw(4))
-    if ( 1 %in% id ) n <- c(n, which(id == 1:length(id)))
-    
-    ## tail (3'-end)
-    id <- which(rev(x == as.raw(4)))
-    if ( 1 %in% id ) n <- c(n, (length(x):1)[which(id == 1:length(id))])
-    
-    ## replace - by N
-    if ( length(n) > 0 ){
-      x[n] <- as.raw(240)
-    }
-    x
-  }
-  x <- t(apply(x, 1, replaceWithN))
-  class(x) <- "DNAbin"
-  
-  ## remove 'sandspit' pattern
-=======
   ## Store confidence stores; if not present cs == NULL
   ## --------------------------------------------------
   cs <- attr(x, "cs")
@@ -108,7 +78,7 @@ trimEnds <- function(x, min.n.seq = 4){
   class(x) <- "DNAbin"
   
   ## Remove 'sandspit' pattern
->>>>>>> 647ba4c9ae1104b649cacc901c527de0207b7775
+
   ## -------------------------
   removeSandspit <- function(x){
     

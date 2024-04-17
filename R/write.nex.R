@@ -21,20 +21,8 @@ write.nex <- function(x, file, block.width = 60,
     datatype
   }
   
-<<<<<<< HEAD
-  ## Determine data types of partitions; n.b. same datatype is assumed for all
-  ## partiontions (by use of unique())
-  ## ---------------------------------------------------------------------------
-  datatype <- unique(sapply(x, class))
-  if (length(datatype) > 1) stop("mixed datatypes are currently not allowed")
-  datatype[datatype == "DNAbin"] <- "dna"
-  datatype[datatype == "dist"] <- "distances"
-  datatype[datatype == "data.frame"] <- "standard"
-  
-  ## asses token used for missing data
-=======
+
   ## Auxiliary function 2: Asses token used for missing data 
->>>>>>> 647ba4c9ae1104b649cacc901c527de0207b7775
   ## (function adapted for data frames 2016-01-26)
   ## ---------------------------------------------
   m <- function(x, datatype) {
