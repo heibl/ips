@@ -12,7 +12,7 @@ sister(phy, node, type = "terminal")
 \arguments{
   \item{phy}{an object of class \code{phylo}.}
   
-  \item{node}{an integer giving the number of the node.}
+  \item{node}{a vector of mode \code{"numeric"} or \code{"character"} giving the number(s) or name(s) of the monophyletic tiplabel(s); these must be monophyletic.}
   
   \item{type}{a character string, may be \code{"terminal"}, \code{"internal"}, \code{"both"}, or any unambiguous abbreviation of these.}
 }

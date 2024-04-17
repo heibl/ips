@@ -4,6 +4,7 @@
 ## last update: 2014-07-30
 
 terminal.clades <- function(phy){
+  
   obj <- lapply(1:Ntip(phy), sister, phy = phy)
   for ( i in seq_along(obj)) 
     obj[[i]] <- sort(c(obj[[i]], i))

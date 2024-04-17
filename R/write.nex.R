@@ -7,8 +7,11 @@ write.nex <- function(x, file, block.width = 60,
   ## a data frame is a list: is.list(data.frame) == TRUE !!!
   if ( !is.list(x) | is.data.frame(x) ) x <- list(x)
   
-  ## data types of partitions
-  datatype <- sapply(x, class)
+  ## Determine data types of partitions; n.b. same datatype is assumed for all
+  ## partiontions (by use of unique())
+  ## ---------------------------------------------------------------------------
+  datatype <- unique(sapply(x, class))
+  if (length(datatype) > 1) stop("mixed datatypes are currently not allowed")
   datatype[datatype == "DNAbin"] <- "dna"
   datatype[datatype == "dist"] <- "distances"
   datatype[datatype == "data.frame"] <- "standard"
