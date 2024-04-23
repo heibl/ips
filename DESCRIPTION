@@ -1,6 +1,6 @@
 Package: ips
 Version: 0.0.12
-Date: 2024-04-21
+Date: 2024-04-23
 Title: Interfaces to Phylogenetic Software in R
 Authors@R: c(
     person("Christoph", "Heibl", email = "christoph.heibl@gmx.net", 
