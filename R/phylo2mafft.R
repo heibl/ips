@@ -11,7 +11,7 @@
 #' @return A matrix coding the MAFFT-formatted tree, as a side effect the same 
 #'   matrix is written to \code{file}.
 #' @references The MAFFT website:
-#'   \url{http://mafft.cbrc.jp/alignment/software/index.html}
+#'   \url{https://mafft.cbrc.jp/alignment/software/index.html}
 #' @seealso \code{\link{mafft}} for an interface to MAFFT.
 #' @importFrom ape is.binary multi2di
 #' @importFrom utils write.table

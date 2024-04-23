@@ -12,7 +12,7 @@ mrbayes.lset(..., partition)
 arguments in \code{tag = value} form, or a list of tagged values. The tags must come from the names of model parameters described in the ‘Model Parameters’ section.
 }
   \item{partition}{
-%%     ~~Describe \code{partition} here~~
+a character string giving the labelling for a partion.
 }
 }
 %\details{}
@@ -61,7 +61,7 @@ J.P. Huelsenbeck & Ronquist F. 2001. MrBayes: Bayesian inference of phylogenetic
 
 Ronquist F. & J.P. Huelsenbeck. 2003. MrBayes 3: Bayesian phylogenetic inference under mixed models. \emph{Biometrics} \bold{19}: 1572-1574.
 	
-MrBayes website: \url{http://mrbayes.sourceforge.net/}.
+MrBayes website: \url{https://mrbayes.sourceforge.net/}.
 }
 \author{Christoph Heibl}
 %\note{}

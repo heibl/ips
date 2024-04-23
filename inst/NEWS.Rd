@@ -66,7 +66,7 @@
   \subsection{NEW FEATURES}{
     \itemize{
       \item The function \code{mafft} received the additional argument \code{options}, which can be used to request options such as e.g. --adjustdirection that are not build into the function's interface.
-      \item This version includes a new internal function \code{phylo2mafft}, which does exactly the same thing as the RUBY script newick2mafft.rb on the MAFFT website (\url{http://mafft.cbrc.jp/alignment/software/newick2mafft.rb}): it converts a user-defined guide tree into a format readible by MAFFT.
+      \item This version includes a new internal function \code{phylo2mafft}, which does exactly the same thing as the RUBY script newick2mafft.rb on the MAFFT website (\url{https://mafft.cbrc.jp/alignment/software/newick2mafft.rb}): it converts a user-defined guide tree into a format readible by MAFFT.
       \item The functions \code{delete.empty.cells} and \code{fillEndsWithN} are now using Emanuel Paradis' bit-level coding for DNA sequences, which makes them much faster.
     }
   }

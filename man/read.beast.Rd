@@ -33,9 +33,9 @@ read.starbeast(file)
 }
 
 \references{
-TreeAnnotator: \url{http://beast.bio.ed.ac.uk/TreeAnnotator}
+TreeAnnotator: \url{http://beast.community/treeannotator}
 
-Metacomments in NEXUS: \url{http://code.google.com/p/beast-mcmc/wiki/NexusMetacommentFormat}	
+Metacomments in NEXUS: \url{https://code.google.com/archive/p/beast-mcmc/wikis/NexusMetacommentFormat.wiki}	
 }
 
 \author{Christoph Heibl}

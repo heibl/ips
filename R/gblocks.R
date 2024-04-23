@@ -22,7 +22,7 @@
 #'   conservative}. Defaults to the number of positions in the alignment.
 #' @param b4 An integer, the \bold{minimum length of a block}, any integer equal
 #'   to or bigger than 2 is allowed. \emph{Larger} values will \emph{decrease}
-#'   the number of selected positions, i.e. are {more conservative}. Defaults to
+#'   the number of selected positions, i.e. are \emph{more conservative}. Defaults to
 #'   2.
 #' @param b5 A character string indicating the \bold{treatment of gap
 #'   positions}. Three choices are possible. 1. \code{"n"}: \emph{No} gap
@@ -69,7 +69,7 @@
 #'   after removing divergent and ambiguously aligned blocks from protein
 #'   sequence alignments. \emph{Systematic Biology} \bold{56}, 564-577.
 #' @references  \bold{Gblocks website}: 
-#'   \url{http://molevol.cmima.csic.es/castresana/Gblocks.html}
+#'   \url{https://www.biologiaevolutiva.org/jcastresana/Gblocks.html}
 #' @seealso \code{\link{mafft}} and \code{\link{prank}} for multiple sequence
 #'   alignment; \code{\link{aliscore}} for another alignment masking algorithm.
 #' @examples

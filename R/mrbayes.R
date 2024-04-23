@@ -9,7 +9,7 @@
 #'   \code{mrbayes.mixed}.
 #' @param file A character string, giving the name of the MrBayes input file.
 #' @param lset A list as returned by \code{\link{mrbayes.prset}} containing the
-#'   parameter setting for the prior distirbutions.
+#'   parameter setting for the prior distributions.
 #' @param prset A list as returned by \code{\link{mrbayes.prset}} containing the
 #'   parameter setting for the prior distributions.
 #' @param mcmc A list as returned by \code{\link{mrbayes.mcmc}} containing the
@@ -39,7 +39,7 @@
 
 #' Ronquist F. & J. P. Huelsenbeck. 2003. MrBayes 3: Bayesian phylogenetic inference under mixed models. \emph{Biometrics} \bold{19}: 1572-1574.
 
-#' MrBayes website: \url{http://mrbayes.sourceforge.net/}.
+#' MrBayes website: \url{https://mrbayes.sourceforge.net/}.
 #' @examples
 #' data(ips.cox1)
 #' x <- ips.cox1[, 100:140] # tiny alignment

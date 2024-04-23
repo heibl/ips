@@ -15,7 +15,7 @@ This DNA alignment contains 770 positions of 26 sequences of cox1 of the bark be
 The sequences were downloaded and assembled from the Nucleotide repository at GenBank on February 8, 2014. 
 }
 \references{
-The nucleotide database on the NCBI website: \url{http://www.ncbi.nlm.nih.gov/nuccore}
+The nucleotide database on the NCBI website: \url{https://www.ncbi.nlm.nih.gov/nuccore}
 }
 \examples{
 data(ips.cox1)

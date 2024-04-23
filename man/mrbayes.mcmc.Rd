@@ -123,7 +123,7 @@ J.P. Huelsenbeck & Ronquist F. 2001. MrBayes: Bayesian inference of phylogenetic
 
 Ronquist F. & J.P. Huelsenbeck. 2003. MrBayes 3: Bayesian phylogenetic inference under mixed models. \emph{Biometrics} \bold{19}: 1572-1574.
 	
-MrBayes website: \url{http://mrbayes.sourceforge.net/}.
+MrBayes website: \url{https://mrbayes.sourceforge.net/}.
 }
 \author{Christoph Heibl}
 \note{The parameters \bold{reweight} and \bold{filename} cannot be set via \code{mrbayes.mcmc}.}

@@ -74,8 +74,9 @@ ts <- list(list(id = "ingroup", taxon = ingroup),
 # rbeauti(ips.16S, taxonset = ts)
 }
 \references{
-The BEAST 2 website:
-  \url{http://beast.bio.ed.ac.uk/BEAST_v1.5.x_XML_Reference} Drummond, A.J. &
+The XML reference at the BEAST 2 website:
+  \url{http://beast.community/xml_reference} 
+  Drummond, A.J. &
   A. Rambaut. 2007. BEAST: Bayesian evolutionary analysis by sampling trees.
   \emph{BMC Evolutionary Biology} \bold{7}: 240.
 }

@@ -51,7 +51,7 @@ Waegele and B. Misof. 2010. Parametric and non-parametric masking of
 randomness in sequence alignments can be improved and leads to better
 resolved trees. \emph{Frontiers in Zoology} \bold{7}: 10.
 
-\bold{Aliscore website}: \url{https://www.zfmk.de/en/research/research-centres-and-groups/aliscore}
+\bold{Aliscore website}: \url{https://bonn.leibniz-lib.de/en/research/research-centres-and-groups/aliscore}
 }
 \seealso{
 \code{\link{mafft}} and \code{\link{prank}} for multiple sequence

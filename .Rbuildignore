@@ -1,14 +1,9 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 ^dev$
->>>>>>> origin/master
 ^deprecated$
 ^cran-comments.md$
 ^README.Rmd$
 ^CRAN-RELEASE$
 ^data-raw$
->>>>>>> 647ba4c9ae1104b649cacc901c527de0207b7775
+^revdep$

@@ -17,6 +17,6 @@ beastLog(l, x, i)
 An object of class \code{XMLNode}.
 }
 \description{
-A collection of paramaeter nodes used in the standard template of BEAST2.
+A collection of parameter nodes used in the standard template of BEAST2.
 }
 \keyword{internal}

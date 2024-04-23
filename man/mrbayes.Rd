@@ -26,7 +26,7 @@ mrbayes(
 \item{file}{A character string, giving the name of the MrBayes input file.}
 
 \item{lset}{A list as returned by \code{\link{mrbayes.prset}} containing the
-parameter setting for the prior distirbutions.}
+parameter setting for the prior distributions.}
 
 \item{prset}{A list as returned by \code{\link{mrbayes.prset}} containing the
 parameter setting for the prior distributions.}
@@ -81,7 +81,7 @@ Y <- cbind(as.character(Y1), as.character(Y2))
 \references{
 J. P. Huelsenbeck & Ronquist F. 2001. MrBayes: Bayesian inference of phylogenetic trees. \emph{Bioinformatics} \bold{17}: 754-755.
 Ronquist F. & J. P. Huelsenbeck. 2003. MrBayes 3: Bayesian phylogenetic inference under mixed models. \emph{Biometrics} \bold{19}: 1572-1574.
-MrBayes website: \url{http://mrbayes.sourceforge.net/}.
+MrBayes website: \url{https://mrbayes.sourceforge.net/}.
 }
 \seealso{
 \code{\link{mafft}} and \code{\link{prank}} for sequence alignment;

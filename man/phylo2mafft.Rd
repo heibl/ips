@@ -23,7 +23,7 @@ Converts a phylogenetic tree of class \code{"phylo"} to a format
 }
 \references{
 The MAFFT website:
-  \url{http://mafft.cbrc.jp/alignment/software/index.html}
+  \url{https://mafft.cbrc.jp/alignment/software/index.html}
 }
 \seealso{
 \code{\link{mafft}} for an interface to MAFFT.

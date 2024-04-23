@@ -24,7 +24,7 @@ multistateMCMC(phy, traits, model = "ARD", anc.states = TRUE,
   \item{traits}{a \code{data.frame} with two columns. The first column contains the taxon labels, the second column contains the character states.
 }
   \item{model}{
-%%     ~~Describe \code{model} here~~
+a character string to select a model of rate evolution. One of \code{"ER"} (equal rates), \code{"FB"}, \code{"ROW"}, \code{"SYM"}, or \code{"ARD"} (all rates different).
 }
 
   \item{anc.states}{either \code{logical} or a \code{list}, the latter containing the tip labels of those internal nodes, for which the likelihood of ancestral character states should be estimated.
@@ -50,7 +50,7 @@ multistateMCMC(phy, traits, model = "ARD", anc.states = TRUE,
 }
 
 \references{
-The BayesTraits manual: \url{http://www.evolution.rdg.ac.uk/Files/BayesTraits-V1.0-Manual.pdf}.
+The BayesTraits manual: \url{http://www.evolution.reading.ac.uk/BayesTraitsV4.1.1/Files/BayesTraitsV4.1.1-Manual.pdf}.
 
 Pagel, M., A. Meade, and D. Barker. 2004. Bayesian estimation of ancestral character states on phylogenies. \emph{Syst. Biol.} \bold{53}: 673-684.
 

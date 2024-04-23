@@ -99,7 +99,7 @@ There are some limitations of this wrapper compared to RAxML run
 RAxML is a C program and the source code is not contained in this
   package. This means that in order to run this function you will need to
   install RAxML yourself. See
-  \url{http://sco.h-its.org/exelixis/web/software/raxml/} for the most recent
+  \url{https://cme.h-its.org/exelixis/web/software/raxml/} for the most recent
   documentation and source code of RAxML. Depending on where you chose to
   install RAxML, you need to adjust the \code{exec} argument.
 

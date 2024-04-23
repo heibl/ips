@@ -42,8 +42,9 @@
 #'   \code{rbeauti} is intended to make the definition of large numbers of taxon
 #'   sets easy. The creation of taxon sets can be done via R scripts and the
 #'   resulting XML files can be further modified with BEAUti.
-#' @references The BEAST 2 website:
-#'   \url{http://beast.bio.ed.ac.uk/BEAST_v1.5.x_XML_Reference} Drummond, A.J. &
+#' @references The XML reference at the BEAST 2 website:
+#'   \url{http://beast.community/xml_reference} 
+#'   Drummond, A.J. &
 #'   A. Rambaut. 2007. BEAST: Bayesian evolutionary analysis by sampling trees.
 #'   \emph{BMC Evolutionary Biology} \bold{7}: 240.
 #' @seealso \code{\link{read.beast}}, \code{\link{read.beast.table}}

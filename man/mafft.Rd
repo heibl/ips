@@ -117,7 +117,7 @@ Katoh, K. and H. Toh. 2008. Recent developments in the MAFFT
   method for rapid multiple sequence alignment based on fast Fourier 
   transform. \emph{Nucleid Acids Research} \bold{30}: 3059--3066.
   
-  \url{http://mafft.cbrc.jp/alignment/software/index.html}
+  \url{https://mafft.cbrc.jp/alignment/software/index.html}
 }
 \seealso{
 \code{\link{read.fas}} to import DNA sequences; \code{\link{prank}} 

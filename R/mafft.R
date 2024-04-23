@@ -73,7 +73,7 @@
 #'   method for rapid multiple sequence alignment based on fast Fourier 
 #'   transform. \emph{Nucleid Acids Research} \bold{30}: 3059--3066.
 #'   
-#'   \url{http://mafft.cbrc.jp/alignment/software/index.html}
+#'   \url{https://mafft.cbrc.jp/alignment/software/index.html}
 #' @note \code{mafft} was last updated and tested to work with MAFFT 7.205. If 
 #'   you have problems getting the function to work with a newer version of 
 #'   MAFFT, please contact the package maintainer.

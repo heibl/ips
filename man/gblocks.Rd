@@ -35,7 +35,7 @@ conservative}. Defaults to the number of positions in the alignment.}
 
 \item{b4}{An integer, the \bold{minimum length of a block}, any integer equal
 to or bigger than 2 is allowed. \emph{Larger} values will \emph{decrease}
-the number of selected positions, i.e. are {more conservative}. Defaults to
+the number of selected positions, i.e. are \emph{more conservative}. Defaults to
 2.}
 
 \item{b5}{A character string indicating the \bold{treatment of gap
@@ -106,7 +106,7 @@ Talavera, G., and J. Castresana. 2007. Improvement of phylogenies
   sequence alignments. \emph{Systematic Biology} \bold{56}, 564-577.
 
 \bold{Gblocks website}: 
-  \url{http://molevol.cmima.csic.es/castresana/Gblocks.html}
+  \url{https://www.biologiaevolutiva.org/jcastresana/Gblocks.html}
 }
 \seealso{
 \code{\link{mafft}} and \code{\link{prank}} for multiple sequence
