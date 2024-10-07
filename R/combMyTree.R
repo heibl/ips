@@ -32,25 +32,38 @@ combMyTree <- function(phy, data, brlen = 0, annotate = FALSE){
   if (!inherits(phy, "phylo")) stop("'phy' is not of class 'phylo'")
   
   info <- apply(data, 2, setequal, y = phy$tip.label)
-  if (!any(info)) stop("'data' is not congruent with tiplabels of 'phy'")
+  if (any(info)){
+    
+    ## one column perfectly matching
+    tip_col <- names(info)[info]
+    stopifnot(length(tip_col) == 1)
+    message("tip labels are taken from column '", tip_col, "'")
+    
+  } else {
+    
+    ## no perfect match between tip labels and any column of 'data'
+    info <- apply(data, 2, function(a, b) which(a %in% b), b = phy$tip.label)
+    n <- sapply(info, length)
+    tip_col <- names(n)[which.max(n)]
+    not_in_data <- setdiff(phy$tip.label, data[[tip_col]])
+    n_miss <- length(not_in_data)
+    not_in_phy <- setdiff(data[[tip_col]], phy$tip.label)
+    info <- data.frame(phy = not_in_data, data = not_in_phy)
+    id <- sapply(info$phy, agrep, x = info$data)
+    info$data <- info$data[id]
+    info <- paste0(" - '", info$phy, "' (phy) vs. '", info$data, "' (data)")
+    info <- paste(info, collapse = "\n")
+    message("tip labels seem to be stored in column '", tip_col, "', but ", 
+            ifelse(n_miss == 1, "1 does", paste(n_miss, "do")), " not match:")
+    message(info)
+    stop("'data' is not congruent with tiplabels of 'phy'")
+  }
   
   ## Calculate number of accessions per species
   ## ------------------------------------------
-  comb_or_not <- table(data[, info])
+  comb_or_not <- table(data[, tip_col])
   
-  ## Case 1: Only 1 accession, simply replace
-  ##         species name by accession name
-  ## --------------------------------------
-  # if (any(comb_or_not == 1)){
-  #   one_sample <- names(comb_or_not)[comb_or_not == 1]
-  #   one_sample <- phy$tip.label[phy$tip.label %in% one_sample]
-  #   phy$tip.label[phy$tip.label %in% one_sample] <- data[match(one_sample, data[, info]), !info]
-  # }
-  
-  ## Case 2: More than 1 accession, put combs on tips
-  ## ------------------------------------------------
-  # data <- data[data[, info]  %in% names(comb_or_not)[comb_or_not > 1], ]
-  data <- split(data[, !info], data[, info])
+  data <- split(data[, names(data) != tip_col], data[, tip_col])
   makeComb <- function(z){
     z <- read.tree(text = paste0("(", paste(z, collapse = ","), ");"))
     compute.brlen(z, brlen) ## set branch lengths to br.len
