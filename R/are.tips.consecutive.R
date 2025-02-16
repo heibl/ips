@@ -7,5 +7,5 @@ are.tips.consecutive <- function(phy){
   given <- as.integer(given)
   if ( !identical(canonical, given) ) 
     stop("tips are not numbered consecutively.",
-         " Type '?fixNodes' for help.")
+         " Type '?ips::fixNodes' for help.")
 }

@@ -4,7 +4,9 @@
 ^deprecated$
 ^cran-comments.md$
 ^README.Rmd$
+^NEWS.Rmd$
 ^CRAN-RELEASE$
 ^data-raw$
 ^revdep$
 ^.github$
+^CRAN-SUBMISSION$

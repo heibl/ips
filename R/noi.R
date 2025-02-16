@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2017-12-20)
+## © C. Heibl 2014 (last update 2025-02-16)
 
 #' @rdname oi
 #' @export
