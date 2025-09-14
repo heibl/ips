@@ -10,7 +10,7 @@
 #'   \bold{46}: 590-621.
 #' @seealso \code{\link{mafft}} and \code{\link{prank}} for sequence alignment,
 #'   \code{\link{gblocks}} and \code{\link{aliscore}} for quality check and
-#'   cleaning of sequence alignments, \code{\link{cbind.DNAbin}} for
+#'   cleaning of sequence alignments, \code{\link[ape]{cbind.DNAbin}} for
 #'   concatenation of sequence alignments.
 #' @examples 
 #' ## bark beetle COX1 sequences

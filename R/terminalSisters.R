@@ -1,10 +1,10 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2017-03-22)
+## Written by C. Heibl 2014 (last update 2025-09-14)
 
 #' @title Find Pairs of Sister Species
 #' @description Finds pairs of sister species in
 #' a phylogenetic tree.
-#' @param phy An object of class \code{\link{phylo}}.
+#' @param phy An object of class \code{\link[ape]{phylo}}.
 #' @param labels Logical, indicating whether to return tip labels or tip numbers.
 #' @return A list of which each element contains the tip labels
 #' of a sister species pair.
@@ -13,8 +13,8 @@
 #' tr <- rtree(12)
 #' plot(tr)
 #' terminalSisters(tr)
-#' @export
 #' @import ape
+#' @export
 
 terminalSisters <- function(phy, labels = TRUE){
 

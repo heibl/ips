@@ -7,7 +7,7 @@
 combMyTree(phy, data, brlen = 0, annotate = FALSE)
 }
 \arguments{
-\item{phy}{An object of class \code{\link{phylo}}.}
+\item{phy}{An object of class \code{\link[ape]{phylo}}.}
 
 \item{data}{A data frame containing two columns. The entries of one column
 must be identical to the tip labels of the phylogeny; the other column
@@ -20,7 +20,7 @@ automatically.}
 into node labels. Note, that this will overwrite existing node labels.}
 }
 \value{
-An object of class \code{\link{phylo}} with \code{nrow(data)} tips.
+An object of class \code{\link[ape]{phylo}} with \code{nrow(data)} tips.
 }
 \description{
 Graft polytomies on the tips of a class \code{phylo} object.

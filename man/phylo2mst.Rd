@@ -7,7 +7,7 @@
 phylo2mst(phy)
 }
 \arguments{
-\item{phy}{An object of class \code{\link{phylo}}.}
+\item{phy}{An object of class \code{\link[ape]{phylo}}.}
 }
 \description{
 Converts a phylogenetic tree (class \code{phylo}) into a

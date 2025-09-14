@@ -7,7 +7,7 @@
 del.miss(x)
 }
 \arguments{
-\item{x}{A matrix, a list, or a vector of class \code{\link{DNAbin}}
+\item{x}{A matrix, a list, or a vector of class \code{\link[ape]{DNAbin}}
 containing the DNA sequences.}
 }
 \value{

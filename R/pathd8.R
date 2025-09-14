@@ -1,14 +1,14 @@
 #' @title PATHd8
 #' @description This function is a wrapper for PATHd8 and can be used for
 #'   phylogenetic dating, especially of large trees
-#' @param phy An object of class \code{\link{phylo}}.
+#' @param phy An object of class \code{\link[ape]{phylo}}.
 #' @param exec A character string giving the path to the PATHd8 program.
 #' @param seql sequence length of alignment
 #' @param calibration A data frame with 4 columns and as many rows as 
 #'   calibration points. Columns are: taxon 1; taxon 2; one of c("minage", 
 #'   "maxage", "fixage"); age.
 #' @return tree list of ultrametric trees returned from PATHd8 of class 
-#'   \code{\link{phylo}}. First tree is PATHd8 chronogram, which is a calibrated
+#'   \code{\link[ape]{phylo}}. First tree is PATHd8 chronogram, which is a calibrated
 #'   ultrametric tree. Second is a PATH tree, which is a ultrametric tree 
 #'   without calibration.
 #' @references Britton et al (2006). PATHd8---a new method for estimating 

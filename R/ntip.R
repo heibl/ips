@@ -1,10 +1,10 @@
 ## This code is part of the ips package
-## © C. Heibl 2016 (last update 2016-11-23)
+## Written by C. Heibl 2016 (last update 2025-09-14)
 
 #' @title Numbers of Tips of (Sub)trees
 #' @description Counts the number of tips of a given clade of a 
 #' phylogenetic tree.
-#' @param phy An object of class \code{\link{phylo}}.
+#' @param phy An object of class \code{\link[ape]{phylo}}.
 #' @param node An integer given the number of an internal node.
 #' @return An integer giving the number of tips.
 #' @examples 

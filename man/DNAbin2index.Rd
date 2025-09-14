@@ -7,11 +7,11 @@
 DNAbin2index(x)
 }
 \arguments{
-\item{x}{A matrix of class \code{\link{DNAbin}}.}
+\item{x}{A matrix of class \code{\link[ape]{DNAbin}}.}
 }
 \description{
 Extract the indices of non-empty positions in a sample of DNA
-  sequences to
+  sequences to zzz.
 }
 \seealso{
 \code{\link{index2DNAbin}}

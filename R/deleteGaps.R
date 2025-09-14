@@ -1,12 +1,12 @@
 
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2025-09-14)
+## Written by C. Heibl 2014 (last update 2025-09-14)
 
 #' @title Remove Gap Positions From DNA Sequences
 #' @description Remove indel positions (or gaps) from a DNA sequence 
 #' alignment. For faster execution, \code{deleteGaps} handles sequences 
 #' in \pkg{ape}'s bit-level coding scheme.
-#' @param x An object of class \code{\link{DNAbin}}.
+#' @param x An object of class \code{\link[ape]{DNAbin}}.
 #' @param gap.max An integer, which gives the maximum number of
 #' gap characters ("-") that will be tolerated at any given alignment 
 #' position (column). Only values between \code{0} and \code{nrow(x) - 4}
@@ -21,7 +21,7 @@
 #' In contrast, \code{\link[ape]{del.gaps}} removes all gap characters 
 #' from the alignment, so most probably the result will not be a set of 
 #' sequences of equal length and the matrix will be coerced to a list.
-#' @return An object of class \code{\link{DNAbin}.}
+#' @return An object of class \code{\link[ape]{DNAbin}.}
 #' @seealso  \code{\link{code.simple.gaps}} for coding of simple gaps, 
 #' \code{\link[ape]{del.gaps}} for removal of all gap symbols from an 
 #' alignment, \code{\link{gblocks}} and \code{\link{aliscore}} for more 

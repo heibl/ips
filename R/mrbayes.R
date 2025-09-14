@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2025-08-30)
+## Written by C. Heibl 2014 (last update 2025-09-14)
 
 #' @title Bayesian MCMC Tree Search with MrBayes
 #' @description Provides a wrapper for Bayesian phylogenetic tree search through
@@ -16,7 +16,7 @@
 #'   parameter setting for the Markov chain Monte Carlo (MCMC).
 #' @param unlink xxx
 #' @param constraint xxx
-#' @param burnin An integer; the number of samples from the MCMC to be discarded
+#' @param burnin An integer; the number of samples from the MCMC to be discarded.
 #' @param exec A character string giving the full path of the MrBayes program.
 #' @param run Logical; \code{run = FALSE} will only print the NEXUS file,
 #'   \code{run = TRUE} will also start the MCMC runs, if \code{exec} is
@@ -31,10 +31,10 @@
 #'   \code{\link{raxml}} for maximum likelihood tree search.
 #' @references 
 #' J. P. Huelsenbeck & Ronquist F. 2001. MrBayes: Bayesian inference of phylogenetic trees. \emph{Bioinformatics} \bold{17}: 754-755.
-
+#'
 #' Ronquist F. & J. P. Huelsenbeck. 2003. MrBayes 3: Bayesian phylogenetic inference under mixed models. \emph{Biometrics} \bold{19}: 1572-1574.
-
-#' MrBayes website: \url{https://mrbayes.sourceforge.net/}.
+#' 
+#' MrBayes website: \url{https://nbisweden.github.io/MrBayes/}.
 #' @examples
 #' data(ips.cox1)
 #' x <- ips.cox1[, 100:140] # tiny alignment
@@ -47,49 +47,11 @@
 #' Y <- cbind(as.character(Y1), as.character(Y2))
 # 'mrbayes.mixed(Y, file = "", ngen = 100, run = FALSE)
 #' }
+#' @importFrom ape read.nexus
 #' @export 
 
-
-
-
-=======
-#' @param run Logical, \code{run = FALSE} will only print the NEXUS file,
-#'   \code{run = TRUE} will also start the MCMC runs, if the \code{path}
-#'   argument is correctly specified.
-#' @details
-#' \code{mrbayes} was last updated and tested with MrBayes \bold{v3.2.2} under R
-#' 3.1.0 on a x86_64-apple-darwin10.8.0 (64-bit) platform. It is intended to
-#' offer a simply parameterized building block for larger scripts.
-#' @returns None, a NEXUS file with MrBayes block is written to a file and, if
-#'   \code{run = TRUE}, the MCMC runs in MrBayes are started.
-#' @references 
-#' J. P. Huelsenbeck & Ronquist F. 2001. MrBayes: Bayesian inference of phylogenetic trees. \emph{Bioinformatics} \bold{17}: 754-755.
-#'
-#' Ronquist F. & J. P. Huelsenbeck. 2003. MrBayes 3: Bayesian phylogenetic inference under mixed models. \emph{Biometrics} \bold{19}: 1572-1574.
-#' 
-#' MrBayes website: \url{https://nbisweden.github.io/MrBayes/}.
-#' @seealso \code{\link{mafft}} and \code{\link{prank}} for sequence alignment; \code{\link{raxml}} for maximum likelihood tree search.
-#' @examples
-#' data(ips.cox1)
-#' x <- ips.cox1[, 100:140] # tiny alignment
-#' # mrbayes(x, file = "", ngen = 100, run = FALSE)
-#' 
-#' \dontrun{
-#'   
-#'   library(phangorn)
-#'   tree <- rtree(10)
-#'   Y1 <- simSeq(tree, l = 20)
-#'   Y2 <- simSeq(tree, l = 20, type = "USER", levels=c("0", "1"))
-#'   Y <- cbind(as.character(Y1), as.character(Y2))
-#'   mrbayes.mixed(Y, file = "", ngen = 100, run = FALSE)
-#' }
-#' 
-#' @importFrom ape read.nexus
-#' @export
->>>>>>> kurt
-
 mrbayes <- function(x, file = "", lset, prset, mcmc, unlink, constraint,
-                    burnin = 10, contype = "allcompat", exec, run = FALSE){
+                    burnin = 10, exec, run = FALSE){
 
   if (!is.list(x)) x <- list(x)
 
@@ -176,7 +138,7 @@ mrbayes <- function(x, file = "", lset, prset, mcmc, unlink, constraint,
     prset,
     mcmc,
     paste0("\tsumt filename=", file, " burnin=",
-          burnin, " contype=", contype, ";"),
+          burnin, ";"),
     "end;"
   )
 

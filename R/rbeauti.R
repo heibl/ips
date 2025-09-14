@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2025-09-14)
+## Written by C. Heibl 2014 (last update 2025-09-14)
 
 
 ## to do: taxonsets
@@ -9,7 +9,7 @@
 #' @description Prepare XML files for BEAST with R. BEAST uses an MCMC approach
 #'   to estimate rooted phylogenies from molecular data (Drummond & Rambaut,
 #'   2007).
-#' @param ... One or more object(s) of class \code{\link{DNAbin}}.
+#' @param ... One or more object(s) of class \code{\link[ape]{DNAbin}}.
 #' @param file A connection, or a character string naming the file to write to.
 #'   If left empty the XML tree will be printed to the screen (see Examples).
 #' @param template \emph{Currently unused.}
@@ -61,9 +61,6 @@
 #' 
 #' ## print XML file to screen
 #' # rbeauti(ips.16S, taxonset = ts)
-#' @import XML
-#' @export
-
 #' @importFrom XML addChildren saveXML
 #' @export
 

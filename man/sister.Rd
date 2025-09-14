@@ -7,7 +7,7 @@
 sister(phy, node, type = "terminal", label = FALSE)
 }
 \arguments{
-\item{phy}{An object of class \code{\link{phylo}}.}
+\item{phy}{An object of class \code{\link[ape]{phylo}}.}
 
 \item{node}{A vector of mode \code{"numeric"} or \code{"character"} giving 
 the number(s) or name(s) of the tiplabel(s); these must be monophyletic.}

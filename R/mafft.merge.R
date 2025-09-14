@@ -1,18 +1,18 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2019-07-04)
+## Written by C. Heibl 2014 (last update 2025-09-14)
 
 #' @title Profile Alignment with MAFFT
 #' @description Merge two or more DNA or amino acid sequence alignments by
 #'   profile alignment with MAFFT.
-#' @param subMSA A list of objects of class \code{"\link{DNAbin}"} or
-#'   \code{"\link{AAbin}"}.
+#' @param subMSA A list of objects of class \code{\link[ape]{DNAbin}} or
+#'   \code{\link[ape]{AAbin}}.
 #' @param method A character string giving the alignment method. Available
 #'   accuracy-oriented methods for less than 200 sequences are
 #'   \code{"localpair"}, \code{"globalpair"}, and \code{"genafpair"};
 #'   \code{"retree 1"} and \code{"retree 2"} are for speed-oriented alignment.
 #'   The default is \code{"auto"}, which lets MAFFT choose an appropriate
 #'   alignment method.
-#' @param gt An object of class \code{\link{phylo}} that is to be used as a
+#' @param gt An object of class \code{\link[ape]{phylo}} that is to be used as a
 #'   guide tree during alignment.
 #' @param thread Integer giving the number of physical cores MAFFT should use;
 #'   with \code{thread = -1} the number of cores is determined automatically.
@@ -21,7 +21,7 @@
 #'   UNIX-alikes.
 #' @param quiet Logical, if set to \code{TRUE}, mafft progress is printed out on
 #'   the screen.
-#' @return An object of class \code{"\link{DNAbin}"} or \code{"\link{AAbin}"}.
+#' @return An object of class \code{\link[ape]{DNAbin}} or \code{\link[ape]{AAbin}}.
 #' @export
 
 mafft.merge <- function(subMSA, method = "auto", gt,

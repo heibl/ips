@@ -1,11 +1,11 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2016-11-29)
+## Written by C. Heibl 2014 (last update 2025-09-14)
 
 #' @title Find Monophyletic Subsets in Species Lists
 #' @description Takes a phylogeny and a subset of its tiplabels
 #' and splits the list of tiplabels into monophyletic groups 
 #' (clades).
-#' @param phy An object of class \code{\link{phylo}}.
+#' @param phy An object of class \code{\link[ape]{phylo}}.
 #' @param tips A vector of mode \code{"character"} containing any 
 #' subset of the tiplabels in \code{phy}.
 #' @return A list.

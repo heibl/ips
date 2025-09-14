@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2016 (last update 2019-03-07)
+## Written by C. Heibl 2016 (last update 2025-09-14)
 
 ## WORK UNDER PROGRESS
 ## - cannot handle polytomies
@@ -11,7 +11,7 @@
 #' @details The current version of \code{phylo2mst} does not handle polytomies
 #'   and does not incorporate branch length information. Note that topological 
 #'   information is lost during the conversion.
-#' @param phy An object of class \code{\link{phylo}}.
+#' @param phy An object of class \code{\link[ape]{phylo}}.
 #' @examples
 #' phy <- rtree(12)
 #' plot(phy)

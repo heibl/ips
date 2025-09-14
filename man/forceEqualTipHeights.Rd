@@ -23,12 +23,12 @@ Modify terminal edge lengths to create "exactly" (see Details)
 \details{
 What is "exactly" equal depends on the precision of the system
   (\code{\link{.Machine}}); in any case the resulting phylogeny will pass
-  \code{\link{is.ultrametric}} with default arguments.
+  \code{\link[is.ultrametric]{is.ultrametric}} with default arguments.
 }
 \note{
 \code{forceEqualTipHeights} is only intended to correct small rounding
   errors in edge lengths, not to make an additive phylogeny ultrametric. For
-  the latter, see e.g. \code{\link{chronos}}.
+  the latter, see e.g. \code{\link[ape]{chronos}}.
 }
 \seealso{
 \code{\link{tipHeights}}

@@ -7,7 +7,7 @@
 pathd8(phy, exec = "/Applications/PATHd8/PATHd8", seql, calibration)
 }
 \arguments{
-\item{phy}{An object of class \code{\link{phylo}}.}
+\item{phy}{An object of class \code{\link[ape]{phylo}}.}
 
 \item{exec}{A character string giving the path to the PATHd8 program.}
 
@@ -19,7 +19,7 @@ calibration points. Columns are: taxon 1; taxon 2; one of c("minage",
 }
 \value{
 tree list of ultrametric trees returned from PATHd8 of class 
-  \code{\link{phylo}}. First tree is PATHd8 chronogram, which is a calibrated
+  \code{\link[ape]{phylo}}. First tree is PATHd8 chronogram, which is a calibrated
   ultrametric tree. Second is a PATH tree, which is a ultrametric tree 
   without calibration.
 }

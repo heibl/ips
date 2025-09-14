@@ -6,7 +6,7 @@
 #' @description Returns the number or positions of potentially-informative
 #'   (parsimony-informative, phylogenetically-informative) sites in DNA sequence
 #'   alignment.
-#' @param x An object of class \code{\link{DNAbin}}.
+#' @param x An object of class \code{\link[ape]{DNAbin}}.
 #' @param what Either of \code{"absolute"}, \code{"fraction"}, or
 #'   \code{"index"}, which will return the absolute number, the relative number
 #'   or the indices of the potentially-informative sites.

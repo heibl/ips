@@ -7,7 +7,7 @@
 terminalSisters(phy, labels = TRUE)
 }
 \arguments{
-\item{phy}{An object of class \code{\link{phylo}}.}
+\item{phy}{An object of class \code{\link[ape]{phylo}}.}
 
 \item{labels}{Logical, indicating whether to return tip labels or tip numbers.}
 }

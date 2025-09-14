@@ -7,7 +7,7 @@
 splitIntoClades(phy, tips)
 }
 \arguments{
-\item{phy}{An object of class \code{\link{phylo}}.}
+\item{phy}{An object of class \code{\link[ape]{phylo}}.}
 
 \item{tips}{A vector of mode \code{"character"} containing any 
 subset of the tiplabels in \code{phy}.}

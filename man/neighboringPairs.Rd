@@ -7,7 +7,7 @@
 neighboringPairs(mst)
 }
 \arguments{
-\item{mst}{An object of class \code{\link{mst}}.}
+\item{mst}{An object of class \code{\link[ape]{mst}}.}
 }
 \description{
 Finds all pairs of adjacent nodes, i.e. 

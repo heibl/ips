@@ -3,11 +3,11 @@
 
 #' @title Standard Node Numbering in Phylo Objects
 #' @description (Re-)establishes the standard numbering of terminal and internal
-#'   nodes in phylogenies represented as objects of class \code{\link{phylo}}.
-#' @param phy An object of class \code{\link{phylo}}.
+#'   nodes in phylogenies represented as objects of class \code{\link[ape]{phylo}}.
+#' @param phy An object of class \code{\link[ape]{phylo}}.
 #' @details 
 #' 
-#' Internal and terminal nodes of \code{\link{phylo}} objects have a standard,
+#' Internal and terminal nodes of \code{\link[ape]{phylo}} objects have a standard,
 #' "canonical" node numbering. It consists of the following rules:
 #' \enumerate{
 #'  \item Number tip nodes from left/bottom to right/top by 1 to \code{ntip()}
@@ -26,8 +26,8 @@
 #' posterior, ...) if a \code{\link[ape]{phylo}} object has been modified by
 #' either \code{\link[ape]{root}}, \code{\link[ape]{ladderize}}, or
 #' \code{\link[ape]{rotate}}.
-#' @return An object of class \code{\link{phylo}}.
-#' @seealso \code{\link[ape]{read.tree}}, \code{\link{read.nexus}},
+#' @return An object of class \code{\link[ape]{phylo}}.
+#' @seealso \code{\link[ape]{read.tree}}, \code{\link[ape]{read.nexus}},
 #'   \code{\link{read.beast}} for reading trees in NEWICK and NEXUS format;
 #'   \code{\link[ape]{ladderize}} and \code{\link[ape]{rotate}} for tree
 #'   manipulation; \code{node.support} for plotting node support values has been

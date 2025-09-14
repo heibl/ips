@@ -1,10 +1,10 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2016-11-16)
+## Written by C. Heibl 2014 (last update 2025-09-14)
 
 #' @title Delete Missing Data from DNA Sequences
 #' @description Remove gaps ("-") and/or missing and ambiguous data ("N", "?") 
 #' from a sample of DNA sequences.
-#' @param x A matrix, a list, or a vector of class \code{\link{DNAbin}}
+#' @param x A matrix, a list, or a vector of class \code{\link[ape]{DNAbin}}
 #' containing the DNA sequences.
 #' @return A list or a vector of class \code{DNAbin}.
 #' @export

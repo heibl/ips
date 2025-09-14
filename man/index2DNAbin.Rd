@@ -7,7 +7,7 @@
 index2DNAbin(DNAbin, index)
 }
 \arguments{
-\item{DNAbin}{A list of class \code{\link{DNAbin}}.}
+\item{DNAbin}{A list of class \code{\link[ape]{DNAbin}}.}
 
 \item{index}{A list of integers containing the indices of base positions.}
 }

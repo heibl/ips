@@ -1,10 +1,10 @@
 ## This code is part of the ips package
-## © C. Heibl 2016 (last update 2016-11-16)
+## © C. Heibl 2016 (last update 2025-09-14)
 
 #' @title Conversion of DNAbin to Index
 #' @description Extract the indices of non-empty positions in a sample of DNA
-#'   sequences to
-#' @param x A matrix of class \code{\link{DNAbin}}.
+#'   sequences to zzz.
+#' @param x A matrix of class \code{\link[ape]{DNAbin}}.
 #' @seealso \code{\link{index2DNAbin}}
 #' @export
 

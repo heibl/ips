@@ -8,7 +8,7 @@
 #'  branch lengths, rapid and conventional non-parametric bootstrapping, mapping
 #'  splits onto individual topologies, and a lot more. See the RAxML manual for
 #'  details, especially if you are a new user of RAxML.
-#'@param DNAbin A matrix of DNA sequences of class \code{\link{DNAbin}}.
+#'@param DNAbin A matrix of DNA sequences of class \code{\link[ape]{DNAbin}}.
 #'@param m A vector of mode \code{"character"} defining a model of molecular
 #'  evolution; currently only GTR model available.
 #'@param f A vector of mode \code{"character"} selecting an RAxML algorithm
@@ -28,7 +28,7 @@
 #'@param partitions A data frame giving the partitions of the alignment.
 #'@param outgroup A vector of mode \code{"character"} containing the names of
 #'  the outgroup taxa.
-#'@param backbone A \code{\link{phylo}} object representing a backbone tree.
+#'@param backbone A \code{\link[ape]{phylo}} object representing a backbone tree.
 #'@param file A vector of mode \code{"character"} giving a name for the output
 #'  files.
 #'@param exec A vector of mode \code{"character"} giving the path to the

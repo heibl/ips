@@ -1,10 +1,10 @@
 ## This code is part of the ips package
-## © C. Heibl 2016 (last update 2019-06-27)
+## Written by C. Heibl 2016 (last update 2025-09-14)
 
 #' @title Conversion of Index to DNAbin
 #' @description Use indices of non-empty positions to convert a list of 
 #' DNA sequences into a matrix.
-#' @param DNAbin A list of class \code{\link{DNAbin}}.
+#' @param DNAbin A list of class \code{\link[ape]{DNAbin}}.
 #' @param index A list of integers containing the indices of base positions.
 #' @seealso \code{\link{DNAbin2index}}
 #' @export

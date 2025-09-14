@@ -1,11 +1,11 @@
 
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2016-12-05)
+## Written by C. Heibl 2014 (last update 2025-09-14)
 
 #' @title Identification of Sister Nodes and Clades
 #' @description For any given internal node in a phylogeny, this function 
 #'   returns the sister clade.
-#' @param phy An object of class \code{\link{phylo}}.
+#' @param phy An object of class \code{\link[ape]{phylo}}.
 #' @param node A vector of mode \code{"numeric"} or \code{"character"} giving 
 #'   the number(s) or name(s) of the tiplabel(s); these must be monophyletic.
 #' @param type A character string, may be \code{"terminal"}, \code{"internal"}, 
@@ -29,6 +29,7 @@
 #' # Return the MRCA of the sister clade of Ips duplicatus
 #' x <- sister(ips.tree, "Ips_duplicatus", "daughter")
 #' nodelabels(node = x, pch = 21, bg = "red")
+#' @importFrom ape is.monophyletic
 #' @export
 
 sister <- function(phy, node, type = "terminal", label = FALSE){
