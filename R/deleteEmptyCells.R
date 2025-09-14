@@ -1,6 +1,8 @@
 ## This code is part of the ips package
 ## © C. Heibl 2014 (last update 2015-02-05)
 
+#' @export
+
 deleteEmptyCells <- function(DNAbin, 
                                nset = c("-", "n", "?"), 
                                quiet = FALSE){

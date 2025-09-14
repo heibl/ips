@@ -1,6 +1,8 @@
 ## This code is part of the ips package
 ## © C. Heibl 2014 (last update 2015-12-10)
 
+#' @export
+
 write.fas <- function(x, file, block.width = FALSE, 
                       truncate = FALSE, append = FALSE){
   

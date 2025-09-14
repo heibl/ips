@@ -1,7 +1,10 @@
 ## PACKAGE: ips
 ## CALLED BY: USER
 ## AUTHOR: Christoph Heibl (at gmx.net)
-## LAST UPDATE: 2014-07-30
+## LAST UPDATE: 2025-08-30
+
+#' @importFrom ape read.tree write.tree
+#' @export
 
 raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
                   partitions, outgroup, backbone = NULL, 

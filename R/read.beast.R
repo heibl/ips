@@ -1,3 +1,8 @@
+#' @importFrom ape read.tree
+#' @importFrom utils head
+#' @export
+
+
 read.beast <- function(file, digits = NULL) 
 {
     X <- scan(file = file, what = "", sep = "\n", quiet = TRUE)

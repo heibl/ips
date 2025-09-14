@@ -1,5 +1,8 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2015-04-05)
+## © C. Heibl 2014 (last update 2025-08-30)
+
+#' @importFrom XML addChildren xmlChildren
+#' @export
 
 setClock  <- function(xml, clock){
   

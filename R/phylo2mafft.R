@@ -1,7 +1,11 @@
 ## PACKAGE: ips
 ## CALLED BY: mafft
 ## AUTHOR: Christoph Heibl (at gmx.net)
-## LAST UPDATE: 2014-07-30
+## LAST UPDATE: 2025-08-30
+
+#' @importFrom ape drop.tip
+#' @importFrom utils write.table
+#' @export
 
 phylo2mafft <- function(phy){
   

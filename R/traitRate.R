@@ -2,7 +2,10 @@
 # PACKAGE: ips
 # CALLED BY: user
 # AUTHOR: Christoph Heibl
-# LAST UPDATE: 2014-08-07
+# LAST UPDATE: 2025-08-30
+
+#' @importFrom ape is.ultrametric write.tree
+#' @export
 
 traitRate <- function(phy, seq, x, mainType = "Optimize_Model", n,
                       charModelParam1 = 0.5, charModelParam2 = 1, 

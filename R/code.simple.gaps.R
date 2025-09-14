@@ -1,3 +1,7 @@
+#' @importFrom ape as.alignment as.DNAbin
+#' @importFrom utils tail
+#' @export
+
 code.simple.gaps <- function(x, append = TRUE){
 	
 	ncha <- dim(x)[2]

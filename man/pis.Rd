@@ -12,9 +12,9 @@ pis(x, what = "fraction", use.ambiguities = FALSE)
 
 \arguments{
 	
-  \item{x}{ An object of class \code{\link{DNAbin}}.}
+  \item{x}{ An object of class \code{\link[ape]{DNAbin}}.}
   
-  \item{what}{Either of \code{"absolute"}, \code{"fraction"}, or \code{"index"}, which will return the absolute number, the relative number or the indeces of the potentially-informative sites.}
+  \item{what}{Either of \code{"absolute"}, \code{"fraction"}, or \code{"index"}, which will return the absolute number, the relative number or the indices of the potentially-informative sites.}
   
   \item{use.ambiguities}{\emph{Not yet available}.
   %Logical, currently only \code{FALSE} is implemented, which means that IUPAC ambiguity symbols will be treated as missing information (N).
@@ -42,7 +42,7 @@ pis(ips.16S, what = "abs")
 # --------------------------------------------
 pis(ips.16S, what = "frac")
 
-# indeces of potentially-informative sites:
+# indices of potentially-informative sites:
 # --------------------------------------------
 pis(ips.16S, what = "ind")
 }

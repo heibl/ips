@@ -1,3 +1,6 @@
+#' @importFrom ape read.tree write.tree
+#' @export
+
 read.mrbayes <- function(file, digits = NULL) {
   
   tr <- read.nexus(file)

@@ -1,7 +1,9 @@
 ## PACKAGE: ips
 ## CALLED BY: USER
 ## AUTHOR: Christoph Heibl (at gmx.net)
-## LAST UPDATE: 2014-08-07
+## LAST UPDATE: 2025-09-14
+
+#' @export
 
 raxml.partitions <- function(...){
   

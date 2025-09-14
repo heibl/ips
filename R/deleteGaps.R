@@ -1,3 +1,5 @@
+#' @export
+
 deleteGaps <- function(x, nmax = nrow(x) - 4){
   
   if (!inherits(x, "DNAbin")) stop("'x' is not of class 'DNAbin'")

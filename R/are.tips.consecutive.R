@@ -1,6 +1,8 @@
 ## This code is part of the ips package
 ## © C. Heibl 2014
 
+#' @export
+
 are.tips.consecutive <- function(phy){
   canonical <- seq_along(phy$tip.label)
   given <- phy$edge[, 2][phy$edge[, 2] %in% canonical]

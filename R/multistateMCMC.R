@@ -1,3 +1,7 @@
+#' @importFrom ape write.nexus
+#' @importFrom utils read.table write.table
+#' @export
+
 multistateMCMC <- 
   function(phy, traits, model = "ARD", anc.states = TRUE, rd = 2.0, 
             rjhp = NULL, fixNodes = NULL, it = 100000, bi = 10000, 

@@ -14,13 +14,13 @@ raxml(DNAbin, m, f, N, p, b, x, k,
 }
 
 \arguments{
-  \item{DNAbin}{a matrix of DNA sequences of class \code{\link{DNAbin}}.}
+  \item{DNAbin}{a matrix of DNA sequences of class \code{\link[ape]{DNAbin}}.}
   
-  \item{m}{a vector of mode \code{"character"} choosing a model of subsitution; currently only GTR models available}
+  \item{m}{a vector of mode \code{"character"} choosing a model of substitution; currently only GTR models available}
   
   \item{f}{a vector of mode \code{"character"} choosing from the RAxML algorithm analogous to the \code{-f} flag (see Detail section and RAxML manual).}
   
-  \item{N}{either of mode \code{"integer"} or \code{"character"}. Integers give the number of independant searches on different starting tree or replicates in bootstrapping. Alternatively, one of four bootstopping criteria can be chosen: \code{"autoFC"}, \code{"autoMR"}, \code{"autoMRE"}, or \code{"autoMRE_IGN"}.
+  \item{N}{either of mode \code{"integer"} or \code{"character"}. Integers give the number of independent searches on different starting tree or replicates in bootstrapping. Alternatively, one of four bootstopping criteria can be chosen: \code{"autoFC"}, \code{"autoMR"}, \code{"autoMRE"}, or \code{"autoMRE_IGN"}.
   }
   
   \item{p}{integer setting a random seed for parsimony starting trees.}
@@ -40,7 +40,7 @@ raxml(DNAbin, m, f, N, p, b, x, k,
     
   \item{file}{a vector of mode \code{"character"} giving a name to the output files.}
   
-  \item{exec}{a vector of mode \code{"character"} giving the path to the directory containing the RAxML executable. The default value will work on Mac OS X if the folder containing the executale is renamed to \code{"RAxML-8.0.3"}.}
+  \item{exec}{a vector of mode \code{"character"} giving the path to the directory containing the RAxML executable. The default value will work on Mac OS X if the folder containing the executable is renamed to \code{"RAxML-8.0.3"}.}
   
   \item{threads}{integer giving the number of parallel threads to use (PTHREADS only).}
   
@@ -53,7 +53,7 @@ There are some limitations of this wrapper compared to RAxML run directly from t
 \item Option \code{f} can only take a limited number of values (\code{d}, \code{a}).
 } % close enumerate
 
-RAxML needs the specification of random seeds for parsimony estimation of starting trees and for bootstrap resampling. The corresponding argument names in \code{raxml} are identical to the flags used by RAxML (\code{-p}, \code{-b}, and \code{-x}). If you choose not to give any values, \code{raxml} will generate a (different) value for each requiered random seed every time it is called. Be aware that \code{\link{set.seed}} will work only for \code{p}, but not for \code{b} or \code{x}.
+RAxML needs the specification of random seeds for parsimony estimation of starting trees and for bootstrap resampling. The corresponding argument names in \code{raxml} are identical to the flags used by RAxML (\code{-p}, \code{-b}, and \code{-x}). If you choose not to give any values, \code{raxml} will generate a (different) value for each required random seed every time it is called. Be aware that \code{\link{set.seed}} will work only for \code{p}, but not for \code{b} or \code{x}.
 } % close details
 
 \value{
@@ -69,7 +69,7 @@ RAxML needs the specification of random seeds for parsimony estimation of starti
 }
 % REFERENCES
 \references{
-(in chronolocigal order)
+(in chronological order)
 
 Stamatakis, A., T. Ludwig and H. Meier. 2004. RAxML-III: A fast program for maximum likelihood-based inference of large phylogenetic trees. \emph{Bioinformatics} \bold{1}: 1--8.
 

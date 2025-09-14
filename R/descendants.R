@@ -1,6 +1,8 @@
 ## This code is part of the IPS package
 ## © C. Heibl 2014 (last update 2015-03-26)
 
+#' @export
+
 descendants <- function(phy, node, type = "t", ignore.tip = TRUE, labels = FALSE){
 	
   # checks and definitions

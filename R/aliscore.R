@@ -1,3 +1,5 @@
+#' @export
+
 aliscore <- function(x, gaps = "5state", w = 6, r, t, l, s, o, 
                      path = "/Applications/Aliscore_v.2.0"){
 	

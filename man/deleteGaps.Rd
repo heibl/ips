@@ -14,7 +14,7 @@ deleteGaps(x, nmax = nrow(x) - 4)
 }
 
 \arguments{
-  \item{x}{an object of class \code{\link{DNAbin}}.}
+  \item{x}{an object of class \code{\link[ape]{DNAbin}}.}
   \item{nmax}{an integer number between \code{0} and \code{nrow(x) - 2}, which gives the maximum number of
   gap characters ("-") that will be tolerated at any given alignment position (column).}
 }
@@ -24,7 +24,7 @@ The default, \code{nmax = nrow(x) - 4}, removes all those positions from the ali
 In contrast, \code{\link[ape]{del.gaps}} removes all gap characters from the alignment, so most probably the result will not be a set of sequences of equal length and the matrix will be coerced to a list.
 }
 \value{
-an object of class \code{\link{DNAbin}.}
+an object of class \code{\link[ape]{DNAbin}.}
 }
 
 \author{Christoph Heibl}

@@ -1,3 +1,6 @@
+#' @importFrom ape as.DNAbin
+#' @export
+ 
 read.phy <- function(x){
 	
 	if (length(x) == 1)

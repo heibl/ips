@@ -33,7 +33,7 @@ Maddison, D.R., D.L. Swofford, and W.P. Maddison. 1997. NEXUS: an extensible fil
 
 \author{Christoph Heibl}
 
-\seealso{\code{\link{mafft}} and \code{\link{prank}} for sequence alignment, \code{\link{gblocks}} and \code{\link{aliscore}} for quality check and cleaning of sequence alignments, \code{\link{cbind.DNAbin}} for concatenation of sequence alignments.}
+\seealso{\code{\link{mafft}} and \code{\link{prank}} for sequence alignment, \code{\link{gblocks}} and \code{\link{aliscore}} for quality check and cleaning of sequence alignments, \code{\link[ape]{cbind.DNAbin}} for concatenation of sequence alignments.}
 
 \examples{
 ## bark beetle COX1 sequences

@@ -1,3 +1,6 @@
+#' @importFrom ape as.DNAbin
+#' @export
+
 read.xml <- function(x){
 	x <- scan(x, what = "c", sep = "\n")
 	start <- grep("<alignment id=", x)

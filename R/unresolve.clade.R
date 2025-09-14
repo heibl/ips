@@ -1,3 +1,7 @@
+#' @importFrom ape which.edge
+#' @importFrom utils head
+#' @export
+
 unresolve.clade <- function(phy, node){
   tip <- descendants(phy, node, type = "terminal")
   del <- vector()

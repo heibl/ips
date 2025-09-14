@@ -27,9 +27,9 @@ mafft(x, y, add, method = "auto", maxiterate = 0, op = 1.53,
   
   \item{ep}{a numeric giving the offset value, which works like \code{gap extension penalty}, for group-to-group alignment; default 0.0, but 0.123 is recommended if no long indels are expected.}
   
-  \item{gt}{an object of class \code{\link{phylo}} that is to be used as a guide tree during alignment.}
+  \item{gt}{an object of class \code{\link[ape]{phylo}} that is to be used as a guide tree during alignment.}
   
-  \item{options}{a vector of mode character specifying addional arguments to MAFFT, that are not included in \code{mafft} such as, e.g., \code{--adjustdirection}.}
+  \item{options}{a vector of mode character specifying additional arguments to MAFFT, that are not included in \code{mafft} such as, e.g., \code{--adjustdirection}.}
   
   \item{thread}{integer giving the number of physical cores MAFFT should use; with \code{thread = -1} the number of cores is determined automatically.}
   
@@ -48,7 +48,7 @@ mafft(x, y, add, method = "auto", maxiterate = 0, op = 1.53,
 \code{"retree 1"} selects the \bold{FFT-NS-1} algorithm, the simplest
 progressive option in MAFFT; recommended for >200 sequences.
 
-\code{"retree 2"} selects the \bold{FFT-NS-2} algorithm that uses a second iteration of alignment based on a guide tree computed from an FFT-NS-1 aligment; this is the default in MAFFT; recommended for >200 sequences.
+\code{"retree 2"} selects the \bold{FFT-NS-2} algorithm that uses a second iteration of alignment based on a guide tree computed from an FFT-NS-1 alignment; this is the default in MAFFT; recommended for >200 sequences.
 }
 
 \value{
@@ -70,7 +70,7 @@ progressive option in MAFFT; recommended for >200 sequences.
 	based on fast Fourier transform. \emph{Nucleid Acids Research} 
 	\bold{30}: 3059--3066.
 	
-	\url{http://mafft.cbrc.jp/alignment/software/index.html}
+	\url{https://mafft.cbrc.jp/alignment/software/}
 	
 }
 

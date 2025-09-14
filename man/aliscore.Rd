@@ -36,8 +36,6 @@ aliscore(x, gaps = "5state", w = 6, r, t, l, s, o,
 }
 
 \references{
-\url{http://zfmk.de/web/Forschung/Abteilungen/AG_Wgele/Software/Aliscore/Download/index.en.html}
-
 Misof, B. and K. Misof. 2009. A Monte Carlo approach successfully identifies randomness in multiple sequence alignments: a more objective means of data exclusion. \emph{Syst. Biol.} \bold{58}: 21--34.
 
 Kueck, P., K. Meusemann, J. Dambach, B. Thormann, B.M. von Reumont, J.W. Waegele and B. Misof. 2010. Parametric and non-parametric masking of randomness in sequence alignments can be improved and leads to better resolved trees. \emph{Frontiers in Zoology} \bold{7}: 10.

@@ -1,7 +1,10 @@
 ## PACKAGE: ips
 ## CALLED BY: USER, megaptera
 ## AUTHOR: Christoph Heibl (at gmx.net)
-## LAST UPDATE: 2014-07-30
+## LAST UPDATE: 2025-08-30
+
+#' @importFrom ape is.binary.tree multi2di
+#' @export
 
 mafft <- function(x, y, add, method = "auto", maxiterate = 0, 
                   op = 1.53, ep = 0.0, gt, options, 

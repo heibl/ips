@@ -9,13 +9,13 @@ This DNA alignment contains 562 positions of 28 sequences of 28S ribosomal DNA o
 }
 \usage{data(ips.28S)}
 \format{
-  The sequences are stored in binary format (see \code{\link{DNAbin}}).
+  The sequences are stored in binary format (see \code{\link[ape]{DNAbin}}).
 }
 \source{
-The sequences were downloaded and assembled from the Nucleotide resitory at GenBank on February 8, 2014. 
+The sequences were downloaded and assembled from the Nucleotide repository at GenBank on February 8, 2014. 
 }
 \references{
-The nucleotide database on the NCBI website: \url{http://www.ncbi.nlm.nih.gov/nuccore}
+The nucleotide database on the NCBI website: \url{https://www.ncbi.nlm.nih.gov/nuccore}
 }
 \examples{
 data(ips.28S)

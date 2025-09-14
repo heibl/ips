@@ -1,3 +1,6 @@
+#' @importFrom ape as.DNAbin
+#' @export
+
 read.fas <- function(x, text){	
 	
   if ( !missing(text) ){

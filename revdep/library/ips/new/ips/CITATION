@@ -1,0 +1,9 @@
+citHeader("To cite ips in a publication use:")
+
+x <- bibentry(bibtype="Misc",
+	title = "IPS: R language interfaces to diverse phylogenetic software packages. http://www.christophheibl.de/Rpackages.html",
+        author = as.person("C. Heibl"),
+  	year = "2008 onwards",
+
+        textVersion = "Heibl C. 2008 onwards. IPS: R language interfaces to diverse phylogenetic software packages. http://www.christophheibl.de/Rpackages.html.",
+        mheader = "To cite phyloch in a publication use:")

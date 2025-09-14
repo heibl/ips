@@ -21,12 +21,10 @@ multistateMCMC(phy, traits, model = "ARD", anc.states = TRUE,
 \arguments{
   \item{phy}{an object of class \code{phylo}.
 }
-  \item{traits}{a \code{data.frame} with two colums. The first column contains the taxon labels, the second column contains the character states.
+  \item{traits}{a \code{data.frame} with two columns. The first column contains the taxon labels, the second column contains the character states.
 }
-  \item{model}{
-%%     ~~Describe \code{model} here~~
+  \item{model}{A charcter string specifying the evolutionary model. I can be \code{"ARD"} (all rates different), \code{"ER"} (equal rates), \code{"FB"} (rates are equal, but different between forward and backward change), \code{"ROW"} (rates only depend on current, but not on original state), or \code{"SYM"} (rates are different, but forward/backward rates for any two character states are equal).
 }
-
   \item{anc.states}{either \code{logical} or a \code{list}, the latter containing the tip labels of those internal nodes, for which the likelihood of ancestral character states should be estimated.
 }
   \item{rd}{a real number, giving the \code{RateDev} parameter, i.e., the deviation of the normal distribution, that changes to the rates are drawn from. Should be set such that acceptance of the rate parameters is about 0.2.
@@ -50,9 +48,9 @@ multistateMCMC(phy, traits, model = "ARD", anc.states = TRUE,
 }
 
 \references{
-The BayesTraits manual: \url{http://www.evolution.rdg.ac.uk/Files/BayesTraits-V1.0-Manual.pdf}.
+The BayesTraits manual: \url{https://www.evolution.reading.ac.uk/BayesTraitsV4.1.1/Files/BayesTraitsV4.1.1-Manual.pdf}.
 
-Pagel, M., A. Meade, and D. Barker. 2004. Bayesian estiamation of ancestral character states on phylogenies. \emph{Syst. Biol.} \bold{53}: 673-684.
+Pagel, M., A. Meade, and D. Barker. 2004. Bayesian estimation of ancestral character states on phylogenies. \emph{Syst. Biol.} \bold{53}: 673-684.
 
 Pagel, M. and A. Meade. 2006. Bayesian analysis of correlated evolution of discrete characters by reversible-jump Markov chain Monte Carlo. \emph{Am. Nat.} \bold{167}: 808-825.
 }
@@ -60,5 +58,5 @@ Pagel, M. and A. Meade. 2006. Bayesian analysis of correlated evolution of discr
 \author{Christoph Heibl}
 
 \seealso{
-	\code{\link{ace}}
+	\code{\link[ape]{ace}}
 }

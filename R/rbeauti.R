@@ -1,8 +1,11 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2015-04-05)
+## © C. Heibl 2014 (last update 2025-09-14)
 
 ## to do: taxonsets
 ## to do: clocks
+
+#' @importFrom XML addChildren saveXML
+#' @export
 
 rbeauti  <- function(..., file, template = "standard", 
                      taxonset){

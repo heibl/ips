@@ -11,9 +11,9 @@ traitRate(phy, seq, x, mainType = "Optimize_Model",
    exec = "/Applications/traitRate-1.1/programs/traitRate")
 }
 \arguments{
-  \item{phy}{a ultrametric phylogenetic tree of class \code{\link{phylo}.}
+  \item{phy}{a ultrametric phylogenetic tree of class \code{\link[ape]{phylo}.}
 }
-  \item{seq}{a multiple sequence alignment of class \code{\link{DNAbin}}.
+  \item{seq}{a multiple sequence alignment of class \code{\link[ape]{DNAbin}}.
 }
   \item{x}{data frame containing a binary character in the first column.
 }
@@ -31,7 +31,7 @@ traitRate(phy, seq, x, mainType = "Optimize_Model",
 Currently none, but look for the output files in the \code{'RESULTS'} subdirectory in the current working directory.
 }
 \references{
-Mayrose, I. & S.P. Otto. 2011. A likelihood method for detectiong trait-dependent shifts in the rate of molecular evolution. \emph{Mol. Biol. Evol.} \bold{28}: 759-770
+Mayrose, I. & S.P. Otto. 2011. A likelihood method for detecting trait-dependent shifts in the rate of molecular evolution. \emph{Mol. Biol. Evol.} \bold{28}: 759-770
 }
 \author{
 Christoph Heibl
@@ -41,6 +41,6 @@ This function is under development!
 }
 
 \seealso{
-\code{\link{read.tree}} for reading phylogenetic trees, \code{\link{read.fas}} for reading multiple sequence alignments in FASTA format.
+\code{\link[ape]{read.tree}} for reading phylogenetic trees, \code{\link{read.fas}} for reading multiple sequence alignments in FASTA format.
 }
 %\examples{}

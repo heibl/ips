@@ -1,11 +1,14 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2016-01-26)
+## © C. Heibl 2014 (last update 2025-09-14)
+
+#' @importFrom ape cbind.DNAbin
+#' @export
 
 write.nex <- function(x, file, block.width = 60, 
                       taxblock = FALSE){
   
   ## a data frame is a list: is.list(data.frame) == TRUE !!!
-  if ( !is.list(x) | is.data.frame(x) ) x <- list(x)
+  if (!is.list(x) | is.data.frame(x)) x <- list(x)
   
   ## data types of partitions
   datatype <- sapply(x, class)
@@ -13,8 +16,8 @@ write.nex <- function(x, file, block.width = 60,
   datatype[datatype == "dist"] <- "distances"
   datatype[datatype == "data.frame"] <- "standard"
   
-  ## asses token used for missing data
-  ## (function adapted for data frames 2016-01-26)
+  ## Assess character used for missing data (function adapted for data frames
+  ## 2016-01-26) ---------------------------------------------------------------
   m <- function(x, datatype) {
     if ( datatype == "standard" ) {
       n <- ifelse(any(x == "?"), "?", "N")
@@ -23,6 +26,12 @@ write.nex <- function(x, file, block.width = 60,
     }
     n
   }
+  mm <- vector(length = length(x))
+  for (i in 1:length(x)) {
+    mm[i] <- m(x[[1]], datatype[i])
+  }
+  
+  ## Assess beginning and end position of each partition -----------------------
   p <- cbind(rep(1, length(x)), sapply(x, ncol))
   if ( nrow(p) > 1 ) {
     for ( i in 2:nrow(p) ){
@@ -30,8 +39,9 @@ write.nex <- function(x, file, block.width = 60,
       p[i, 2] <- p[i, 1] + p[i, 2] -1
     }
   }
+  
   info <- data.frame(datatype = datatype,
-                     missing = sapply(x, m, datatype = datatype),
+                     missing = mm,
                      length = sapply(x, ncol),
                      p)
   names(info)[4:5] <- c("from", "to")
@@ -56,7 +66,7 @@ write.nex <- function(x, file, block.width = 60,
   
   # TAXA BLOCK (optional)
   # ---------------------
-  if ( taxblock ){
+  if (taxblock){
     nex <- c(
       nex,
       "begin taxa;", 
@@ -75,7 +85,7 @@ write.nex <- function(x, file, block.width = 60,
                                      collapse = ""))
   rownames(x) <- paste(rownames(x), ws, sep = "")
   
-  if ( is.numeric(block.width) ){
+  if (is.numeric(block.width)){
     interleave <- " interleave"
   } else {
     interleave <- ifelse(nrow(info) > 1, " interleave", "")
@@ -83,11 +93,11 @@ write.nex <- function(x, file, block.width = 60,
   }
   
   m <- vector("list", nrow(info))
-  for ( i in seq_along(m) ){
+  for (i in seq_along(m)){
     mm <- x[, info$from[i]:info$to[i]]
     bw <- ifelse(is.null(block.width), ncol(mm), block.width)
     m[[i]] <- matrixBlock(mm, bw)
-    if ( nrow(info) > 1 ){
+    if (nrow(info) > 1){
       cmt <- paste("[Position ", info$from[i], "-", 
                    info$to[i], ": ", rownames(info)[i], 
                    " (", info$length[i], "bp)]", 
@@ -130,7 +140,7 @@ write.nex <- function(x, file, block.width = 60,
     ## return character vector:
     return(nex) 
   } else {
-    if ( file == "" ) {
+    if (file == "") {
       ## print onto screen:
       cat(nex, sep = "\n")
     } else {

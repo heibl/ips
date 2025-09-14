@@ -32,7 +32,7 @@ prank(x, outfile, guidetree = NULL, gaprate = 0.025,
 }
 
 \references{
-	\url{http://www.ebi.ac.uk/goldman-srv/prank/prank/}
+	\url{http://wasabiapp.org/software/prank/}
 }
 
 \note{\code{prank} was last updated and tested to work with PRANK v. 120814 on Windows XP. If you have problems getting the function to work with a newer version of PRANK, contact the package maintainer.}

@@ -1,3 +1,5 @@
+#' @export
+
 pis  <- function(x, what = "fraction", use.ambiguities = FALSE){
 
   if ( !inherits(x, "DNAbin") ) 

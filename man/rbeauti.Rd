@@ -13,7 +13,7 @@ rbeauti(..., file, template = "standard", taxonset)
 
 \arguments{
 
-  \item{...}{one or more object(s) of class \code{\link{DNAbin}}.}
+  \item{...}{one or more object(s) of class \code{\link[ape]{DNAbin}}.}
 	
   \item{file}{A connection, or a character string naming the file to write to. If left empty the XML tree will be printed to the screen (see Examples).}
   \item{template}{\emph{Currently unused.}}
@@ -40,11 +40,11 @@ rbeauti(..., file, template = "standard", taxonset)
 }
 %
 \details{
-\code{rbeauti} has been completely rewritten to work with \bold{BEAST 2}. Currently \code{rbeauti} offers few options, because the idea is not to create ready-to-use XML file. That can be done convieniently with \bold{BEAUti} (the BEAST package's genuine XML generator). Instead, \code{rbeauti} is intended to make the definition of large numbers of taxon sets easy. The creation of taxon sets can be done via R scripts and the resulting XML files can be further modified with BEAUti.
+\code{rbeauti} has been completely rewritten to work with \bold{BEAST 2}. Currently \code{rbeauti} offers few options, because the idea is not to create ready-to-use XML file. That can be done conveniently with \bold{BEAUti} (the BEAST package's genuine XML generator). Instead, \code{rbeauti} is intended to make the definition of large numbers of taxon sets easy. The creation of taxon sets can be done via R scripts and the resulting XML files can be further modified with BEAUti.
 }
 %
 \references{
-The BEAST 2 website: \url{http://beast.bio.ed.ac.uk/BEAST_v1.5.x_XML_Reference}	
+The BEAST 2 website: \url{https://www.beast2.org/}	
 
 Drummond, A.J. & A. Rambaut. 2007. BEAST: Bayesian evolutionary analysis by sampling trees. \emph{BMC Evolutionary Biology} \bold{7}: 240.
 }

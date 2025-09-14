@@ -5,6 +5,8 @@
 # 2. write example
 # 3. check for nonvalid group members
 
+#' @export
+
 noi <- function(phy, group, regex = FALSE, stem = FALSE, 
                 monophyletic = FALSE){
   

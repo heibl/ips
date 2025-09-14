@@ -1,3 +1,5 @@
+#' @export
+
 tipHeights <- function(phy){
   
   if ( !inherits(phy, "phylo") ) stop("'phy' is not of class 'phylo'")

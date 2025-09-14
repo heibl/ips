@@ -3,6 +3,9 @@
 ## author: Christoph Heibl (at gmx.net)
 ## last update: 2014-12-09
 
+#' @importFrom ape Nnode Ntip
+#' @export
+
 fixNodes <- function(phy){
   
   if (!inherits(phy, "phylo"))                             

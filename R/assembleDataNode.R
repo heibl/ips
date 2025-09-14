@@ -1,6 +1,8 @@
 ## This code is part of the ips package
 ## © C. Heibl 2014 (last update 2015-04-05)
 
+#' @importFrom XML xmlNode
+
 assembleDataNode <- function(DNAbin){
   
   data <- vector(mode = "list")

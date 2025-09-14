@@ -1,3 +1,7 @@
+#' @importFrom ape write.nexus
+#' @importFrom utils read.table write.table
+#' @export
+
 multistateML <- 								
 function(phy, traits, model = "ARD", anc.states = TRUE, 
          path = "/Applications/BayesTraits", dir = NULL){
@@ -10,6 +14,7 @@ function(phy, traits, model = "ARD", anc.states = TRUE,
   if (!inherits(traits, "data.frame")){
     stop("'traits' is not of class 'data.frame'")
   }
+  model <- match.arg(model, c("ARD", "ER", "FB", "ROW", "SYM"))
 	
 	# delete node.label, etc ....
 	canonical <- c("edge", "Nnode", "tip.label", "edge.length")
@@ -23,8 +28,6 @@ function(phy, traits, model = "ARD", anc.states = TRUE,
 		which(states == x)
 	}
 	states <- unique(traits[, 2])
-	nbstates <- length(states)
-	max.nb.rates <- nbstates^2 - nbstates
 	traits[, 2] <- sapply(traits[, 2], c2i, states = states)
 		
 	# construct Addnode command
@@ -38,12 +41,12 @@ function(phy, traits, model = "ARD", anc.states = TRUE,
     names(anc.states) <- paste("node", nodes, sep = "")
   }
 	if (is.list(anc.states)){
-		if (class(phy) == "multiPhylo")
+		if (inherits(phy, "multiPhylo"))
 			g <- phy[[1]]								
     else 
       g <- phy
 		check.added.node <- function(x, g){
-			if(!all(x %in% g$tip.label))
+			if (!all(x %in% g$tip.label))
 				stop("incompatible taxon sets")
 			paste(x, collapse = " ")
 		}
@@ -51,8 +54,12 @@ function(phy, traits, model = "ARD", anc.states = TRUE,
 		addednodes <- paste("AddMRCA", names(anc.states), addednodes)
 	}
 	
-	# set model
+	# Set model
 	# ------------
+	nbstates <- length(states)
+	max.nb.rates <- nbstates^2 - nbstates
+	
+	## default: all rates equal
 	m <- matrix(1, ncol = nbstates, nrow = nbstates)
 	diag(m) <- 0
 	m[lower.tri(m)] <- 1:(max.nb.rates/2)
@@ -61,19 +68,24 @@ function(phy, traits, model = "ARD", anc.states = TRUE,
 	
 	rts <- max.nb.rates
 	
+	## equal rates
 	if (model == "ER"){
 		m <- matrix(1, ncol = nbstates, nrow = nbstates)
 		diag(m) <- 0
 	}
+	## forward and back rates different
 	if (model == "FB"){
 		m[lower.tri(m)] <- 1
 		m <- t(m)
 		m[lower.tri(m)] <- 2
 	}
+	## rates do not depend on original state
 	if (model == "ROW"){
 		m <- matrix(sort(rep(1:nbstates, nbstates)), ncol = nbstates, nrow = nbstates)
 		diag(m) <- 0
 	}
+	## rates are different, but forward/backward rates for any two character states
+	## is equal
 	if (model == "SYM"){
 		m[lower.tri(m)] <- 1:(max.nb.rates/2)
 		m <- t(m)
@@ -156,7 +168,7 @@ function(phy, traits, model = "ARD", anc.states = TRUE,
 	# ---------------------------------
 	state.freq <- grep("[.]P[.]", colnames(x))
 	anclik <- as.matrix(x[, state.freq])	
-	if (class(phy) == "multiPhylo")	{
+	if (inherits(phy, "multiPhylo"))	{
 	  anclik <- apply(anclik, 2, mean)
 	}									
 	nds <- colnames(anclik)
@@ -172,7 +184,7 @@ function(phy, traits, model = "ARD", anc.states = TRUE,
 	# calculate mean rates
 	# --------------------
 	rates <- x[ , grep("^q[[:digit:]]{2}", names(x))]
-	if (class(phy) == "multiPhylo") rates <- mean(rates)
+	if (inherits(phy, "multiPhylo")) rates <- mean(rates)
 	if (model != "ARD") rates <- rates[names(rates) %in% extract]
   ## This hack is necessary because class 'ace' requires standard
   ## errors for each rate parameter: creation of of a NA-dummy-vector

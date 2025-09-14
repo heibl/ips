@@ -1,0 +1,53 @@
+DNAbin2index            Conversion of DNAbin to Index
+EmptyCells              Identify/Delete Spurious Rows and Columns from
+                        DNA Alignments
+aliscore                Masking of Sequence Alignments with ALISCORE
+blastn                  Nucleotide-Nucleotide BLAST
+code.simple.gaps        Simple Gap/Indel Coding
+collapseUnsupportedEdges
+                        Collapse Unsupported Edges/Branches in a
+                        Phylogeny
+combMyTree              Graft Polytomies on Tips of Phylogeny
+del.miss                Delete Missing Data from DNA Sequences
+deleteGaps              Remove Gap Positions From DNA Sequences
+descendants             Descendants of an Internal Node in a Phylogeny
+eoi                     Identification of Stem-Lineage-Edges and MRCAs
+fixNodes                Standard Node Numbering in Phylo Objects
+forceEqualTipHeights    Equal Tip Heights
+gblocks                 Masking of Sequence Alignments with GBLOCKS
+index2DNAbin            Conversion of Index to DNAbin
+ips-package             Interfaces to Phylogenetic Software
+ips.16S                 Bark Beetle 16S Sequences
+ips.28S                 Bark Beetle 28S Sequences
+ips.cox1                Bark Beetle COX1 Sequences
+ips.tree                Ips Phylogeny
+mafft                   Sequence Alignment with MAFFT
+mafft.merge             Profile Alignment with MAFFT
+mrbayes                 Bayesian MCMC Tree Search with MrBayes
+mrbayes.lset            Model Settings for MrBayes
+mrbayes.mcmc            MCMC Settings for MrBayes
+mrbayes.prset           Set Priors for MrBayes
+multistate              MULTISTATE
+neighboringPairs        Neighboring Nodes in a Minimum Spanning Tree
+ntip                    Numbers of Tips of (Sub)trees
+partitionfinder         PartitionFinder
+pathd8                  PATHd8
+phylo2mafft             Convert Trees for MAFFT
+phylo2mst               Conversion from PHYLO to MST Object
+pis                     Number of Potentially-Informative Sites
+prank                   PRANK
+raxml                   Maximum Likelihood Tree Estimation with RAxML
+raxml.partitions        Partition scheme for RAxML
+rbeauti                 XML Input Files for BEAST
+rc                      Reverse-Complement of DNA sequences
+read                    Reading Sequence Files
+read.beast              Read Bayesian Trees
+read.beast.table        Extract node data from BEAST chronogram
+sister                  Identification of Sister Nodes and Clades
+splitIntoClades         Find Monophyletic Subsets in Species Lists
+terminalSisters         Find Pairs of Sister Species
+tipHeights              Tip Heights in a Phylogenetic Tree
+traitRate               Trait-Dependent Shifts in Molecular Rate
+trimEnds                Trim Alignment Ends
+unlistFirstLevel        Unlist To First Level Only
+write.fas               Write DNA Sequences to File

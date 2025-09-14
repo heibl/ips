@@ -1,6 +1,9 @@
 ## This code is part of the ips package
 ## © C. Heibl 2014 (last update 2015-10-30)
 
+#' @importFrom ape as.DNAbin
+#' @export
+
 read.nex <- function(x){
 	
 	x <- scan(x, what = "c", quiet = TRUE)

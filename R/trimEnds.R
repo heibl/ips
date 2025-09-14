@@ -1,3 +1,6 @@
+#' @importFrom utils head
+#' @export
+
 trimEnds <- function(x, min.n.seq = 4){
   
   if ( !inherits(x, "DNAbin") ){
