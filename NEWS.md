@@ -1,4 +1,4 @@
-# ips (development version)
+# ips 0.1.0
 
 * Added an example for `fixNodes()` to show the standard node numbering in `phylo` objects.
 

@@ -1,5 +1,5 @@
 Package: ips
-Version: 0.0.12.9000
+Version: 0.1.0
 Date: 2024-04-23
 Title: Interfaces to Phylogenetic Software in R
 Authors@R: c(
