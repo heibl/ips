@@ -11,9 +11,9 @@ traitRate(phy, seq, x, mainType = "Optimize_Model",
    exec = "/Applications/traitRate-1.1/programs/traitRate")
 }
 \arguments{
-  \item{phy}{a ultrametric phylogenetic tree of class \code{\link{phylo}.}
+  \item{phy}{a ultrametric phylogenetic tree of class \code{\link[ape]{phylo}.}
 }
-  \item{seq}{a multiple sequence alignment of class \code{\link{DNAbin}}.
+  \item{seq}{a multiple sequence alignment of class \code{\link[ape]{DNAbin}}.
 }
   \item{x}{data frame containing a binary character in the first column.
 }
@@ -41,6 +41,6 @@ This function is under development!
 }
 
 \seealso{
-\code{\link{read.tree}} for reading phylogenetic trees, \code{\link{read.fas}} for reading multiple sequence alignments in FASTA format.
+\code{\link[ape]{read.tree}} for reading phylogenetic trees, \code{\link{read.fas}} for reading multiple sequence alignments in FASTA format.
 }
 %\examples{}

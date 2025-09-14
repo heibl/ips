@@ -3,6 +3,8 @@
 
 #' @export
 
+#' @importFrom XML xmlNode
+
 assembleDataNode <- function(DNAbin){
   
   data <- vector(mode = "list")

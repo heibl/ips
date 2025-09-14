@@ -1,5 +1,6 @@
+
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2021-04-04)
+## Written by C. Heibl 2014 (last update 2025-09-14)
 
 #' @title Sequence Alignment with MAFFT
 #' @description This function is a wrapper for MAFFT and can be used for 
@@ -80,6 +81,7 @@
 #' @seealso \code{\link{read.fas}} to import DNA sequences; \code{\link{prank}} 
 #'   for another alignment algorithm; \code{\link{gblocks}} and 
 #'   \code{\link{aliscore}} for alignment cleaning.
+#' @importFrom ape is.binary.tree multi2di
 #' @importFrom phangorn write.phyDat
 #' @export
 

@@ -9,7 +9,7 @@ This DNA alignment contains 770 positions of 26 sequences of cox1 of the bark be
 }
 \usage{data(ips.cox1)}
 \format{
-  The sequences are stored in binary format (see \code{\link{DNAbin}}).
+  The sequences are stored in binary format (see \code{\link[ape]{DNAbin}}).
 }
 \source{
 The sequences were downloaded and assembled from the Nucleotide repository at GenBank on February 8, 2014. 

@@ -1,6 +1,7 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2019-06-21)
+## © C. Heibl 2014 (last update 2025-09-14)
 
+#' @importFrom ape cbind.DNAbin
 #' @export
 
 write.nex <- function(x, file, block.width = 60, 
@@ -21,7 +22,6 @@ write.nex <- function(x, file, block.width = 60,
     datatype
   }
   
-
   ## Auxiliary function 2: Asses token used for missing data 
   ## (function adapted for data frames 2016-01-26)
   ## ---------------------------------------------
@@ -33,6 +33,7 @@ write.nex <- function(x, file, block.width = 60,
     }
     n
   }
+
   ## Nucleotide positions in partitions
   ## ----------------------------------
   p <- cbind(rep(1, length(x)), sapply(x, ncol))
@@ -71,7 +72,7 @@ write.nex <- function(x, file, block.width = 60,
   
   # TAXA BLOCK (optional)
   # ---------------------
-  if ( taxblock ){
+  if (taxblock){
     nex <- c(
       nex,
       "begin taxa;", 
@@ -90,7 +91,7 @@ write.nex <- function(x, file, block.width = 60,
                                      collapse = ""))
   rownames(x) <- paste(rownames(x), ws, sep = "")
   
-  if ( is.numeric(block.width) ){
+  if (is.numeric(block.width)){
     interleave <- " interleave"
   } else {
     interleave <- ifelse(nrow(info) > 1, " interleave", "")
@@ -145,7 +146,7 @@ write.nex <- function(x, file, block.width = 60,
     ## return character vector:
     return(nex) 
   } else {
-    if ( file == "" ) {
+    if (file == "") {
       ## print onto screen:
       cat(nex, sep = "\n")
     } else {

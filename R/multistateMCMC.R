@@ -1,6 +1,8 @@
-## This code is part of the ips package
-## © C. Heibl 2012 (last update 2019-07-04)
 
+## This code is part of the ips package
+## Written by C. Heibl 2012 (last update 2025-09-14)
+
+#' @importFrom ape write.nexus
 #' @importFrom utils read.table tail write.table
 #' @export
 
@@ -144,7 +146,8 @@ multistateMCMC <- function(phy, traits, model = "ARD", anc.states = TRUE, rd = 2
 	if (is.null(rjhp)){
 		x <- scan(fns[4], what = "c", quiet = TRUE, sep = "\n")
 		sk <- grep("Tree No", x)
-		header <- scan(fns[4], skip = sk-1, nlines = 1, 			what = "c", sep = "\t", quiet = TRUE)
+		header <- scan(fns[4], skip = sk-1, nlines = 1, what = "c", sep = "\t", 
+		               quiet = TRUE)
 		x <- read.table(fns[4], skip = sk, sep = "\t")
 		colnames(x) <- gsub(" |[(]|[)]", ".", header)
 	}												else {
@@ -161,7 +164,8 @@ multistateMCMC <- function(phy, traits, model = "ARD", anc.states = TRUE, rd = 2
 	names(xx) <- gsub(" ", "", names(xx))
 	names(xx)[1] <- "state"
 	fn <- gsub("[.]log", ".table.log", fns[4])
-	write.table(x, fn, quote = FALSE, col.names = 		TRUE, row.names = FALSE, sep = "\t")
+	write.table(x, fn, quote = FALSE, col.names = TRUE, row.names = FALSE, 
+	            sep = "\t")
 	
 	# probabilities of ancestral states
 	# ---------------------------------

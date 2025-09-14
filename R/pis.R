@@ -1,5 +1,6 @@
+
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2020-04-14)
+## Written by C. Heibl 2014 (last update 2025-09-14)
 
 #' @title Number of Potentially-Informative Sites
 #' @description Returns the number or positions of potentially-informative

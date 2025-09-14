@@ -1,3 +1,6 @@
+#' @importFrom utils head
+#' @export
+
 read.starbeast <- function(file) 
 {
     # X: the scanned BEAST output

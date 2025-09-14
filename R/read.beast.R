@@ -1,4 +1,6 @@
 
+#' @importFrom ape read.tree
+#' @importFrom utils head
 #' @export
 
 read.beast <- function(file, digits = NULL){

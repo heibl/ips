@@ -12,13 +12,13 @@ code.simple.gaps(x, append = TRUE)
 }
 
 \arguments{
-  \item{x}{An object of class \code{\link{DNAbin}}.}
+  \item{x}{An object of class \code{\link[ape]{DNAbin}}.}
   
   \item{append}{Logical.}
 }
 
 \value{
-An object of class \code{\link{DNAbin}.}
+An object of class \code{\link[ape]{DNAbin}.}
 }
  
 \references{

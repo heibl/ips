@@ -1,5 +1,6 @@
+
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2019-02-05)
+## © C. Heibl 2014 (last update 2025-09-14)
 
 #'@title Maximum Likelihood Tree Estimation with RAxML
 #'@description Provides an interface to the C program \bold{RAxML} (see
@@ -119,7 +120,8 @@
 #'            f = "a", N = "autoMRE", p = 1234, x = 1234,
 #'            exec = exec)
 #'}
-#'@export
+#' @importFrom ape read.tree write.tree
+#' @export
 
 raxml <- function(DNAbin, m = "GTRCAT", f, N, p, b, x, k,
                   weights, partitions, outgroup, backbone = NULL, 

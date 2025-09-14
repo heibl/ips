@@ -3,6 +3,8 @@
 
 #' @export
 
+#' @export
+
 write.phy <- function(x, file, block.width = FALSE, 
                       strict = FALSE){
 	

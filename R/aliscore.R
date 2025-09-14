@@ -1,5 +1,6 @@
+
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2019-06-27)
+## © C. Heibl 2014 (last update 2025-09-14)
 
 
 #' @title Masking of Sequence Alignments with ALISCORE
@@ -34,7 +35,7 @@
 #' @export
 
 aliscore <- function(x, gaps = "5state", w = 6, r, t, l, s, o, exec){
-	
+
   ## Check path to executable
   ## ------------------------
   if (missing(exec)){

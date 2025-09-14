@@ -1,5 +1,7 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2015-10-30)
+## Written by C. Heibl 2014 (last update 2025-09-14)
+
+#' @importFrom ape drop.tip write.tree
 #' @export
 
 prank <- function(x, outfile = "PRANK", guidetree = NULL, 
@@ -9,7 +11,8 @@ prank <- function(x, outfile = "PRANK", guidetree = NULL,
 	
 	# check and handle guidetree
 	# ----------------------------
-	if (inherits(guidetree, "phylo")){
+	if (inherits(guidetree, "phylo" )){
+
 		missingseqs <- which(!guidetree$tip.label %in% x$nam)
 		if (length(missingseqs) > 0)
 			guidetree <- drop.tip(guidetree, missingseqs)

@@ -1,12 +1,10 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2019-06-27)
+## Written by C. Heibl 2014 (last update 2025-09-14)
 
 #' @export
 
 write.fas <- function(x, file, block.width = FALSE,
                       truncate = FALSE, append = FALSE){
-  
-  
   
   # x MUST be a list of class DNAbin
   # --------------------------------

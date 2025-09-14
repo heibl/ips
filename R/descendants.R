@@ -1,14 +1,13 @@
 
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2016-11-07)
+## © C. Heibl 2014 (last update 2025-09-14)
 
 #' @export
 
 descendants <- function(phy, node, type = "t", ignore.tip = TRUE, 
                         labels = FALSE){
 	
-  # checks and definitions
-  # ----------------------
+  ## Checks and definitions ----------------------------------------------------
   if ( inherits(phy, "phylo") ){
     edge <- phy$edge
   } else {

@@ -1,7 +1,9 @@
+
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2017-04-13)
+## © C. Heibl 2014 (last update 2025-09-14)
 
 #' @rdname read
+#' @importFrom ape as.DNAbin
 #' @export
 
 read.phy <- function(x){

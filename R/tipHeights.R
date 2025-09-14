@@ -1,5 +1,6 @@
+
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2017-11-28)
+## Written by C. Heibl 2014 (last update 2025-09-14)
 
 #' @export
 

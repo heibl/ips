@@ -10,3 +10,4 @@
 ^revdep$
 ^.github$
 ^CRAN-SUBMISSION$
+^dev

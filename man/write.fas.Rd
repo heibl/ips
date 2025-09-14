@@ -23,7 +23,7 @@ write.nex(x, file, block.width = 60,
 
 \arguments{
   \item{x}{
-an object of class \code{\link{DNAbin}} (usually as matrix, but \code{write.fas} also accepts lists) or a list of objects of class \code{DNAbin} (only \code{write.nex}) or a data frame containing standard (morphological, etc.) data (only \code{write.nex}).
+an object of class \code{\link[ape]{DNAbin}} (usually as matrix, but \code{write.fas} also accepts lists) or a list of objects of class \code{DNAbin} (only \code{write.nex}) or a data frame containing standard (morphological, etc.) data (only \code{write.nex}).
   }
   \item{file}{
 a character string giving the filename; a special case is \code{file = ""}, which causes the file content to be written on the standard output connection (i.e. the console). If \code{file} is left unspecified (default), the file content is returned as a vector of mode \code{"character"} and can be used as a building block for more complex data files.

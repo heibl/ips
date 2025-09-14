@@ -10,7 +10,7 @@ For each tip (leave, terminal node) in the phylogenetic tree the edge lengths (b
 tipHeights(phy)
 }
 \arguments{
-  \item{phy}{an object of class \code{\link{phylo}}.}
+  \item{phy}{an object of class \code{\link[ape]{phylo}}.}
 }
 
 \value{
@@ -20,7 +20,7 @@ a numeric vector with distances from root to tip for each tip in the phylogeneti
 Christoph Heibl
 }
 \seealso{
-\code{\link{branching.times}}
+\code{\link[ape]{branching.times}}
 }
 %\examples{}
 

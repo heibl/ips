@@ -1,5 +1,6 @@
+
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2019-07-04)
+## © C. Heibl 2014 (last update 2025-09-14)
 
 #' @title Convert Trees for MAFFT
 #' @description Converts a phylogenetic tree of class \code{"phylo"} to a format
@@ -13,7 +14,7 @@
 #' @references The MAFFT website:
 #'   \url{https://mafft.cbrc.jp/alignment/software/index.html}
 #' @seealso \code{\link{mafft}} for an interface to MAFFT.
-#' @importFrom ape is.binary multi2di
+#' @importFrom ape is.binary drop.tip multi2di
 #' @importFrom utils write.table
 #' @export
 

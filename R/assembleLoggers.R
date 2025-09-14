@@ -1,7 +1,8 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2020-03-32)
+## © C. Heibl 2014 (last update 2025-09-14)
 
 #' @importFrom utils data
+#' @importFrom XML addChildren
 #' @export
 
 assembleLoggers <- function(x, taxonset){

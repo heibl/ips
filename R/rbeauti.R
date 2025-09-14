@@ -1,5 +1,6 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2020-03-31)
+## © C. Heibl 2014 (last update 2025-09-14)
+
 
 ## to do: taxonsets
 ## to do: substitution models
@@ -61,6 +62,9 @@
 #' ## print XML file to screen
 #' # rbeauti(ips.16S, taxonset = ts)
 #' @import XML
+#' @export
+
+#' @importFrom XML addChildren saveXML
 #' @export
 
 rbeauti  <- function(..., file, template = "standard", 

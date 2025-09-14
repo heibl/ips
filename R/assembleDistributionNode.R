@@ -1,6 +1,7 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2020-02-14)
+## © C. Heibl 2014 (last update 2025-08-30)
 
+#' @importFrom XML addChildren xmlAttrs<-
 #' @export
 
 assembleDistributionNode <- function(x){

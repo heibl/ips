@@ -1,5 +1,6 @@
+
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2016-11-16)
+## © C. Heibl 2014 (last update 2025-09-14)
 
 #' @title Remove Gap Positions From DNA Sequences
 #' @description Remove indel positions (or gaps) from a DNA sequence 

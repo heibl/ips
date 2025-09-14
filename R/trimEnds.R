@@ -1,5 +1,6 @@
+
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2019-11-05)
+## © C. Heibl 2014 (last update 2025-09-14)
 
 #' @title Trim Alignment Ends
 #' @description Trims both ends of a DNA sequence alignment to the first and
@@ -28,6 +29,7 @@
 #' x <- trimEnds(x)
 #' # show results:
 #' as.character(x[2, ])
+#' @importFrom utils head
 #' @export
 
 trimEnds <- function(x, min.n.seq = 4){

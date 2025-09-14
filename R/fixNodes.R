@@ -55,6 +55,9 @@
 #' 
 #' @export
 
+#' @importFrom ape Nnode Ntip
+#' @export
+
 fixNodes <- function(phy){
   
   if (!inherits(phy, "phylo"))                             

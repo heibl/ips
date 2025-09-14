@@ -1,6 +1,8 @@
-## This code is part of the ips package
-## © C. Heibl 2014 (last update 2019-07-04)
 
+## This code is part of the ips package
+## © C. Heibl 2014 (last update 2025-09-14)
+
+#' @importFrom ape as.alignment as.DNAbin
 #' @importFrom utils tail
 #' @export
 
