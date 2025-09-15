@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2025-09-14)
+## Written by C. Heibl 2014 (last update 2025-09-14)
 
 #' @title Delete Spurious Rows and Columns from DNA Alignments
 #' @description After subsetting (see e.g. \code{\link[ape]{DNAbin}}), DNA
