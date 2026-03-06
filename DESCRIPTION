@@ -3,10 +3,10 @@ Version: 0.1.0
 Title: Interfaces to Phylogenetic Software in R
 Authors@R: c(
     person("Christoph", "Heibl", email = "christoph.heibl@gmx.net", 
-        role = c("aut")),
+        role = c("aut", "cre")),
     person("Natalie", "Cusimano", role = c("aut")),
     person("Franz-Sebastian", "Krah", role = c("aut")),
-     person("Martin R.", 'Smith', role = c("ctb", "cre"), 
+     person("Martin R.", 'Smith', role = c("ctb"), 
          email = "martin.smith@durham.ac.uk",
          comment = c(ORCID = "0000-0001-5660-1727"))
     )
