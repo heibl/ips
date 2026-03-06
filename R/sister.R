@@ -5,7 +5,7 @@
 #' @title Identification of Sister Nodes and Clades
 #' @description For any given internal node in a phylogeny, this function 
 #'   returns the sister clade.
-#' @param phy An object of class \code{\link[ape]{phylo}}.
+#' @param phy An object of class \code{\link[ape:read.tree]{phylo}}.
 #' @param node A vector of mode \code{"numeric"} or \code{"character"} giving 
 #'   the number(s) or name(s) of the tiplabel(s); these must be monophyletic.
 #' @param type A character string, may be \code{"terminal"}, \code{"internal"}, 

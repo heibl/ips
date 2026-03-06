@@ -13,6 +13,7 @@ mrbayes(
   unlink,
   constraint,
   burnin = 10,
+  contype = "allcompat",
   exec,
   run = FALSE
 )
@@ -37,7 +38,13 @@ parameter setting for the Markov chain Monte Carlo (MCMC).}
 
 \item{constraint}{xxx}
 
-\item{burnin}{An integer; the number of samples from the MCMC to be discarded.}
+\item{burnin}{An integer; the number of samples from the MCMC to be discarded
+prior to further analysis.}
+
+\item{contype}{A character string; the type of consensus tree calculated from
+the posterior distribution of trees: either \code{"halfcompat"}
+(majority-rule consensus tree) or \code{"allcombat"} (strict consensus
+tree).}
 
 \item{exec}{A character string giving the full path of the MrBayes program.}
 
@@ -75,8 +82,7 @@ Y <- cbind(as.character(Y1), as.character(Y2))
 J. P. Huelsenbeck & Ronquist F. 2001. MrBayes: Bayesian inference of phylogenetic trees. \emph{Bioinformatics} \bold{17}: 754-755.
 
 Ronquist F. & J. P. Huelsenbeck. 2003. MrBayes 3: Bayesian phylogenetic inference under mixed models. \emph{Biometrics} \bold{19}: 1572-1574.
-
-MrBayes website: \url{https://nbisweden.github.io/MrBayes/}.
+MrBayes website: \url{https://mrbayes.sourceforge.net/}.
 }
 \seealso{
 \code{\link{mafft}} and \code{\link{prank}} for sequence alignment;

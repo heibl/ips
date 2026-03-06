@@ -6,7 +6,7 @@
 #'   identifies the most recent common ancestor (MRCA) and \code{eoi}
 #'   (\strong{e}dge \strong{o}f \strong{i}nterest) its subtending stem-lineage
 #'   edge of one or more sets of taxa/tips.
-#' @param phy An object of class \code{\link[ape]{phylo}}.
+#' @param phy An object of class \code{\link[ape:read.tree]{phylo}}.
 #' @param node A vector of mode \code{"numeric"} giving the nodes numbers of the nodes whose subtending stem-lineages will be identified.
 #' @param group A vector or list of vectors of mode \code{character} specifying
 #'   the taxon set(s). Will be ignored if \code{node} is given.

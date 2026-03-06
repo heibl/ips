@@ -9,7 +9,7 @@ descendants(phy, node, type = "t", ignore.tip = TRUE, labels = FALSE)
 }
 \arguments{
   \item{phy}{
-an object of class \code{\link[ape]{phylo}}.
+an object of class \code{\link[ape:read.tree]{phylo}}.
   }
   \item{node}{
 an integer giving the number of the internal node.

@@ -4,7 +4,7 @@
 #' @title Numbers of Tips of (Sub)trees
 #' @description Counts the number of tips of a given clade of a 
 #' phylogenetic tree.
-#' @param phy An object of class \code{\link[ape]{phylo}}.
+#' @param phy An object of class \code{\link[ape:read.tree]{phylo}}.
 #' @param node An integer given the number of an internal node.
 #' @return An integer giving the number of tips.
 #' @examples 

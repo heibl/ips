@@ -1,9 +1,8 @@
 ## This code is part of the ips package
 ## © C. Heibl 2014 (last update 2020-03-13)
 
-#' @export
-
 #' @importFrom XML xmlNode
+#' @export
 
 assembleDataNode <- function(DNAbin){
   

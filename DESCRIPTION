@@ -1,13 +1,18 @@
 Package: ips
 Version: 0.1.0
-Date: 2024-04-23
 Title: Interfaces to Phylogenetic Software in R
 Authors@R: c(
     person("Christoph", "Heibl", email = "christoph.heibl@gmx.net", 
-        role = c("aut", "cre")),
+        role = c("aut")),
     person("Natalie", "Cusimano", role = c("aut")),
-    person("Franz-Sebastian", "Krah", role = c("aut")))
-Depends: R (>= 3.5.0),
+    person("Franz-Sebastian", "Krah", role = c("aut")),
+     person("Martin R.", 'Smith', role = c("ctb", "cre"), 
+         email = "martin.smith@durham.ac.uk",
+         comment = c(ORCID = "0000-0001-5660-1727"))
+    )
+URL: https://github.com/heibl/ips
+Depends:
+    R (>= 3.5.0),
     ape
 Imports:
     data.table,
@@ -21,5 +26,4 @@ License: GPL-3
 Language: en-US
 Encoding: UTF-8
 NeedsCompilation: no
-Repository: CRAN
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3

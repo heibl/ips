@@ -7,7 +7,7 @@
 ntip(phy, node)
 }
 \arguments{
-\item{phy}{An object of class \code{\link[ape]{phylo}}.}
+\item{phy}{An object of class \code{\link[ape:read.tree]{phylo}}.}
 
 \item{node}{An integer given the number of an internal node.}
 }

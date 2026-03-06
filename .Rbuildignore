@@ -11,3 +11,5 @@
 ^.github$
 ^CRAN-SUBMISSION$
 ^dev
+^\.positai$
+^\.claude$

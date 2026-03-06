@@ -1,13 +1,11 @@
 ## This code is part of the ips package
 ## © C. Heibl 2014 (last update 2025-02-16)
 
-#' @rdname oi
-#' @export
-
 # 1. add option stemgroup
 # 2. write example
 # 3. check for nonvalid group members
 
+#' @rdname oi
 #' @export
 
 noi <- function(phy, group, regex = FALSE, stem = FALSE, 
