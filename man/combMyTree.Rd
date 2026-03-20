@@ -4,17 +4,26 @@
 \alias{combMyTree}
 \title{Graft Polytomies on Tips of Phylogeny}
 \usage{
-combMyTree(phy, data, brlen = 0, annotate = FALSE)
+combMyTree(phy, data, brlen = 0, unit = "absolute", annotate = FALSE)
 }
 \arguments{
 \item{phy}{An object of class \code{\link[ape:read.tree]{phylo}}.}
 
 \item{data}{A data frame containing two columns. The entries of one column
 must be identical to the tip labels of the phylogeny; the other column
-contains the new tip labels. The column are matched
+contains the new tip labels. The columns are matched
 automatically.}
 
-\item{brlen}{A numeric giving the branch lengths for the polytomies.}
+\item{brlen}{A numeric giving either the absolute branch lengths or a
+fraction of some other value (depending on \code{"unit"}).}
+
+\item{unit}{A character string accordong to which the number given by
+\code{brlen} will be interpreted. If it is \code{"percent-root-age"} (only
+possible with ultrametric trees), terminal branches will be assigned
+\code{brlen} times the root age and the whole tree will be rescaled so as
+not to change its age. All other string will
+be interepreted as \code{"absolute"}, i.e. terminal branches will be
+assigned \code{brlen} and the whole tree will not be rescaled.}
 
 \item{annotate}{Logical, if \code{TRUE}, the former tip labels will be turned
 into node labels. Note, that this will overwrite existing node labels.}
@@ -32,7 +41,7 @@ s <- sapply(1:Ntip(ips.tree), sample, x = 1:3, size = 1)
 x <- rep(ips.tree$tip.label, times = s)
 x <- data.frame(x, paste0(x, unlist(lapply(s, function(z) 1:z))))
 ## Create polytomies
-tre <- combMyTree(ips.tree, x)
+tre <- combMyTree(ips.tree, x, brlen = 0, unit = "absolute")
 plot(tre, no.margin = TRUE, cex =.5)
 }
 \seealso{
