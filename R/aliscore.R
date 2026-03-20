@@ -18,7 +18,8 @@
 #' @param o A vector of mode \code{"character"} containing outgroup taxon names.
 #' @param exec A character string, giving the path to the Aliscore script.
 #' @return A \code{matrix} of class \code{"DNAbin"}.
-#' @note This function was developed with ALISCORE version 2.
+#' @note This function was developed with ALISCORE version 2. \bold{ALISCORE is
+#'   no longer available and seems to be dicontinued by the authors.}
 #' @references Misof, B. and K. Misof. 2009. A Monte Carlo approach successfully identifies
 #' randomness in multiple sequence alignments: a more objective means of data
 #' exclusion. \emph{Syst. Biol.} \bold{58}: 21--34.
@@ -26,7 +27,6 @@
 #' Waegele and B. Misof. 2010. Parametric and non-parametric masking of
 #' randomness in sequence alignments can be improved and leads to better
 #' resolved trees. \emph{Frontiers in Zoology} \bold{7}: 10.
-#' @references \bold{Aliscore website}: \url{https://bonn.leibniz-lib.de/en/research/research-centres-and-groups/aliscore}
 #' @seealso \code{\link{mafft}} and \code{\link{prank}} for multiple sequence
 #'   alignment; \code{\link{gblocks}} for another alignment masking algorithm.
 #' @examples

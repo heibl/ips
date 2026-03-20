@@ -35,7 +35,8 @@ Provides a interface to \bold{Aliscore}, in order to remove
   problematic regions of a DNA sequence alignment.
 }
 \note{
-This function was developed with ALISCORE version 2.
+This function was developed with ALISCORE version 2. \bold{ALISCORE is
+  no longer available and seems to be dicontinued by the authors.}
 }
 \examples{
 data(ips.28S)
@@ -50,8 +51,6 @@ Kueck, P., K. Meusemann, J. Dambach, B. Thormann, B.M. von Reumont, J.W.
 Waegele and B. Misof. 2010. Parametric and non-parametric masking of
 randomness in sequence alignments can be improved and leads to better
 resolved trees. \emph{Frontiers in Zoology} \bold{7}: 10.
-
-\bold{Aliscore website}: \url{https://bonn.leibniz-lib.de/en/research/research-centres-and-groups/aliscore}
 }
 \seealso{
 \code{\link{mafft}} and \code{\link{prank}} for multiple sequence

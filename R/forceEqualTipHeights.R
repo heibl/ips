@@ -1,5 +1,5 @@
 ## This code is part of the ips package
-## Written by C. Heibl 2014 (last update 2025-09-14)
+## Written by C. Heibl 2014 (last update 2025-09-15)
 
 #' @title Equal Tip Heights
 #' @description Modify terminal edge lengths to create "exactly" (see Details)
@@ -9,7 +9,7 @@
 #'   baseline tip height, e.g. \code{"min"}, \code{"max"} or \code{"mean"}.
 #' @details What is "exactly" equal depends on the precision of the system
 #'   (\code{\link{.Machine}}); in any case the resulting phylogeny will pass
-#'   \code{\link[is.ultrametric]{is.ultrametric}} with default arguments.
+#'   \code{\link[ape]{is.ultrametric}} with default arguments.
 #' @return An object of class \code{\link[ape]{phylo}} with changed terminal
 #'   edge lengths.
 #' @note \code{forceEqualTipHeights} is only intended to correct small rounding

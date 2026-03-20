@@ -23,7 +23,7 @@ Modify terminal edge lengths to create "exactly" (see Details)
 \details{
 What is "exactly" equal depends on the precision of the system
   (\code{\link{.Machine}}); in any case the resulting phylogeny will pass
-  \code{\link[is.ultrametric]{is.ultrametric}} with default arguments.
+  \code{\link[ape]{is.ultrametric}} with default arguments.
 }
 \note{
 \code{forceEqualTipHeights} is only intended to correct small rounding
