@@ -7,6 +7,7 @@
 #'   will be blasted against \code{db}.
 #' @param db An object of class \code{DNAbin} containing the reference
 #'   sequences, i.e. the sequences against which \code{query} will be blasted.
+#' @importFrom ape write.FASTA
 #' @importFrom data.table fread
 #' @export
 

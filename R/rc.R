@@ -28,6 +28,7 @@
 #' ## You can remove gaps:
 #' as.character(rc(x, delete.gaps = TRUE))  ## gaps/indels removed
 #'
+#' @importFrom ape del.gaps
 #' @export
 
 rc <- function(seqs, i, complement = TRUE, reverse = TRUE, delete.gaps = FALSE){

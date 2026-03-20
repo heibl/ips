@@ -1,6 +1,5 @@
-
 ## This code is part of the ips package
-## © C. Heibl 2014 (last update 2025-09-14)
+## © C. Heibl 2014 (last update 2019-06-27)
 
 
 #' @title Masking of Sequence Alignments with ALISCORE
@@ -26,7 +25,6 @@
 #' Waegele and B. Misof. 2010. Parametric and non-parametric masking of
 #' randomness in sequence alignments can be improved and leads to better
 #' resolved trees. \emph{Frontiers in Zoology} \bold{7}: 10.
-#' @references \bold{Aliscore website}: \url{https://bonn.leibniz-lib.de/en/research/research-centres-and-groups/aliscore}
 #' @seealso \code{\link{mafft}} and \code{\link{prank}} for multiple sequence
 #'   alignment; \code{\link{gblocks}} for another alignment masking algorithm.
 #' @examples
@@ -35,7 +33,7 @@
 #' @export
 
 aliscore <- function(x, gaps = "5state", w = 6, r, t, l, s, o, exec){
-
+	
   ## Check path to executable
   ## ------------------------
   if (missing(exec)){

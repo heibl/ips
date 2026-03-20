@@ -17,7 +17,7 @@ accuracy-oriented methods for less than 200 sequences are
 The default is \code{"auto"}, which lets MAFFT choose an appropriate
 alignment method.}
 
-\item{gt}{An object of class \code{\link[ape]{phylo}} that is to be used as a
+\item{gt}{An object of class \code{\link[ape:read.tree]{phylo}} that is to be used as a
 guide tree during alignment.}
 
 \item{thread}{Integer giving the number of physical cores MAFFT should use;
@@ -31,7 +31,7 @@ UNIX-alikes.}
 the screen.}
 }
 \value{
-An object of class \code{\link[ape]{DNAbin}} or \code{\link[ape]{AAbin}}.
+An object of class \code{"\link[ape]{DNAbin}"} or \code{"\link[ape]{AAbin}"}.
 }
 \description{
 Merge two or more DNA or amino acid sequence alignments by

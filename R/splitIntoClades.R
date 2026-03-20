@@ -5,7 +5,7 @@
 #' @description Takes a phylogeny and a subset of its tiplabels
 #' and splits the list of tiplabels into monophyletic groups 
 #' (clades).
-#' @param phy An object of class \code{\link[ape]{phylo}}.
+#' @param phy An object of class \code{\link[ape:read.tree]{phylo}}.
 #' @param tips A vector of mode \code{"character"} containing any 
 #' subset of the tiplabels in \code{phy}.
 #' @return A list.

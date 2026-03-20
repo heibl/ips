@@ -4,7 +4,7 @@
 \title{Partition scheme for RAxML
 }
 \description{
-Given a set of DNA sequence alignments, \code{raxml.partitions} creates a data frame with partition boundaries that can be input into \code{\link{raxml}}.
+Given a set of DNA sequence alignments, \code{raxml.partitions} creates a data frame with partition bounderies that can be input into \code{\link{raxml}}.
 }
 \usage{raxml.partitions(...)}
 \arguments{

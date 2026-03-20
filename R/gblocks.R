@@ -62,6 +62,9 @@
 #' @note \code{gblocks} was last updated and tested to work with Gblocks 0.91b.
 #'   If you have problems getting the function to work with a newer version of
 #'   Gblocks, please contact the package maintainer.
+#' @examples
+#' data(ips.28S)
+#' \dontrun{gblocks(ips.28S)}  
 #' @references 
 #' Castresana, J. 2000. Selection of conserved blocks from multiple alignments for their use in phylogenetic analysis. \emph{Molecular Biology and Evolution} \bold{17}, 540-552. 
 #'   
@@ -70,6 +73,7 @@
 #' Gblocks website: \url{https://home.cc.umanitoba.ca/~psgendb/doc/Castresana/Gblocks_documentation.html}
 #' @seealso
 #' \code{\link{mafft}} and \code{\link{prank}} for sequence alignment; \code{\link{aliscore}} for another alignment masking algorithm.
+#' @importFrom ape read.FASTA
 #' @export
 
 gblocks <- function(x, b1 = .5, b2 = b1, b3 = ncol(x), 

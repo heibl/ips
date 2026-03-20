@@ -12,7 +12,7 @@
 #'   \code{"retree 1"} and \code{"retree 2"} are for speed-oriented alignment.
 #'   The default is \code{"auto"}, which lets MAFFT choose an appropriate
 #'   alignment method.
-#' @param gt An object of class \code{\link[ape]{phylo}} that is to be used as a
+#' @param gt An object of class \code{\link[ape:read.tree]{phylo}} that is to be used as a
 #'   guide tree during alignment.
 #' @param thread Integer giving the number of physical cores MAFFT should use;
 #'   with \code{thread = -1} the number of cores is determined automatically.
@@ -21,7 +21,8 @@
 #'   UNIX-alikes.
 #' @param quiet Logical, if set to \code{TRUE}, mafft progress is printed out on
 #'   the screen.
-#' @return An object of class \code{\link[ape]{DNAbin}} or \code{\link[ape]{AAbin}}.
+#' @return An object of class \code{"\link[ape]{DNAbin}"} or \code{"\link[ape]{AAbin}"}.
+#' @importFrom ape read.FASTA
 #' @export
 
 mafft.merge <- function(subMSA, method = "auto", gt,

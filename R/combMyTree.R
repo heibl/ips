@@ -3,7 +3,7 @@
 
 #' @title Graft Polytomies on Tips of Phylogeny
 #' @description Graft polytomies on the tips of a class \code{phylo} object.
-#' @param phy An object of class \code{\link[ape]{phylo}}.
+#' @param phy An object of class \code{\link[ape:read.tree]{phylo}}.
 #' @param data A data frame containing two columns. The entries of one column
 #'   must be identical to the tip labels of the phylogeny; the other column
 #'   contains the new tip labels. The column are matched
@@ -11,7 +11,7 @@
 #' @param brlen A numeric giving the branch lengths for the polytomies.
 #' @param annotate Logical, if \code{TRUE}, the former tip labels will be turned
 #'   into node labels. Note, that this will overwrite existing node labels.
-#' @return An object of class \code{\link[ape]{phylo}} with \code{nrow(data)} tips.
+#' @return An object of class \code{\link[ape:read.tree]{phylo}} with \code{nrow(data)} tips.
 #' @seealso \code{\link{forceEqualTipHeights}}
 #' @examples
 #' data(ips.tree)

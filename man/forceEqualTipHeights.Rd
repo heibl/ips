@@ -7,13 +7,13 @@
 forceEqualTipHeights(phy, baseline = "mean")
 }
 \arguments{
-\item{phy}{An object of class \code{\link[ape]{phylo}}.}
+\item{phy}{An object of class \code{\link[ape:read.tree]{phylo}}.}
 
 \item{baseline}{A character string giving a function to calculate the
 baseline tip height, e.g. \code{"min"}, \code{"max"} or \code{"mean"}.}
 }
 \value{
-An object of class \code{\link[ape]{phylo}} with changed terminal
+An object of class \code{\link[ape:read.tree]{phylo}} with changed terminal
   edge lengths.
 }
 \description{
@@ -23,7 +23,7 @@ Modify terminal edge lengths to create "exactly" (see Details)
 \details{
 What is "exactly" equal depends on the precision of the system
   (\code{\link{.Machine}}); in any case the resulting phylogeny will pass
-  \code{\link[is.ultrametric]{is.ultrametric}} with default arguments.
+  \code{\link[ape]{is.ultrametric}} with default arguments.
 }
 \note{
 \code{forceEqualTipHeights} is only intended to correct small rounding
