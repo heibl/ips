@@ -1,6 +1,7 @@
-# ips 0.1.0 (2026-03-XX)
+# ips 0.1.0 (2026-03-20)
 
 * Added an example for `fixNodes()` to show the standard node numbering in `phylo` objects.
+* Reworked `combMyTree()` to work with tibbles and offer more options to scale terminal branch lengths.
 
 # ips 0.0.13 (2026-02-16)
 * Updated documentation links to comply with CRAN policy.
