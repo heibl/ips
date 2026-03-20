@@ -1,4 +1,3 @@
-
 ## This code is part of the ips package
 ## Written by C. Heibl 2014 (last update 2025-09-14)
 
@@ -27,7 +26,7 @@
 #' @param ep A numeric giving the offset value, which works like \code{gap 
 #'   extension penalty}, for group-to-group alignment; default 0.0, but 0.123 is
 #'   recommended if no long indels are expected.
-#' @param gt An object of class \code{\link[ape]{phylo}} that is to be used as a
+#' @param gt An object of class \code{\link[ape:read.tree]{phylo}} that is to be used as a
 #'   guide tree during alignment. The default is to let MAFFT use its own
 #'   internal guide tree
 #' @param options A vector of mode character specifying additional arguments to 
@@ -81,7 +80,7 @@
 #' @seealso \code{\link{read.fas}} to import DNA sequences; \code{\link{prank}} 
 #'   for another alignment algorithm; \code{\link{gblocks}} and 
 #'   \code{\link{aliscore}} for alignment cleaning.
-#' @importFrom ape is.binary.tree multi2di
+#' @importFrom ape is.binary.tree multi2di read.dna
 #' @importFrom phangorn write.phyDat
 #' @export
 

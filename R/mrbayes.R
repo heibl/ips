@@ -16,7 +16,12 @@
 #'   parameter setting for the Markov chain Monte Carlo (MCMC).
 #' @param unlink xxx
 #' @param constraint xxx
-#' @param burnin An integer; the number of samples from the MCMC to be discarded.
+#' @param burnin An integer; the number of samples from the MCMC to be discarded
+#'   prior to further analysis.
+#' @param contype A character string; the type of consensus tree calculated from
+#'   the posterior distribution of trees: either \code{"halfcompat"}
+#'   (majority-rule consensus tree) or \code{"allcombat"} (strict consensus
+#'   tree).
 #' @param exec A character string giving the full path of the MrBayes program.
 #' @param run Logical; \code{run = FALSE} will only print the NEXUS file,
 #'   \code{run = TRUE} will also start the MCMC runs, if \code{exec} is
@@ -33,8 +38,8 @@
 #' J. P. Huelsenbeck & Ronquist F. 2001. MrBayes: Bayesian inference of phylogenetic trees. \emph{Bioinformatics} \bold{17}: 754-755.
 #'
 #' Ronquist F. & J. P. Huelsenbeck. 2003. MrBayes 3: Bayesian phylogenetic inference under mixed models. \emph{Biometrics} \bold{19}: 1572-1574.
-#' 
-#' MrBayes website: \url{https://nbisweden.github.io/MrBayes/}.
+
+#' MrBayes website: \url{https://mrbayes.sourceforge.net/}.
 #' @examples
 #' data(ips.cox1)
 #' x <- ips.cox1[, 100:140] # tiny alignment
@@ -51,7 +56,7 @@
 #' @export 
 
 mrbayes <- function(x, file = "", lset, prset, mcmc, unlink, constraint,
-                    burnin = 10, exec, run = FALSE){
+                    burnin = 10, contype = "allcompat", exec, run = FALSE){
 
   if (!is.list(x)) x <- list(x)
 
@@ -138,7 +143,7 @@ mrbayes <- function(x, file = "", lset, prset, mcmc, unlink, constraint,
     prset,
     mcmc,
     paste0("\tsumt filename=", file, " burnin=",
-          burnin, ";"),
+          burnin, " contype=", contype, ";"),
     "end;"
   )
 

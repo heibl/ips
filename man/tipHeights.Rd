@@ -10,7 +10,7 @@ For each tip (leave, terminal node) in the phylogenetic tree the edge lengths (b
 tipHeights(phy)
 }
 \arguments{
-  \item{phy}{an object of class \code{\link[ape]{phylo}}.}
+  \item{phy}{an object of class \code{\link[ape:read.tree]{phylo}}.}
 }
 
 \value{

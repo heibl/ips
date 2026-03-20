@@ -7,13 +7,13 @@
 forceEqualTipHeights(phy, baseline = "mean")
 }
 \arguments{
-\item{phy}{An object of class \code{\link[ape]{phylo}}.}
+\item{phy}{An object of class \code{\link[ape:read.tree]{phylo}}.}
 
 \item{baseline}{A character string giving a function to calculate the
 baseline tip height, e.g. \code{"min"}, \code{"max"} or \code{"mean"}.}
 }
 \value{
-An object of class \code{\link[ape]{phylo}} with changed terminal
+An object of class \code{\link[ape:read.tree]{phylo}} with changed terminal
   edge lengths.
 }
 \description{

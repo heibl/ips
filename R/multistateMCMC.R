@@ -1,4 +1,3 @@
-
 ## This code is part of the ips package
 ## Written by C. Heibl 2012 (last update 2025-09-14)
 

@@ -54,7 +54,7 @@ individual weights to each column of the alignment. (-a)}
 \item{outgroup}{A vector of mode \code{"character"} containing the names of
 the outgroup taxa.}
 
-\item{backbone}{A \code{\link[ape]{phylo}} object representing a backbone tree.}
+\item{backbone}{A \code{\link[ape:read.tree]{phylo}} object representing a backbone tree.}
 
 \item{file}{A vector of mode \code{"character"} giving a name for the output
 files.}

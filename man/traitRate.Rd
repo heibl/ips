@@ -11,7 +11,7 @@ traitRate(phy, seq, x, mainType = "Optimize_Model",
    exec = "/Applications/traitRate-1.1/programs/traitRate")
 }
 \arguments{
-  \item{phy}{a ultrametric phylogenetic tree of class \code{\link[ape]{phylo}.}
+  \item{phy}{a ultrametric phylogenetic tree of class \code{\link[ape:read.tree]{phylo}.}
 }
   \item{seq}{a multiple sequence alignment of class \code{\link[ape]{DNAbin}}.
 }

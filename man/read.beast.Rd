@@ -26,14 +26,16 @@ read.starbeast(file)
   An object of class \code{phylo}.
 }
 
+\note{
+\code{read.starbeast} currently parses only skalars and ranges; node statistics with more than two values will be deleted and a warning message will be issued. Future version of \code{read.starbeast} will hopefully be able to append list or data frames to \code{phylo} objects. If you have any opinion or wishes regarding the question of how this exactly should be managed, send me a message.
 
-\note{\code{read.starbeast} currently parses only scalars and ranges; node statistics with more than two values will be deleted and a warning message will be issued. Future version of \code{read.starbeast} will hopefully be able to append list or data frames to \code{phylo} objects. If you have any opinion or wishes regarding the question of how this exactly should be managed, send me a message.}
+\code{read.mrbayes} is intended to read single trees with annotated nodes. For reading tree samples from the posterior distribution there is a collection of perl script written by Johan Nylander (\url{https://github.com/nylander/Burntrees}).
+}
 
 \references{
-TreeAnnotator: \url{https://www.beast2.org/treeannotator/}
+TreeAnnotator: \url{http://beast.community/treeannotator}
 
-Metacomments in NEXUS: \url{https://beast.community/nexus_metacomments}	
-
+Metacomments in NEXUS: \url{https://code.google.com/archive/p/beast-mcmc/wikis/NexusMetacommentFormat.wiki}	
 }
 
 \author{Christoph Heibl}

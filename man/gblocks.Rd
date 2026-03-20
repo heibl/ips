@@ -92,6 +92,10 @@ Explanation of the routine taken from the Online Documentation:
   If you have problems getting the function to work with a newer version of
   Gblocks, please contact the package maintainer.
 }
+\examples{
+data(ips.28S)
+\dontrun{gblocks(ips.28S)}  
+}
 \references{
 Castresana, J. 2000. Selection of conserved blocks from multiple alignments for their use in phylogenetic analysis. \emph{Molecular Biology and Evolution} \bold{17}, 540-552. 
   

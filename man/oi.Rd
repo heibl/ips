@@ -11,7 +11,7 @@ eoi(phy, node, group, regex = FALSE, stem = FALSE, monophyletic = FALSE)
 noi(phy, group, regex = FALSE, stem = FALSE, monophyletic = FALSE)
 }
 \arguments{
-\item{phy}{An object of class \code{\link[ape]{phylo}}.}
+\item{phy}{An object of class \code{\link[ape:read.tree]{phylo}}.}
 
 \item{node}{A vector of mode \code{"numeric"} giving the nodes numbers of the nodes whose subtending stem-lineages will be identified.}
 

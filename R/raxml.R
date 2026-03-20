@@ -28,7 +28,7 @@
 #'@param partitions A data frame giving the partitions of the alignment.
 #'@param outgroup A vector of mode \code{"character"} containing the names of
 #'  the outgroup taxa.
-#'@param backbone A \code{\link[ape]{phylo}} object representing a backbone tree.
+#'@param backbone A \code{\link[ape:read.tree]{phylo}} object representing a backbone tree.
 #'@param file A vector of mode \code{"character"} giving a name for the output
 #'  files.
 #'@param exec A vector of mode \code{"character"} giving the path to the
