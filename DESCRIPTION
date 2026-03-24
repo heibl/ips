@@ -17,8 +17,11 @@ Depends:
     ape
 Imports:
     data.table,
+    dplyr,
     phangorn,
     plyr,
+    rlang,
+    tibble,
     XML
 Description: Functions that wrap popular phylogenetic software for sequence
     alignment, masking of sequence alignments, and estimation of phylogenies and

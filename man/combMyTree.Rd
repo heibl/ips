@@ -4,32 +4,39 @@
 \alias{combMyTree}
 \title{Graft Polytomies on Tips of Phylogeny}
 \usage{
-combMyTree(phy, data, brlen = 0, unit = "absolute", annotate = FALSE)
+combMyTree(phy, data, tips, brlen = 0, unit = "absolute", annotate = FALSE)
 }
 \arguments{
 \item{phy}{An object of class \code{\link[ape:read.tree]{phylo}}.}
 
-\item{data}{A data frame containing two columns. The entries of one column
-must be identical to the tip labels of the phylogeny; the other column
-contains the new tip labels. The columns are matched
-automatically.}
+\item{data}{A data frame with at least one column whose contents must be
+identical to the tip labels of the phylogeny in order to be matched automatically.
+Optionally, the new tip labels for the extended phylogeny can stem from another
+column, which is identified with \code{tips}.}
+
+\item{tips}{A character string giving the name of the column in \code{data}
+that contains the new tip labels. Alternatively, if \code{tips} is
+missing, \code{combMyTree} will create new tip labels by appending numbers
+to the former tip labels starting with 0.}
 
 \item{brlen}{A numeric giving either the absolute branch lengths or a
 fraction of some other value (depending on \code{"unit"}).}
 
-\item{unit}{A character string accordong to which the number given by
+\item{unit}{A character string according to which the number given by
 \code{brlen} will be interpreted. If it is \code{"percent-root-age"} (only
 possible with ultrametric trees), terminal branches will be assigned
 \code{brlen} times the root age and the whole tree will be rescaled so as
-not to change its age. All other string will
-be interepreted as \code{"absolute"}, i.e. terminal branches will be
-assigned \code{brlen} and the whole tree will not be rescaled.}
+not to change its age. All other strings will be interpreted as
+\code{"absolute"}, i.e. terminal branches will be assigned \code{brlen} and
+the whole tree will not be rescaled.}
 
 \item{annotate}{Logical, if \code{TRUE}, the former tip labels will be turned
-into node labels. Note, that this will overwrite existing node labels.}
+into node labels. Note, that this will overwrite potentially existing node
+labels.}
 }
 \value{
-An object of class \code{\link[ape:read.tree]{phylo}} with \code{nrow(data)} tips.
+An object of class \code{\link[ape:read.tree]{phylo}} with
+  \code{nrow(data)} tips.
 }
 \description{
 Graft polytomies on the tips of a class \code{phylo} object.
@@ -39,10 +46,14 @@ data(ips.tree)
 ## Simulate varying number of intraspecific observations
 s <- sapply(1:Ntip(ips.tree), sample, x = 1:3, size = 1)
 x <- rep(ips.tree$tip.label, times = s)
-x <- data.frame(x, paste0(x, unlist(lapply(s, function(z) 1:z))))
-## Create polytomies
-tre <- combMyTree(ips.tree, x, brlen = 0, unit = "absolute")
-plot(tre, no.margin = TRUE, cex =.5)
+x <- data.frame(old_tips = x, 
+                new_tips = paste0(x, unlist(lapply(s, function(z) 1:z))))
+## Create polytomies, generate tip labels automatically
+tre1 <- combMyTree(ips.tree, x, brlen = 0, unit = "absolute")
+plot(tre1, no.margin = TRUE, cex =.5)
+## Create polytomies, take tip labels from data frame
+tre2 <- combMyTree(ips.tree, x, tips = "new_tips", brlen = 0, unit = "absolute")
+plot(tre2, no.margin = TRUE, cex =.5)
 }
 \seealso{
 \code{\link{forceEqualTipHeights}}
