@@ -1,3 +1,7 @@
+# ips 0.1.0.9000 (development)
+
+* Update examples for CRAN compliance
+
 # ips 0.1.1 (2026-06-24)
 
 * Minor update to comply with changes in R and the package's dependencies.

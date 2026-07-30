@@ -19,9 +19,17 @@
 #' @seealso \code{\link{deleteEmptyCells}}, \code{\link{deleteGaps}}
 #' @examples
 #' # simple example alignment:
-#' x <- structure(list(nb = 5, seq = c("acaaggtaca", "-caaggtac-",
-#' "acaaggtaca", "aca--gtaca", "-ccaggta--"), nam = LETTERS[1:5]),
-#' .Names = c("nb", "seq", "nam"), class = "alignment")
+#' x <- structure(
+#'   list(
+#'     nb = 5,
+#'     seq = c("acaaggtaca", "-caaggtac-", "acaaggtaca", "aca--gtaca",
+#'             "-ccaggta--"),
+#'     nam = LETTERS[1:5]
+#'   ),
+#'   names = c("nb", "seq", "nam"),
+#'   class = "alignment"
+#' )
+#'
 #' # convert to DNAbin:
 #' x <- as.DNAbin(x)
 #' # fill missing nucleotides:
